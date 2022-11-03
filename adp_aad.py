@@ -10,22 +10,32 @@
 import snowflake.connector
 # import os
 
-# authenticate in using SSO
+# Authenticate into Snowflake using SSO
 ctx = snowflake.connector.connect(
 	user='josh.marcus@talkiatry.com',
 	authenticator='externalbrowser',
 	account='pra18133',
 	region='us-east-1',
-	Role = 'ACCOUNTADMIN',
-	#Warehouse = 'SOME_WAREHOUSE'
+	Role = 'engineer_role',
+	#Warehouse = 'data_wh'
 	)
-# Appears this may have worked to auth in. 
-# I don't think I have any warehouse access currently. 
 
+
+# Set up a cursor object.
 cs = ctx.cursor()
 
-sql_query = '''
 
+# Test SQL query
+sql_query = '''
+use role data_role;
+
+use warehouse data_wh;
+
+use database analytics;
+
+show tables like '%ADP%' in schema analytics.source;
+
+show tables like '%ADP%' in schema analytics.staging;
 '''
 
 
