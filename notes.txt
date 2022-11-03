@@ -1,0 +1,104 @@
+Hi Josh, I’ve granted you engineer_role in Snowflake. 
+
+ 
+
+We currently ingest data from 24 ADP tables of which 7 have defined source models immediately available to you.
+
+ 
+
++-----------------------------------+
+
+|name                               |
+
++-----------------------------------+
+
+|BUSINESS_COMMUNICATION             |- SOURCE MODEL
+
+|CLASSIFICATION                     |
+
+|FIVETRAN_AUDIT                     |
+
+|GROUPS                             |
+
+|LOCATION                           |
+
+|ORGANIZATIONAL_UNIT                |- SOURCE MODEL
+
+|OTHER_PERSONAL_ADDRESS             |
+
+|PERSON                             |- SOURCE MODEL
+
+|PERSON_COMMUNICATION               |
+
+|PERSON_DISABILITY                  |
+
+|PERSON_GOVERNMENT_ID               |
+
+|PERSON_HISTORY                     |
+
+|PERSON_MILITARY_CLASSIFICATION     |
+
+|PERSON_PREFERRED_SALUTATION        |
+
+|PERSON_SOCIAL_INSURANCE_PROGRAM    |
+
+|WORKER                             |- SOURCE MODEL
+
+|WORKER_ASSIGNED_LOCATION           |
+
+|WORKER_ASSIGNED_ORGANIZATIONAL_UNIT|- SOURCE MODEL
+
+|WORKER_CLASSIFICATION              |
+
+|WORKER_GROUP                       |
+
+|WORKER_HOME_ORGANIZATIONAL_UNIT    |
+
+|WORKER_REPORT_TO                   |- SOURCE MODEL
+
+|WORK_ASSIGNMENT                    |- SOURCE MODEL
+
+|WORK_ASSIGNMENT_HISTORY            |
+
++-----------------------------------+
+
+These SQL statements will show you the available source and staging models. 
+
+ 
+
+use role data_role;
+
+use warehouse data_wh;
+
+use database analytics;
+
+
+
+show tables like '%ADP%' in schema analytics.source;
+
+show tables like '%ADP%' in schema analytics.staging;
+
+
+
+-- Sample query against the ADP Persons table
+
+SELECT *
+
+FROM
+
+    analytics.source.src_adp_persons
+
+WHERE
+
+    person_worker_id IN ( '9V0WOIFLL' );
+
+-- QUALIFY
+
+--     ROW_NUMBER( ) OVER 
+
+--         (PARTITION BY person_worker_id 
+
+--         ORDER BY person_timestamp DESC ) = 1;
+ 
+
+If you need access to data in any of other tables, let me know and we can come up with a plan to make that available.
