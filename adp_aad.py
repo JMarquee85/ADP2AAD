@@ -33,8 +33,9 @@ sql_query = "SELECT * FROM ANALYTICS.SOURCE.src_adp_persons;"
 #run the query
 try:
 	cs.execute("USE ROLE engineer_role")
-	cs.execute('show tables like "\%ADP%"" in schema analytics.source;')
-	cs.execute()
+	cs.execute("USE WAREHOUSE engineer_wh")
+	cs.execute("show tables like '%%ADP%' in schema analytics.source;")
+	cs.execute("show tables like '%%ADP%' in schema analytics.staging;")
 	cs.execute(sql_query)
 	df = cs.fetch_pandas_all()
 	df.info()
