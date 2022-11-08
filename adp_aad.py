@@ -8,7 +8,7 @@
 # https://docs.snowflake.com/en/user-guide/python-connector-example.html
 
 import snowflake.connector
-# import os
+import pandas
 
 # Authenticate into Snowflake using SSO
 # Work on connecting via OAUTH instead? https://docs.snowflake.com/en/user-guide/python-connector-example.html#connecting-with-oauth
@@ -17,29 +17,32 @@ ctx = snowflake.connector.connect(
 	authenticator='externalbrowser',
 	account='pra18133',
 	region='us-east-1',
-	Role = 'engineer_role',
-	Warehouse = 'engineer_wh' 
+	#Role = 'engineer_role',
+	Warehouse = 'engineer_wh',
+	#Database= 'ANALYTICS',
+	#Schema= 'SOURCE' 
 	)
 
 # Set up a cursor object.
 cs = ctx.cursor()
+print("Cursor object created.")
 
+# Query variables
+sql_query = "SELECT * FROM ANALYTICS.SOURCE.src_adp_persons;"
 
-# Role, warehouse, and test query variables. 
+#run the query
+try:
+	cs.execute("USE ROLE engineer_role")
+	cs.execute('show tables like "\%ADP%"" in schema analytics.source;')
+	cs.execute()
+	cs.execute(sql_query)
+	df = cs.fetch_pandas_all()
+	df.info()
+	print("---------------")
+	print(df.to_string())
 
-#sql_db = "use database analytics"
-sql_query = "SELECT * FROM analytics.source.src_adp_persons;"
-#sql_query2 = ""
-#sql_query3 = ""
-
-#cs.execute(sql_wh)
-#cs.execute(sql_db)
-cs.execute(sql_query)
-#cs.execute(sql_query2)
-#cs.execute(sql_query3)
-
-# Get the data back in a pandas format
-#cs.fetch_pandas_all()
+finally:
+	cs.close()
 
 #This is working in snowflake as a basic query, but not working in this script as of yet:
 #

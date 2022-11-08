@@ -1,2 +1,4 @@
-snowflake
-os
+snowflake-connector-python
+pandas
+pyarrow
+
