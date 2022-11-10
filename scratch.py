@@ -1,3 +1,10 @@
+Looks like a successful query for my join statement below:
+
+SELECT w.WORKER_ID, WORKER_ORIGINAL_HIRE_DATE,WORKER_TERMINATION_DATE,WORKER_STATUS, p.PERSON_WORKER_ID, PERSON_LEGAL_GIVEN_NAME, PERSON_LEGAL_FAMILY_NAME_1, PERSON_LEGAL_ADDRESS_CITY_NAME, PERSON_LEGAL_ADDRESS_COUNTRY_SUBDIVISION_LEVEL_1
+    FROM ANALYTICS.SOURCE.src_adp_workers as w join ANALYTICS.SOURCE.src_adp_persons as p
+        on p.PERSON_WORKER_ID = w.WORKER_ID
+    ORDER by w.WORKER_ID, p.PERSON_WORKER_ID;
+
 ###############################
 # Some useful sample SQL queries:
 # Select Legal Formatted nam (like Marcus, Joshua )
@@ -37,10 +44,11 @@ cs.execute("show tables like 'PERSON_LEGAL_FAMILY_NAME_1 ' in schema analytics.s
 Date of hire
 cs.execute("show tables like 'WORKER_ORIGINAL_HIRE_DATE' in schema analytics.source;")
 Employment Status
-cs.execute("show tables like 'WORKER_TERMINATION_DATE' in schema analytics.source;")
+cs.execute("show tables like 'WORKER_STATUS' in schema analytics.source;")
 # if termination date not null... 
 Termination Date
-cs.execute("show tables like '' in schema analytics.source;")
+cs.execute("show tables like 'WORKER_TERMINATION_DATE' in schema analytics.source;")
+
 # These look to be available in ANALYTICS.SOURCE.SRC_ADP_WORKERS
 SELECT * FROM analytics.source.src_adp_workers;
 # Not certain how to match this to the worker number from the other tables. Look for some kind of statement to match it with the item in an array and if it's a match, append the status to the matching line in the array. 

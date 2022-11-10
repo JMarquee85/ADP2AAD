@@ -1,3 +1,5 @@
+
+
 Hi Josh, I’ve granted you engineer_role in Snowflake. 
 
  
