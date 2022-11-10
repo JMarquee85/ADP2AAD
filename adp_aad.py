@@ -10,6 +10,12 @@
 import snowflake.connector
 import pandas
 
+# Create an empty dictionary to hold the employee values
+employee_info = {}
+
+# List of key values for the employee_info dictionary
+key_list = ["employee_id","first_name","last_name","city","state"]
+
 # Authenticate into Snowflake using SSO
 # Work on connecting via OAUTH instead? https://docs.snowflake.com/en/user-guide/python-connector-example.html#connecting-with-oauth
 ctx = snowflake.connector.connect(
@@ -34,18 +40,32 @@ sql_query = "SELECT * FROM ANALYTICS.SOURCE.src_adp_persons;"
 try:
 	cs.execute("USE ROLE engineer_role")
 	cs.execute("USE WAREHOUSE engineer_wh")
-	cs.execute("show tables like '%%ADP%' in schema analytics.source;")
-	cs.execute("show tables like '%%ADP%' in schema analytics.staging;")
+	#cs.execute("show tables like '%%ADP%' in schema analytics.source;")
+	#cs.execute("show tables like '%%ADP%' in schema analytics.staging;")
+	cs.execute("SELECT * FROM ANALYTICS.source.src_adp_persons")
 	cs.execute(sql_query)
-	df = cs.fetch_pandas_all()
-	df.info()
-	print("---------------")
-	print(df.to_string())
+
+	# This is to show all available colums and identify them below as variable names to select the ones to print. 
+	# Will want to turn this into a dictionary once the data is parsed in a way that makes sense. 
+	#for record in cs:
+	#	print(record)
+
+	for a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u in cs:
+		#(employee id, first name, last name, city, state)
+		employee_id = a
+		first_name = c
+		last_name = e
+		city = o
+		state = p
+		# Get these variables into the dictionary
+		employee_info = {'employee_id': employee_id, 'first_name': first_name, 'last_name': last_name, 'city': city, 'state': state}
+		print(employee_info)
+
+	#df = cs.fetch_pandas_all()
+	#df.info()
+	#print("---------------")
+	#print(df.to_string())
 
 finally:
 	cs.close()
 
-#This is working in snowflake as a basic query, but not working in this script as of yet:
-#
-#USE WAREHOUSE engineer_wh;
-#SELECT * FROM analytics.source.src_adp_persons;
