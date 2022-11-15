@@ -4,6 +4,7 @@
 
 #import libraries
 import msal
+import requests #remove this once everything below is put into its own script. 
 
 # Create a token data dictionary to use with these requests
 app_id = '8af4e31e-7c65-4ad6-8cf0-3a7d67997947'
@@ -31,5 +32,23 @@ if not token_result:
   access_token = 'Bearer ' + token_result['access_token']
   print('New access token was acquired from Azure AD')
 
-print(access_token)
+# print(access_token)
+
+########################
+# This should be separated into another script or function later on and called in the main body of the script
+
+#import requests # this is called above for the moment. 
+
+# Copy access_token and specify the MS Graph API endpoint you want to call, e.g. 'https://graph.microsoft.com/v1.0/groups' to get all groups in your organization
+token = access_token
+url = 'https://graph.microsoft.com/v1.0/groups'
+headers = {
+  'Authorization': token
+}
+
+# Make a GET request to the provided url, passing the access token in a header
+graph_result = requests.get(url=url, headers=headers)
+
+# Print the results in a JSON format
+print(graph_result.json())
 
