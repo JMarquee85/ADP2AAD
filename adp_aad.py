@@ -10,12 +10,6 @@
 import snowflake.connector
 import pandas
 
-# Create an empty dictionary to hold the employee values
-employee_info = {}
-
-# List of key values for the employee_info dictionary
-key_list = ["employee_id","first_name","last_name","city","state"]
-
 # Authenticate into Snowflake using SSO
 # Work on connecting via OAUTH instead? https://docs.snowflake.com/en/user-guide/python-connector-example.html#connecting-with-oauth
 ctx = snowflake.connector.connect(
@@ -23,10 +17,6 @@ ctx = snowflake.connector.connect(
 	authenticator='externalbrowser',
 	account='pra18133',
 	region='us-east-1',
-	#Role = 'engineer_role',
-	Warehouse = 'engineer_wh',
-	#Database= 'ANALYTICS',
-	#Schema= 'SOURCE' 
 	)
 
 # Set up a cursor object.
@@ -45,8 +35,6 @@ SELECT w.WORKER_ID, WORKER_ORIGINAL_HIRE_DATE,WORKER_TERMINATION_DATE,WORKER_STA
 try:
 	cs.execute("USE ROLE engineer_role")
 	cs.execute("USE WAREHOUSE engineer_wh")
-	#cs.execute("show tables like '%%ADP%' in schema analytics.source;")
-	#cs.execute("show tables like '%%ADP%' in schema analytics.staging;")
 	cs.execute(sql_query)
 
 	### This would show all the available columns:
