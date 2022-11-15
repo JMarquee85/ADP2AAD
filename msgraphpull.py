@@ -11,7 +11,7 @@ app_id = '8af4e31e-7c65-4ad6-8cf0-3a7d67997947'
 # Enter the details of your AAD app registration
 client_id = '8af4e31e-7c65-4ad6-8cf0-3a7d67997947'
 client_secret = '-yj8Q~~JMWNaPV1hpSl1PvzotPEM5Rz1IUGeqau0'
-authority = 'https://login.microsoftonline.com/b22ec483-d46d-453d-b808-cdf276fc092a'
+authority = 'https://login.microsoftonline.com/803a6c90-ec72-4384-b2c0-1a376841a04b'
 scope = ['https://graph.microsoft.com/.default']
 
 # Create an MSAL instance providing the client_id, authority and client_credential parameters
