@@ -1,4 +1,5 @@
 snowflake-connector-python
+microsoftgraph-python
 pandas
 pyarrow
 
