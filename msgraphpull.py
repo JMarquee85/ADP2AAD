@@ -1,3 +1,4 @@
+# QUERYING MS GRAPH
 # Created AAD Enterprise Application called ADP-AAD Graph
 # https://towardsdatascience.com/querying-microsoft-graph-api-with-python-269118e8180c
 # client_secret_id = b22ec483-d46d-453d-b808-cdf276fc092a
@@ -39,12 +40,24 @@ if not token_result:
 
 #import requests # this is called above for the moment. 
 
-# Copy access_token and specify the MS Graph API endpoint you want to call, e.g. 'https://graph.microsoft.com/v1.0/groups' to get all groups in your organization
+# This is great, but I think it is limited due to pagination limits. 
+
+# GET USERS
 token = access_token
-url = 'https://graph.microsoft.com/v1.0/groups'
+url = 'https://graph.microsoft.com/v1.0/users?$select=displayName,userPrincipalName'
+# See this URL for selecting user properties, as in the above example:
+# https://learn.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http
 headers = {
   'Authorization': token
 }
+
+# GETTING GROUP LISTING
+# Copy access_token and specify the MS Graph API endpoint you want to call, e.g. 'https://graph.microsoft.com/v1.0/groups' to get all groups in your organization
+#token = access_token
+#url = 'https://graph.microsoft.com/v1.0/groups'
+#headers = {
+#  'Authorization': token
+#}
 
 # Make a GET request to the provided url, passing the access token in a header
 graph_result = requests.get(url=url, headers=headers)
