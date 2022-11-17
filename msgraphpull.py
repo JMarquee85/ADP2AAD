@@ -65,3 +65,5 @@ graph_result = requests.get(url=url, headers=headers)
 # Print the results in a JSON format
 print(graph_result.json())
 
+# Next will need to parse this JSON into something usable for this script. 
+

@@ -10,6 +10,20 @@
 import snowflake.connector
 import pandas
 
+#Create the empty employee_info dictionary
+key_list = []
+#create lists for the employee values to append to below
+employee_id = []
+hire_date = []
+term_date = []
+employment_status = []
+first_name = []
+last_name = []
+city = []
+state = []
+
+employee_info = {}
+
 # Authenticate into Snowflake using SSO
 # Work on connecting via OAUTH instead? https://docs.snowflake.com/en/user-guide/python-connector-example.html#connecting-with-oauth
 ctx = snowflake.connector.connect(
@@ -44,18 +58,51 @@ try:
 	# Set specific variables for certain pieces of information. 
 	# The date format currently looks like this: 'hire_date': datetime.date(2022, 4, 11)
 	# Would like to get that to a more readable and usable format. 
+
+# Or perhaps should create a dictionary with the employee name as the key and the requested information as the values?
+# https://stackoverflow.com/questions/71030855/print-details-of-an-employee-by-entering-the-name-of-employee-in-python
+
 	for a,b,c,d,e,f,g,h,i in cs:
-		employee_id = a
-		hire_date = b
-		term_date = c
-		employment_status = d
-		first_name = f
-		last_name = g
-		city = h
-		state = i
+		# instead going to append the output to lists and set the lists as the dictionary values
+		#employee_id = a
+		employee_id.append(a)
+		#hire_date = b
+		hire_date.append(b)
+		#term_date = c
+		term_date.append(c)
+		#employment_status = d
+		employment_status.append(d)
+		#first_name = f
+		first_name.append(f)
+		#last_name = g
+		last_name.append(g)
+		#city = h
+		city.append(h)
+		#state = i
+		state.append(i)
 		# Adding these assigned variables to a dictionary. 
-		employee_info = {'employee_id': employee_id, 'hire_date': hire_date, 'term_date': term_date, 'employment_status': employment_status, 'first_name': first_name, 'last_name': last_name, 'city': city, 'state': state}
-		print(employee_info)
+		
+	employee_info = {'employee_id': employee_id, 'hire_date': hire_date, 'term_date': term_date, 'employment_status': employment_status, 'first_name': first_name, 'last_name': last_name, 'city': city, 'state': state}
+
+	#print(employee_info)
+
+	#Test printing the list of employee numbers
+	print(employee_id)
+
+
+
+	status_key = "employment_status"
+
+		# Figuring out how to loop through a dictionary again... 
+		#for x in employee_info.values():
+			#value = employee_info.get(status_key)
+			#if value is None:
+			#	f"{status_key} not found!"
+			#elif value == "terminated":
+			#	print(x)
+			#else:
+			#	continue
+
 
 
 	### This may no longer be strictly necessary, handy to keep around as a way to get the information above into a 
