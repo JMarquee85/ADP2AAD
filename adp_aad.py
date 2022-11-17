@@ -104,7 +104,6 @@ try:
 			#	continue
 
 
-
 	### This may no longer be strictly necessary, handy to keep around as a way to get the information above into a 
 	### pandas dataframe. 
 	#df = cs.fetch_pandas_all()
