@@ -57,7 +57,6 @@ try:
 		employee_info = {'employee_id': employee_id, 'hire_date': hire_date, 'term_date': term_date, 'employment_status': employment_status, 'first_name': first_name, 'last_name': last_name, 'city': city, 'state': state}
 		print(employee_info)
 
-
 	### This may no longer be strictly necessary, handy to keep around as a way to get the information above into a 
 	### pandas dataframe. 
 	#df = cs.fetch_pandas_all()
