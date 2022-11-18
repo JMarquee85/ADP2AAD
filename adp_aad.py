@@ -11,7 +11,21 @@ import snowflake.connector
 import pandas
 
 #Create the empty employee_info dictionary
-key_list = []
+#employee_info = {}
+employee_info = []
+
+# Need to try this as nested dictionaries. 
+# https://www.programiz.com/python-programming/nested-dictionary
+# Should look like:
+#employee_info = {
+	#128736123 : {'name': employee_name, 'hire_date': hire_date, etc...},
+	#128907431 : {'name': employee_name, etc...}
+#}
+# Employee information will then be identifiable by the employee number. 
+# in the for loop below, will need to create the dictionaries inside the main employee_info dictionary
+# and then append the information into the dictionary, iterating through 
+
+#defaults = {'first_name': e, 'last_name': f, 'hire_date': b, 'term_date': c, 'employment_status': d, 'city': g, 'state': h}
 #create lists for the employee values to append to below
 employee_id = []
 hire_date = []
@@ -22,7 +36,6 @@ last_name = []
 city = []
 state = []
 
-employee_info = {}
 
 # Authenticate into Snowflake using SSO
 # Work on connecting via OAUTH instead? https://docs.snowflake.com/en/user-guide/python-connector-example.html#connecting-with-oauth
@@ -64,52 +77,60 @@ try:
 
 	for a,b,c,d,e,f,g,h,i in cs:
 		# instead going to append the output to lists and set the lists as the dictionary values
-		#employee_id = a
 		employee_id.append(a)
-		#hire_date = b
 		hire_date.append(b)
-		#term_date = c
 		term_date.append(c)
-		#employment_status = d
 		employment_status.append(d)
-		#first_name = f
 		first_name.append(f)
-		#last_name = g
 		last_name.append(g)
-		#city = h
 		city.append(h)
-		#state = i
 		state.append(i)
-		# Adding these assigned variables to a dictionary. 
-		
-	employee_info = {'employee_id': employee_id, 'hire_date': hire_date, 'term_date': term_date, 'employment_status': employment_status, 'first_name': first_name, 'last_name': last_name, 'city': city, 'state': state}
+		# Try adding the above to a list of lists, then iterating over the items in the set of lists to create the individual dictionaries. 
 
-	#print(employee_info)
+	employee_info_lists = []
+	employee_info_lists.append(employee_id)
+	employee_info_lists.append(hire_date)
+	employee_info_lists.append(term_date)
+	employee_info_lists.append(employment_status)
+	employee_info_lists.append(first_name)
+	employee_info_lists.append(last_name)
+	employee_info_lists.append(city)
+	employee_info_lists.append(state)
+
+
+
+	# Iterate over multiple lists:
+	# https://www.geeksforgeeks.org/python-iterate-multiple-lists-simultaneously/
+	# Then append it to the dictionaries? 
+
+	for a, b, c, d, e, f, g, h in zip(employee_id,hire_date,term_date,employment_status,first_name,last_name,city,state):
+		#print (a, b, c, d, e, f, g, h)
+		##### STILL NEED MANAGER INFORMATION. 
+		defaults = {'employee_id': a, 'first_name': e, 'last_name': f, 'hire_date': b, 'term_date': c, 'employment_status': d, 'city': g, 'state': h}
+		## Create a dictionary with the employee_id as the key and the keys from the defaults variable above
+		dict = dict.fromkeys(a, defaults)
+		employee_info.append(dict)
+		##Append the created dictionary to the employee_info dictionary which lives outside the loop
+		##Add the other information b-h as values to match keys 
+
+	print(employee_info[0])
+	
+	# Testing printing the first item of the list of lists above
+	# See: https://www.geeksforgeeks.org/python-get-first-element-of-each-sublist/
+	# This function pulls the right order of information. 
+	# This might be enough to use, or I can use this to iterate through and create a dictionary for each user. 
+	#def Extract(employee_info_lists):
+		#return [item[200] for item in employee_info_lists]
+#
+	#print(Extract(employee_info_lists))
+
+
+	#defaults = {'first_name': '', 'last_name': '', 'hire_date': '', 'term_date': '', 'employment_status': '', 'city': '', 'state': ''}
+
+	#employee_info_dict = dict.fromkeys(employee_id, defaults)
 
 	#Test printing the list of employee numbers
-	print(employee_id)
-
-
-
-	status_key = "employment_status"
-
-		# Figuring out how to loop through a dictionary again... 
-		#for x in employee_info.values():
-			#value = employee_info.get(status_key)
-			#if value is None:
-			#	f"{status_key} not found!"
-			#elif value == "terminated":
-			#	print(x)
-			#else:
-			#	continue
-
-
-	### This may no longer be strictly necessary, handy to keep around as a way to get the information above into a 
-	### pandas dataframe. 
-	#df = cs.fetch_pandas_all()
-	#df.info()
-	#print("---------------")
-	#print(df.to_string())
+	#print(employee_info_dict)
 
 finally:
 	cs.close()
