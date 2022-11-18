@@ -98,39 +98,34 @@ try:
 	employee_info_lists.append(state)
 
 
+# STILL NEED TO PULL AND USE THE MANAGER INFORMATION FROM ADP/ SNOWFLAKE. 
 
-	# Iterate over multiple lists:
-	# https://www.geeksforgeeks.org/python-iterate-multiple-lists-simultaneously/
-	# Then append it to the dictionaries? 
-
+	# Iterate over the lists that pulled the information, sort them into dictionaries with the employee id number as the key and a dictionary with the employee information as the value. 
 	for a, b, c, d, e, f, g, h in zip(employee_id,hire_date,term_date,employment_status,first_name,last_name,city,state):
-		#print (a, b, c, d, e, f, g, h)
-		##### STILL NEED MANAGER INFORMATION. 
-		defaults = {'employee_id': a, 'first_name': e, 'last_name': f, 'hire_date': b, 'term_date': c, 'employment_status': d, 'city': g, 'state': h}
-		## Create a dictionary with the employee_id as the key and the keys from the defaults variable above
-		dict = dict.fromkeys(a, defaults)
+		employee_stuff = {'first_name': e, 'last_name': f, 'employment_status': d, 'hire_date': b, 'term_date': c, 'city': g, 'state': h}
+		dict = {a: employee_stuff}
 		employee_info.append(dict)
-		##Append the created dictionary to the employee_info dictionary which lives outside the loop
-		##Add the other information b-h as values to match keys 
 
-	print(employee_info[0])
-	
-	# Testing printing the first item of the list of lists above
-	# See: https://www.geeksforgeeks.org/python-get-first-element-of-each-sublist/
-	# This function pulls the right order of information. 
-	# This might be enough to use, or I can use this to iterate through and create a dictionary for each user. 
-	#def Extract(employee_info_lists):
-		#return [item[200] for item in employee_info_lists]
-#
-	#print(Extract(employee_info_lists))
+	# Lots of duplicates coming from the information. Looking into how to remove duplicates from a list to leave one of each. 
+	employee_info_no_duplicates = []
+	[employee_info_no_duplicates.append(x) for x in employee_info if x not in employee_info_no_duplicates]
+	# Better, but some duplicates are still in here. 
+
+	# Testing the no duplicate list
+	for x in (employee_info_no_duplicates):
+		print(x)
+
+	## Print this out. 
+	#for x in (employee_info):
+		#print(x)
+
+	# A version of the above that utilizes lists for the dictionary value instead of a nested dictionary. 
+	#for a, b, c, d, e, f, g, h in zip(employee_id,hire_date,term_date,employment_status,first_name,last_name,city,state):
+		#employee_stuff = [e, f, b, c, d, g, h]
+		#dict = {a: employee_stuff}
+		#employee_info.append(dict)
 
 
-	#defaults = {'first_name': '', 'last_name': '', 'hire_date': '', 'term_date': '', 'employment_status': '', 'city': '', 'state': ''}
-
-	#employee_info_dict = dict.fromkeys(employee_id, defaults)
-
-	#Test printing the list of employee numbers
-	#print(employee_info_dict)
 
 finally:
 	cs.close()
