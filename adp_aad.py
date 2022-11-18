@@ -68,12 +68,8 @@ try:
 	#for record in cs:
 		#print(record)
 
-	# Set specific variables for certain pieces of information. 
 	# The date format currently looks like this: 'hire_date': datetime.date(2022, 4, 11)
 	# Would like to get that to a more readable and usable format. 
-
-# Or perhaps should create a dictionary with the employee name as the key and the requested information as the values?
-# https://stackoverflow.com/questions/71030855/print-details-of-an-employee-by-entering-the-name-of-employee-in-python
 
 	for a,b,c,d,e,f,g,h,i in cs:
 		# instead going to append the output to lists and set the lists as the dictionary values
@@ -85,8 +81,8 @@ try:
 		last_name.append(g)
 		city.append(h)
 		state.append(i)
-		# Try adding the above to a list of lists, then iterating over the items in the set of lists to create the individual dictionaries. 
-
+		
+	# Adds the information collected above into one list. Not sure if this is necessary anymore, so may take out in review.  
 	employee_info_lists = []
 	employee_info_lists.append(employee_id)
 	employee_info_lists.append(hire_date)
@@ -106,10 +102,11 @@ try:
 		dict = {a: employee_stuff}
 		employee_info.append(dict)
 
-	# Lots of duplicates coming from the information. Looking into how to remove duplicates from a list to leave one of each. 
+	# This removes duplicates. 
 	employee_info_no_duplicates = []
 	[employee_info_no_duplicates.append(x) for x in employee_info if x not in employee_info_no_duplicates]
-	# Better, but some duplicates are still in here. 
+	# NOTE: There are still some duplicate employee IDs in here, but this appears to be because there are some ADP employee entries that 
+	# have two city and state entries. 
 
 	# Testing the no duplicate list
 	for x in (employee_info_no_duplicates):
