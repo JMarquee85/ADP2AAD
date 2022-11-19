@@ -1,2 +1,15 @@
 # docker compose notes 
 
+# see docker-compose.yml
+
+#start 
+docker-compose up
+
+#start using a json config
+docker-compose -f docker-compose.json
+
+#start in background
+docker-compose up -d
+
+#stop 
+docker-compose down

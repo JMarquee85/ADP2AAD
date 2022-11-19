@@ -96,3 +96,5 @@ docker run \
 	node:8 \
 	/bin/bash
 
+# Check existence of a network with the following command
+docker network ls
