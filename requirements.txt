@@ -1,5 +1,7 @@
 snowflake-connector-python
 microsoftgraph-python
 pandas
-pyarrow
+msal
+requests
+
 
