@@ -1,0 +1,98 @@
+# Docker Examples
+
+# run file
+docker run \ 
+	# Tear down container after use
+	--rm \
+	# mount a volume onto the container, in this case the current dir
+	-v $(pwd):/src \
+	# run python3
+	python:3 \
+	# run my current project in the container
+	python /src/adp_aad.py
+
+
+# run file
+docker run \ 
+	--rm \
+	-v $(pwd):/src \
+	python:3 \
+	python /src/adp_aad.py
+
+# run interpreter by adding the -it 
+docker run \
+	--rm \
+	-it \
+	-v $(pwd):/src \
+	python:3\
+	python
+
+# open a shell in the container
+docker run \
+	--rm \
+	-it \
+	-v $(pwd):/src \
+	python:3\
+	/bin/bash
+
+# build custom image
+# add the details in a DOCKERFILE
+
+docker build \
+	# adding a tag to name the image
+	-t python_snowflake
+	.
+
+
+# list docker images on local machine 
+docker image ls
+
+# list docker containers
+docker container ls
+
+# start container in the foreground
+docker run \
+	--rm \ 
+	-v $(pwd):/usr/share/nginx/html \
+	-p 8080:80 \
+	nginx:latest
+
+
+# start container in the background
+docker run \
+	--rm \ 
+	-d \
+	-v $(pwd):/usr/share/nginx/html \
+	-p 8080:80 \
+	nginx:latest
+
+# stop a container
+docker stop container_name #get the container name by running $(docker container ls)
+
+# log in to a running container, with a bash shell
+docker exec -it container_name /bin/bash
+
+#####################################################################################################################
+#####################################################################################################################
+
+# create a network to allow sharing between containers
+docker network create multiple
+
+# create mysql container
+docker run \
+	--rm \
+	-d \
+	--net multiple #name of the network \
+	--name mul_mysql \
+	-e MYSQL_ROOT_PASSWORD='root' \
+	mysql:5.6
+
+# create (and open a terminal into) node.js container
+docker run \
+	--rm \
+	-it \
+	--net multiple \
+	--name mul_node \
+	node:8 \
+	/bin/bash
+
