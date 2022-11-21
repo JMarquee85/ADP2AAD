@@ -1,3 +1,30 @@
+Need to add the following tables to the information I'm pulling:
+
+##### JOB TITLE: #####
+ANALYTICS.SOURCE.src_adp_work_assignments
+WORK_ASSIGNMENT_WORKER_ID (Should be employee ID, can match and sort with the other pulls)
+
+# Possibilities for job title. Not sure how these look. 
+WORK_ASSIGNMENT_JOB_TITLE
+WORK_ASSIGNMENT_JOB_LONG_NAME
+WORK_ASSIGNMENT_JOB_SHORT_NAME
+
+##### EMAIL ADDRESS: #####
+ANALYTICS.SOURCE.src_adp_business_communication
+BUSINESS_COMMUNICATION_WORKER_ID(should be employee ID)
+BUSINESS_COMMUNICATION_EMAIL_URI
+
+##### MANAGER INFORMATION: #####
+# They may not have the manager information listed in here by name. Might have to create a function to look up the 
+# manager's name by worker ID. 
+ANALYTICS.SOURCE.src_adp_worker_report_to
+WORKER_REPORT_TO_WORKER_ID
+
+
+
+
+
+
 Data columns (total 21 columns):
  #   Column                                            Non-Null Count  Dtype                              
 ---  ------                                            --------------  -----                              
