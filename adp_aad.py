@@ -8,34 +8,7 @@
 # https://docs.snowflake.com/en/user-guide/python-connector-example.html
 
 import snowflake.connector
-import pandas
-
-#Create the empty employee_info dictionary
-#employee_info = {}
-employee_info = []
-
-# Need to try this as nested dictionaries. 
-# https://www.programiz.com/python-programming/nested-dictionary
-# Should look like:
-#employee_info = {
-	#128736123 : {'name': employee_name, 'hire_date': hire_date, etc...},
-	#128907431 : {'name': employee_name, etc...}
-#}
-# Employee information will then be identifiable by the employee number. 
-# in the for loop below, will need to create the dictionaries inside the main employee_info dictionary
-# and then append the information into the dictionary, iterating through 
-
-#defaults = {'first_name': e, 'last_name': f, 'hire_date': b, 'term_date': c, 'employment_status': d, 'city': g, 'state': h}
-#create lists for the employee values to append to below
-employee_id = []
-hire_date = []
-term_date = []
-employment_status = []
-first_name = []
-last_name = []
-city = []
-state = []
-
+import pandas as pd
 
 # Authenticate into Snowflake using SSO
 # Work on connecting via OAUTH instead? https://docs.snowflake.com/en/user-guide/python-connector-example.html#connecting-with-oauth
@@ -52,37 +25,44 @@ print("\nCursor object created.")
 
 # This query pulls all needed information and joins the tables together, sorting by WorkerID. 
 sql_query = '''
-SELECT w.WORKER_ID, w.WORKER_ORIGINAL_HIRE_DATE,w.WORKER_TERMINATION_DATE,w.WORKER_STATUS, 
-        p.PERSON_WORKER_ID, p.PERSON_LEGAL_GIVEN_NAME, p.PERSON_LEGAL_FAMILY_NAME_1, p.PERSON_LEGAL_ADDRESS_CITY_NAME, p.PERSON_LEGAL_ADDRESS_COUNTRY_SUBDIVISION_LEVEL_1, 
-        a.WORK_ASSIGNMENT_WORKER_ID, a.WORK_ASSIGNMENT_JOB_TITLE, a.WORK_ASSIGNMENT_JOB_LONG_NAME, a.WORK_ASSIGNMENT_JOB_SHORT_NAME,
-        e.BUSINESS_COMMUNICATION_WORKER_ID, e.BUSINESS_COMMUNICATION_EMAIL_URI,
-        m.WORKER_REPORT_TO_WORKER_ID, m.WORKER_REPORT_TO_SUPERVISOR_WORKER_ID
+SELECT DISTINCT w.WORKER_ID, w.WORKER_STATUS, p.PERSON_LEGAL_GIVEN_NAME, p.PERSON_LEGAL_FAMILY_NAME_1, a.WORK_ASSIGNMENT_JOB_TITLE, m.WORKER_REPORT_TO_SUPERVISOR_WORKER_ID, 
+                p.PERSON_LEGAL_ADDRESS_CITY_NAME, p.PERSON_LEGAL_ADDRESS_COUNTRY_SUBDIVISION_LEVEL_1, e.BUSINESS_COMMUNICATION_EMAIL_URI
 
 FROM ANALYTICS.SOURCE.src_adp_workers as w 
 JOIN ANALYTICS.SOURCE.src_adp_persons as p
 ON w.WORKER_ID=p.PERSON_WORKER_ID
+    AND w.WORKER_ID=p.PERSON_WORKER_ID
 JOIN ANALYTICS.SOURCE.src_adp_work_assignments as a 
 ON w.WORKER_ID=a.WORK_ASSIGNMENT_WORKER_ID
+    AND w.WORKER_ID=a.WORK_ASSIGNMENT_WORKER_ID
 JOIN ANALYTICS.SOURCE.src_adp_business_communication as e
 ON w.WORKER_ID=e.BUSINESS_COMMUNICATION_WORKER_ID
+    AND w.WORKER_ID=e.BUSINESS_COMMUNICATION_WORKER_ID
 JOIN ANALYTICS.SOURCE.src_adp_worker_report_to as m   
 ON w.WORKER_ID=m.WORKER_REPORT_TO_WORKER_ID
+    AND w.WORKER_ID=m.WORKER_REPORT_TO_WORKER_ID
 
-ORDER by w.WORKER_ID,p.PERSON_WORKER_ID,a.WORK_ASSIGNMENT_WORKER_ID,e.BUSINESS_COMMUNICATION_WORKER_ID,m.WORKER_REPORT_TO_WORKER_ID
+ORDER by w.WORKER_ID
 '''
 
 #run the query
 try:
 	cs.execute("USE ROLE engineer_role")
 	cs.execute("USE WAREHOUSE engineer_wh")
+	#cs.execute(sql_query)
 	cs.execute(sql_query)
+	results = cs.fetch_pandas_all()
 
-	data = cs.fetch_pandas_all()
+	pd.set_option('display.max_rows', 200000) #this should keep the results from being truncated, but so far it... isn't. 
+	pd.set_option('display.max_columns', 500)
 
-	# Look into getting this into a pandas data frame and working with the information that way. 
-	with pandas.option_context('display.max_rows', None, 'display.max_columns', None):
+	sql_results = pd.DataFrame(
+	results,
+	columns=[col[0] for col in cs.description],)	
 
-		print(data)
+	print(sql_results)
+
+
 
 finally:
 	cs.close()
