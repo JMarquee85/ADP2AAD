@@ -23,6 +23,9 @@ ctx = snowflake.connector.connect(
 cs = ctx.cursor()
 print("\nCursor object created.")
 
+# Everything is now located here:
+# analytics.common.dim_employees
+
 # This query pulls all needed information and joins the tables together, sorting by WorkerID. 
 sql_query = '''
 SELECT DISTINCT w.WORKER_ID, w.WORKER_STATUS, p.PERSON_LEGAL_GIVEN_NAME, p.PERSON_LEGAL_FAMILY_NAME_1, a.WORK_ASSIGNMENT_JOB_TITLE, m.WORKER_REPORT_TO_SUPERVISOR_WORKER_ID, 
@@ -53,7 +56,7 @@ try:
 	cs.execute(sql_query)
 	results = cs.fetch_pandas_all()
 
-	pd.set_option('display.max_rows', 200000) #this should keep the results from being truncated, but so far it... isn't. 
+	pd.set_option('display.max_rows', 200000) 
 	pd.set_option('display.max_columns', 500)
 
 	sql_results = pd.DataFrame(
@@ -61,6 +64,8 @@ try:
 	columns=[col[0] for col in cs.description],)	
 
 	print(sql_results)
+
+	
 
 
 

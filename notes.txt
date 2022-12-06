@@ -1,3 +1,13 @@
+# Probably going to be something like the following:
+for business_email_address in the_adp_pandas_df:
+    if business_email_address in mg_graph_pull:
+        # match the email address to the mg_graph email address and use mg graph commands to 
+        # update the user's information 
+
+
+
+#############################################################
+
 Need to add the following tables to the information I'm pulling:
 
 ##### JOB TITLE: #####
@@ -19,10 +29,6 @@ BUSINESS_COMMUNICATION_EMAIL_URI
 # manager's name by worker ID. 
 ANALYTICS.SOURCE.src_adp_worker_report_to
 WORKER_REPORT_TO_WORKER_ID
-
-
-
-
 
 
 Data columns (total 21 columns):
