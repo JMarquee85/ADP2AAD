@@ -54,3 +54,46 @@ for row in df.itertuples(name='TestList'):
 	else:
 		continue 
 # Successful. This only outputs the three users that match the email list. 
+
+# The following block was to test if email addresses were contained in a list of names. 
+# This might be a similar approach when comparing what we get out of MG Graph. 
+
+test_names = ["josh.marcus@talkiatry.com","sean.tracey@talkiatry.com","dharmendra.sant@talkiatry.com","georgia.gaveras@talkiatry.com","namrata.shah@talkiatry.com"]
+
+	# Use itertuples method (faster)
+	# index defaults to true and will return the index in the dataframe. Set to false, it will remove the index.
+	# name sets the name of each tuple that is shown
+	for row in df.itertuples(name='TestList'):
+		# Can store this in a separate file later for readability- see variables.py
+		employee_id = getattr(row, 'EMPLOYEE_ID')
+		employee_full_name = getattr(row, 'EMPLOYEE_FULL_NAME')
+		employee_preferred_name = getattr(row, 'EMPLOYEE_PREFERRED_NAME')
+		employee_email = getattr(row, 'EMPLOYEE_EMAIL')
+		employee_department = getattr(row, 'EMPLOYEE_DEPARTMENT_OU_NAME_PREFERRED')
+		employee_current_role = getattr(row, 'EMPLOYEE_CURRENT_ROLE')
+		employee_current_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
+		empoloyee_separation_date = getattr(row, 'EMPLOYEE_SEPARATION_DATE')
+		is_provider = getattr(row, 'IS_EMPLOYEE_CLINICAL_PROVIDER') #1 for yes, 0 for no
+		employee_supervisor_name = getattr(row, 'EMPLOYEE_SUPERVISOR_NAME')
+		employee_supervisor_email = getattr(row, 'EMPLOYEE_SUPERVISOR_EMAIL')
+		employee_city = getattr(row, 'EMPLOYEE_CITY')
+		employee_state = getattr(row, 'EMPLOYEE_STATE')
+		employee_zip = getattr(row, 'EMPLOYEE_ZIP')
+		employee_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
+		employee_separation_date = getattr(row, 'EMPLOYEE_SEPARATION_DATE') # try testing for this value containing null (Snowflake shows null for current employees here)
+		#getattr(row, '')
+		#getattr(row, '')
+		#getattr(row, '')
+		#getattr(row, '')
+		#getattr(row, '')
+		#getattr(row, '')
+		#getattr(row, '')
+
+		# This is currently to filter this out to just a few users. 
+		if employee_email in test_names and is_provider == 1:
+			#print (row, '\n')
+			print('Employee Name: ' + employee_full_name + '\nEmployee Email: ' + employee_email + '\n\n')
+		else:
+			continue 
+
+
