@@ -1,3 +1,28 @@
+# Old query:
+
+SELECT DISTINCT w.WORKER_ID, w.WORKER_STATUS, p.PERSON_LEGAL_GIVEN_NAME, p.PERSON_LEGAL_FAMILY_NAME_1, a.WORK_ASSIGNMENT_JOB_TITLE, m.WORKER_REPORT_TO_SUPERVISOR_WORKER_ID, 
+                p.PERSON_LEGAL_ADDRESS_CITY_NAME, p.PERSON_LEGAL_ADDRESS_COUNTRY_SUBDIVISION_LEVEL_1, e.BUSINESS_COMMUNICATION_EMAIL_URI
+
+FROM ANALYTICS.SOURCE.src_adp_workers as w 
+JOIN ANALYTICS.SOURCE.src_adp_persons as p
+ON w.WORKER_ID=p.PERSON_WORKER_ID
+    AND w.WORKER_ID=p.PERSON_WORKER_ID
+JOIN ANALYTICS.SOURCE.src_adp_work_assignments as a 
+ON w.WORKER_ID=a.WORK_ASSIGNMENT_WORKER_ID
+    AND w.WORKER_ID=a.WORK_ASSIGNMENT_WORKER_ID
+JOIN ANALYTICS.SOURCE.src_adp_business_communication as e
+ON w.WORKER_ID=e.BUSINESS_COMMUNICATION_WORKER_ID
+    AND w.WORKER_ID=e.BUSINESS_COMMUNICATION_WORKER_ID
+JOIN ANALYTICS.SOURCE.src_adp_worker_report_to as m   
+ON w.WORKER_ID=m.WORKER_REPORT_TO_WORKER_ID
+    AND w.WORKER_ID=m.WORKER_REPORT_TO_WORKER_ID
+
+ORDER by w.WORKER_ID
+
+# Since replaced by analytics.common.dim_employees
+
+######################################################################
+
 # Probably going to be something like the following:
 for business_email_address in the_adp_pandas_df:
     if business_email_address in mg_graph_pull:

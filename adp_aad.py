@@ -23,49 +23,85 @@ ctx = snowflake.connector.connect(
 cs = ctx.cursor()
 print("\nCursor object created.")
 
-# Everything is now located here:
-# analytics.common.dim_employees
-
-# This query pulls all needed information and joins the tables together, sorting by WorkerID. 
+# Query snowflake for the current employee data and sort by last name.
 sql_query = '''
-SELECT DISTINCT w.WORKER_ID, w.WORKER_STATUS, p.PERSON_LEGAL_GIVEN_NAME, p.PERSON_LEGAL_FAMILY_NAME_1, a.WORK_ASSIGNMENT_JOB_TITLE, m.WORKER_REPORT_TO_SUPERVISOR_WORKER_ID, 
-                p.PERSON_LEGAL_ADDRESS_CITY_NAME, p.PERSON_LEGAL_ADDRESS_COUNTRY_SUBDIVISION_LEVEL_1, e.BUSINESS_COMMUNICATION_EMAIL_URI
-
-FROM ANALYTICS.SOURCE.src_adp_workers as w 
-JOIN ANALYTICS.SOURCE.src_adp_persons as p
-ON w.WORKER_ID=p.PERSON_WORKER_ID
-    AND w.WORKER_ID=p.PERSON_WORKER_ID
-JOIN ANALYTICS.SOURCE.src_adp_work_assignments as a 
-ON w.WORKER_ID=a.WORK_ASSIGNMENT_WORKER_ID
-    AND w.WORKER_ID=a.WORK_ASSIGNMENT_WORKER_ID
-JOIN ANALYTICS.SOURCE.src_adp_business_communication as e
-ON w.WORKER_ID=e.BUSINESS_COMMUNICATION_WORKER_ID
-    AND w.WORKER_ID=e.BUSINESS_COMMUNICATION_WORKER_ID
-JOIN ANALYTICS.SOURCE.src_adp_worker_report_to as m   
-ON w.WORKER_ID=m.WORKER_REPORT_TO_WORKER_ID
-    AND w.WORKER_ID=m.WORKER_REPORT_TO_WORKER_ID
-
-ORDER by w.WORKER_ID
+SELECT * FROM analytics.common.dim_employees
+ORDER by EMPLOYEE_LAST_NAME;
 '''
 
 #run the query
 try:
 	cs.execute("USE ROLE engineer_role")
 	cs.execute("USE WAREHOUSE engineer_wh")
-	#cs.execute(sql_query)
 	cs.execute(sql_query)
 	results = cs.fetch_pandas_all()
 
-	pd.set_option('display.max_rows', 200000) 
+	# Setting dataframe display if printed in the terminal. 
+	pd.set_option('display.max_rows', None) 
 	pd.set_option('display.max_columns', 500)
+	pd.set_option('display.width', 1000)
 
 	sql_results = pd.DataFrame(
 	results,
 	columns=[col[0] for col in cs.description],)	
 
-	print(sql_results)
+	df = sql_results
 
+	#print(sql_results)
+
+	# This works to print a single column. 
+	#print(sql_results['EMPLOYEE_SUPERVISOR_NAME'])
+
+	# Now print a row. 
+	#print(sql_results.loc[[40]]) #This specifies a specific index number in the pandas dataframe. 
+
+	# Taken from: https://www.learndatasci.com/solutions/how-iterate-over-rows-pandas/
+	# Use iterrow method
+	#for index, row in df.iterrows():
+	#	print (row, '\n')
+
+	test_names = ["josh.marcus@talkiatry.com","sean.tracey@talkiatry.com","dharmendra.sant@talkiatry.com"]
+
+	# Use itertuples method (faster)
+	# index defaults to true and will return the index in the dataframe. Set to false, it will remove the index.
+	# name sets the name of each tuple that is shown
+	for row in df.itertuples(name='TestList'):
+		# Can store this in a separate file later for readability 
+		employee_id = getattr(row, 'EMPLOYEE_ID')
+		employee_full_name = getattr(row, 'EMPLOYEE_FULL_NAME')
+		employee_preferred_name = getattr(row, 'EMPLOYEE_PREFERRED_NAME')
+		employee_email = getattr(row, 'EMPLOYEE_EMAIL')
+		employee_current_role = getattr(row, 'EMPLOYEE_CURRENT_ROLE')
+		employee_current_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
+		empoloyee_separation_date = getattr(row, 'EMPLOYEE_SEPARATION_DATE')
+		getattr(row, '')
+		getattr(row, '')
+		getattr(row, '')
+		getattr(row, '')
+		getattr(row, '')
+		getattr(row, '')
+		getattr(row, '')
+
+		# This is currently to filter this out to just a few users. 
+		if employee_email in test_names:
+			
 	
+			print (row, '\n')
+		else:
+			continue 
+
+
+
+
+	# Loop through each row in the data frame. 
+	# https://sparkbyexamples.com/pandas/pandas-iterate-over-columns-of-dataframe-to-run-regression/
+	#for colname, colval in df.items():
+	#	print(colname, colval.values)
+
+	# Get the Graph information into a dictionary or dataframe or something and test if employee email is in that dataframe. 
+	# If it is, print "josh.marcus@talkiatry.com found!" or something to that effect. 
+
+	# Iterate through some of the rows in the above dataframe. 
 
 
 
