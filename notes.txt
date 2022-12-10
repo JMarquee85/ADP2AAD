@@ -1,4 +1,17 @@
-# Old query:
+# Old stuff and trials:
+
+print(df)
+
+     This works to print a single column. 
+    print(df['EMPLOYEE_SUPERVISOR_NAME'])
+     Now print a row. 
+    print(df.loc[[40]]) #This specifies a specific index number in the pandas dataframe. 
+     Taken from: https://www.learndatasci.com/solutions/how-iterate-over-rows-pandas/
+     Use iterrow method
+    for index, row in df.iterrows():
+       print (row, '\n')
+
+###### Old query:
 
 SELECT DISTINCT w.WORKER_ID, w.WORKER_STATUS, p.PERSON_LEGAL_GIVEN_NAME, p.PERSON_LEGAL_FAMILY_NAME_1, a.WORK_ASSIGNMENT_JOB_TITLE, m.WORKER_REPORT_TO_SUPERVISOR_WORKER_ID, 
                 p.PERSON_LEGAL_ADDRESS_CITY_NAME, p.PERSON_LEGAL_ADDRESS_COUNTRY_SUBDIVISION_LEVEL_1, e.BUSINESS_COMMUNICATION_EMAIL_URI

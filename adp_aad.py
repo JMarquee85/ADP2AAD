@@ -41,39 +41,34 @@ try:
 	pd.set_option('display.max_columns', 500)
 	pd.set_option('display.width', 1000)
 
-	sql_results = pd.DataFrame(
+	df = pd.DataFrame(
 	results,
 	columns=[col[0] for col in cs.description],)	
 
-	df = sql_results
-
-	#print(sql_results)
-
-	# This works to print a single column. 
-	#print(sql_results['EMPLOYEE_SUPERVISOR_NAME'])
-
-	# Now print a row. 
-	#print(sql_results.loc[[40]]) #This specifies a specific index number in the pandas dataframe. 
-
-	# Taken from: https://www.learndatasci.com/solutions/how-iterate-over-rows-pandas/
-	# Use iterrow method
-	#for index, row in df.iterrows():
-	#	print (row, '\n')
-
+	# A list of test names. 
 	test_names = ["josh.marcus@talkiatry.com","sean.tracey@talkiatry.com","dharmendra.sant@talkiatry.com"]
 
 	# Use itertuples method (faster)
 	# index defaults to true and will return the index in the dataframe. Set to false, it will remove the index.
 	# name sets the name of each tuple that is shown
 	for row in df.itertuples(name='TestList'):
-		# Can store this in a separate file later for readability 
+		# Can store this in a separate file later for readability- see variables.py
 		employee_id = getattr(row, 'EMPLOYEE_ID')
 		employee_full_name = getattr(row, 'EMPLOYEE_FULL_NAME')
 		employee_preferred_name = getattr(row, 'EMPLOYEE_PREFERRED_NAME')
 		employee_email = getattr(row, 'EMPLOYEE_EMAIL')
+		employee_department = getattr(row, 'EMPLOYEE_DEPARTMENT_OU_NAME_PREFERRED')
 		employee_current_role = getattr(row, 'EMPLOYEE_CURRENT_ROLE')
 		employee_current_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
 		empoloyee_separation_date = getattr(row, 'EMPLOYEE_SEPARATION_DATE')
+		is_provider = getattr(row, 'IS_EMPLOYEE_CLINICAL_PROVIDER') #1 for yes, 0 for no
+		employee_supervisor_name = getattr(row, 'EMPLOYEE_SUPERVISOR_NAME')
+		employee_supervisor_email = getattr(row, 'EMPLLOYEE_SUPERVISOR_EMAIL')
+		employee_city = getattr(row, 'EMPLOYEE_CITY')
+		employee_state = getattr(row, 'EMPLOYEE_STATE')
+		employee_zip = getattr(row, 'EMPLOYEE_ZIP')
+		employee_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
+		employee_separation_date = getattr(row, 'EMPLOYEE_SEPARATION_DATE') # try testing for this value containing null (Snowflake shows null for current employees here)
 		getattr(row, '')
 		getattr(row, '')
 		getattr(row, '')
@@ -84,26 +79,14 @@ try:
 
 		# This is currently to filter this out to just a few users. 
 		if employee_email in test_names:
-			
-	
-			print (row, '\n')
+			#print (row, '\n')
+			print('Employee Name: ' employee_full_name '\nEmployee Email:' )
 		else:
 			continue 
 
 
-
-
-	# Loop through each row in the data frame. 
-	# https://sparkbyexamples.com/pandas/pandas-iterate-over-columns-of-dataframe-to-run-regression/
-	#for colname, colval in df.items():
-	#	print(colname, colval.values)
-
 	# Get the Graph information into a dictionary or dataframe or something and test if employee email is in that dataframe. 
 	# If it is, print "josh.marcus@talkiatry.com found!" or something to that effect. 
-
-	# Iterate through some of the rows in the above dataframe. 
-
-
 
 finally:
 	cs.close()
