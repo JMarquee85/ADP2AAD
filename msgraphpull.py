@@ -5,6 +5,7 @@
 
 #import libraries
 import msal
+import json
 import requests #remove this once everything below is put into its own script. 
 
 # Create a token data dictionary to use with these requests
@@ -44,7 +45,7 @@ if not token_result:
 
 # GET USERS
 token = access_token
-url = 'https://graph.microsoft.com/v1.0/users?$select=displayName,userPrincipalName'
+url = 'https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,mail,jobTitle,Department,usertype'
 # See this URL for selecting user properties, as in the above example:
 # https://learn.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http
 headers = {
@@ -63,7 +64,38 @@ headers = {
 graph_result = requests.get(url=url, headers=headers)
 
 # Print the results in a JSON format
-print(graph_result.json())
+# I actually think this is already a Python dictionary, not JSON. 
+ms_dict = graph_result.json()
+print(type(ms_dict)) # shows this is class 'dict'
+print(ms_dict)
+
+# Use json.loads method to get the output into a Python dictionary 
+#ms_users = json.loads(ms_json)
+
+# Putting the output into a list due to running list comprehension on it not being able to use a sting
+# to search the values inside. 
+#ms_users = []
+#ms_users.append(json.dumps(ms_json))
+
+#ms_users = json.dumps(ms_json)
+
+# Print what we have 
+#print(ms_users)
 
 # Next will need to parse this JSON into something usable for this script. 
+
+# Create a table of user's object id, email address, and name
+# Maybe pandas, maybe not?
+# Potentially relevant: https://blog.darrenjrobinson.com/microsoft-graph-using-msal-with-python/
+
+# if a users exists in the dictionary, print the other key value pairs relating to that user. 
+#if "Amelia.Trainor@talkiatry.com" in ms_users:
+  #print(f"Amelia.Trainor@talkiatry.com is here.") # This works great. 
+
+# See if we can locate specific users within the dictionary using input with this method
+# https://bobbyhadz.com/blog/python-print-specific-key-value-pairs-of-dictionary
+
+# This is a dictionary with these keys:
+# @odata.context, @odata.nextLink, value
+# value contains a list with dictionaries inside it containing all the user information. 
 

@@ -12,6 +12,8 @@ import pandas as pd
 
 # Authenticate into Snowflake using SSO
 # Work on connecting via OAUTH instead? https://docs.snowflake.com/en/user-guide/python-connector-example.html#connecting-with-oauth
+# Auth with azure identity in Python? 
+# https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.5.0/sdk/identity/azure-identity/
 ctx = snowflake.connector.connect(
 	user='josh.marcus@talkiatry.com',
 	authenticator='externalbrowser',
