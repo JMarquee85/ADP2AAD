@@ -9,6 +9,8 @@
 
 import snowflake.connector
 import pandas as pd
+import msgraphpull as msg
+
 
 # Authenticate into Snowflake using SSO
 # Work on connecting via OAUTH instead? https://docs.snowflake.com/en/user-guide/python-connector-example.html#connecting-with-oauth
@@ -31,8 +33,8 @@ SELECT * FROM analytics.common.dim_employees
 ORDER by EMPLOYEE_LAST_NAME;
 '''
 
-#run the query
 try:
+	#run the query
 	cs.execute("USE ROLE engineer_role")
 	cs.execute("USE WAREHOUSE engineer_wh")
 	cs.execute(sql_query)
@@ -47,11 +49,9 @@ try:
 	results,
 	columns=[col[0] for col in cs.description],)	
 
-	# A list of test names. 
-	test_names = ["josh.marcus@talkiatry.com","sean.tracey@talkiatry.com","dharmendra.sant@talkiatry.com","georgia.gaveras@talkiatry.com","namrata.shah@talkiatry.com"]
 
 	# Filter through the pulled Snowflake df, set variables and do stuff. 
-	for row in df.itertuples(name='TestList'):
+	for row in df.itertuples(name='ADPUserList'):
 		# Can store this in a separate file later for readability- see variables.py
 		employee_id = getattr(row, 'EMPLOYEE_ID')
 		employee_full_name = getattr(row, 'EMPLOYEE_FULL_NAME')
@@ -69,19 +69,23 @@ try:
 		employee_zip = getattr(row, 'EMPLOYEE_ZIP')
 		employee_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
 
-		# This is currently to filter this out to just a few users. 
-		if employee_separation_date is not None:
-			print(f"{employee_full_name} is no longer with the company as of {employee_separation_date}\n")
-			#print (row, '\n')
+		## This is currently to filter this out to just a few users. 
+#		if employee_separation_date is not None:
+#			print(f"{employee_full_name},{employee_email}")
+#			#print(f"{employee_full_name} is no longer with the company as of {employee_separation_date}\n")
+#			#print (row, '\n')
+#		else:
+#			continue
+#			#print(f"Employee Name: {employee_full_name} \nEmployee Email: {employee_email}\n")
+
+	#Call the function from ms_graph_pull
+	#msg.ms_graph_pull()
+
+	# Now trying to pull in the MS Graph information and will write a block to check for matches in the MS Dict and the ADP data and print the results. 
+		if employee_email or employee_full_name in msg.ms_user_info:
+			print (f"Match for {employee_full_name} found!")
 		else:
-			print(f"Employee Name: {employee_full_name} \nEmployee Email: {employee_email}\n")
-
-			
-			 
-
-
-	# Get the Graph information into a dictionary or dataframe or something and test if employee email is in that dataframe. 
-	# If it is, print "josh.marcus@talkiatry.com found!" or something to that effect. 
+			print(f"User {employee_full_name} not found!")
 
 finally:
 	cs.close()
