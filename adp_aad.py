@@ -13,15 +13,16 @@ import msgraphpull as msg
 
 
 # Authenticate into Snowflake using SSO
-# Work on connecting via OAUTH instead? https://docs.snowflake.com/en/user-guide/python-connector-example.html#connecting-with-oauth
-# Auth with azure identity in Python? 
-# https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.5.0/sdk/identity/azure-identity/
 ctx = snowflake.connector.connect(
 	user='josh.marcus@talkiatry.com',
 	authenticator='externalbrowser',
 	account='pra18133',
 	region='us-east-1',
 	)
+
+# Currently working on OAuth for this script in Snowflake. Once completed with the Data team use the following to set up
+# OAuth for this script:
+# https://community.snowflake.com/s/article/How-To-Test-Azure-OAuth-Connection-To-Snowflake-End-To-End-Using-Python-Client-Credentials-Flow
 
 # Set up a cursor object.
 cs = ctx.cursor()
