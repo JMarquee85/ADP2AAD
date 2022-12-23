@@ -12,18 +12,7 @@ import requests
 import pandas as pd
 import json
 import msgraphpull as msg
-import logging # You know, for logging. You should write that in soon. 
-
-######## Working on replacing this below with OAuth. #########
-## Authenticate into Snowflake using SSO
-#ctx = snowflake.connector.connect(
-	#user='josh.marcus@talkiatry.com',
-	#authenticator='externalbrowser',
-	#account='pra18133',
-	#region='us-east-1',
-	#)
-
-# https://community.snowflake.com/s/article/How-To-Test-Azure-OAuth-Connection-To-Snowflake-End-To-End-Using-Python-Client-Credentials-Flow
+import logging 
 
 # Snowflake Options 
 # This information partially derived from putting the token in at jwt.io
@@ -52,7 +41,7 @@ response = requests.post(TOKEN_URL, data=PAYLOAD)
 json_data = json.loads(response.text)
 #print(json_data) # printing the JSON output for debugging purposes. 
 TOKEN = json_data['access_token']
-print(TOKEN) # Show me the token, baby. Take this out later. 
+#print(TOKEN) # Show me the token, baby. Take this out later. 
 print("Token obtained!")
 
 # Oh look, some logs. 
@@ -74,7 +63,7 @@ ctx = snowflake.connector.connect(
 
 # Set up a cursor object.
 cs = ctx.cursor()
-print("\nCursor object created.")
+print("Snowflake cursor object created.")
 
 # Query snowflake for the current employee data and sort by last name.
 sql_query = '''
@@ -109,7 +98,7 @@ try:
 		employee_department = getattr(row, 'EMPLOYEE_DEPARTMENT_OU_NAME_PREFERRED')
 		employee_current_role = getattr(row, 'EMPLOYEE_CURRENT_ROLE')
 		employee_current_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
-		employee_separation_date = getattr(row, 'EMPLOYEE_SEPARATION_DATE')
+		employee_separation_date = getattr(row, 'EMPLOYEE_SEPARATION_DATE') # To filter for termed users, can use if employee_separation_date is not None:
 		is_provider = getattr(row, 'IS_EMPLOYEE_CLINICAL_PROVIDER') #1 for yes, 0 for no
 		employee_supervisor_name = getattr(row, 'EMPLOYEE_SUPERVISOR_NAME')
 		employee_supervisor_email = getattr(row, 'EMPLOYEE_SUPERVISOR_EMAIL')

@@ -93,3 +93,9 @@ def ms_graph_pull():
   # Run it
 #ms_graph_pull()
 
+###################################
+# Create a function here to make the user changes with MS Graph. 
+
+def update_user():
+   
+
