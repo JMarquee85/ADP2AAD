@@ -1,7 +1,6 @@
 # QUERYING MS GRAPH
 # Created AAD Enterprise Application called ADP-AAD Graph
 # https://towardsdatascience.com/querying-microsoft-graph-api-with-python-269118e8180c
-# client_secret_id = b22ec483-d46d-453d-b808-cdf276fc092a
 
 #import libraries
 import msal
@@ -9,8 +8,7 @@ import json
 import requests #remove this once everything below is put into its own script. 
 import pandas as pd
 
-ms_user_info = []
-
+# The function to auth in to MS Graph and pull the user information. 
 def ms_graph_pull():
 
   # Create a token data dictionary to use with these requests
@@ -39,16 +37,13 @@ def ms_graph_pull():
     access_token = 'Bearer ' + token_result['access_token']
     print('New access token was acquired from Azure AD')  
 
-  # print(access_token) 
-
   ######################## 
 
   # GET USERS
   token = access_token
-  url = 'https://graph.microsoft.com/v1.0/users?$top=100'
-  #url = 'https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,manager,mail,jobTitle,Department,usertype'
+  #url = 'https://graph.microsoft.com/v1.0/users?$top=100'
+  url = 'https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,manager,mail,jobTitle,Department,usertype'
   # Previously the URL was this to select specific items: https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,mail,jobTitle,Department,usertype
-  # This fixes the issue for now, but we are going to have more than 999 soon. 
 
   # See this URL for selecting user properties, as in the above example:
   # https://learn.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http
@@ -56,70 +51,55 @@ def ms_graph_pull():
     'Authorization': token
   } 
 
-  # GETTING GROUP LISTING
-  # Copy access_token and specify the MS Graph API endpoint you want to call, e.g. 'https://graph.microsoft.com/v1.0/groups' to get all groups in your organization
-  #token = access_token
-  #url = 'https://graph.microsoft.com/v1.0/groups'
-  #headers = {
-  #  'Authorization': token
-  #}  
-
   # Make a GET request to the provided url, passing the access token in a header
   graph_result = requests.get(url=url, headers=headers) 
 
-  ms_dict = graph_result.json()
-  #print(type(ms_dict)) # shows this is class 'dict'
+  ms_dict = graph_result.json() #dict
+
+  # Test printing/ statements
+  #print(type(ms_dict)) # 'dict'
   #print(ms_dict)
+  #print(ms_dict['@odata.nextLink'])
 
-  users = ms_dict['value']
+  aad_users = ms_dict['value'] #list
 
-  # need to write a block here to see if '@odata.nextLink' is contained in the ms_dict response. If it is, we need to run the above again
-  # with a new URL and append the results to the list. 
-  # This should be a function that takes the URL as a parameter probably. 
+  #print(type(ms_dict))
+  #print(aad_users)
+  #print(type(aad_users)) 
 
-  print(ms_dict)
-  #print(users)
-  #print(type(users)) 
+ # Trying to cycle through the ms graph user information with pagination. 
+  print(f"Paginating Microsoft Graph output.")
 
- ## This does the job, but takes a long time. Might just use $top to get larger numbers at once and we will just use the Object ID for the users
-  # to make changes using MS Graph. 
   while '@odata.nextLink' in ms_dict:
     if url is None:
       print("No next link found.")
     else:
-      print(f"There is a link for a next page. Changing URL and appending the results to the users list.")
-      url = ms_dict.get['@odata.nextLink']
-      graph_result = requests.get(url=url, headers=headers)
-      users.append(graph_result.json)
-      print(len(users))
+      print(f"{url}")
+      url = ms_dict.get('@odata.nextLink') 
+      graph_result = requests.get(url=url, headers=headers) 
+      ms_dict = graph_result.json()
+      #print(ms_dict['@odata.nextLink'])
+      aad_users.append(ms_dict['value'])
+      
 
-  print(users)
+  print(aad_users[0])
+  print(type(aad_users))
+  #print(len(aad_users))
 
-  # https://learn.microsoft.com/en-us/graph/paging
-
-  #ms_user_info = ms_dict['value']
-  #print(ms_dict['value'])
-
-  # A for loop to match items in the dictionary and pull out that specific dictionary. 
-
-#  value_exists = False 
-
-#  for dictionary in ms_user_info:
-#    if dictionary.get('displayName') == 'Aaron Correia':
-#     # value_exists = True
-#      print(dictionary)
-
-#      break
-
-
-
+  # Creating a list of just users using some list comprehension. 
+  # https://stackoverflow.com/questions/46448278/extracting-dictionary-items-embedded-in-a-list
+  #just_usernames = [i['id'] for i in aad_users]
+  #just_usernames = list(map(lambda x: x['id'], aad_users))
+  #print(just_usernames)
 
   # Run it
-ms_graph_pull()
+#ms_graph_pull()
 
 ###################################
-# Create a function here to make the user changes with MS Graph. 
 
-def update_user():
-   
+## A function to update the users with Graph API commands.
+#def update_user():
+  ## Something coming soon.
+  #print('Nothing here yet.') 
+#   
 

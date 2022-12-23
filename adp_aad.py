@@ -11,8 +11,12 @@ import snowflake.connector
 import requests
 import pandas as pd
 import json
-import msgraphpull as msg
+from msgraphpull import *
 import logging 
+
+# Pull the Microsoft user information from msgraphpull
+print(f"Now pulling AAD users via Microsoft Graph...")
+ms_graph_pull()
 
 # Snowflake Options 
 # This information partially derived from putting the token in at jwt.io
@@ -118,7 +122,7 @@ try:
 
 
 	# Now trying to pull in the MS Graph information and will write a block to check for matches in the MS Dict and the ADP data and print the results. 
-		if employee_email or employee_full_name in msg.ms_user_info:
+		if employee_email or employee_full_name in msgraphpull.aad_users:
 			print (f"Match for {employee_full_name} found!")
 		else:
 			print(f"User {employee_full_name} not found!")
