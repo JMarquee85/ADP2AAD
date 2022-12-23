@@ -7,6 +7,7 @@
 import msal
 import json
 import requests #remove this once everything below is put into its own script. 
+import pandas as pd
 
 ms_user_info = []
 
@@ -40,16 +41,12 @@ def ms_graph_pull():
 
   # print(access_token) 
 
-  ########################
-  # This should be separated into another script or function later on and called in the main body of the script 
-
-  #import requests # this is called above for the moment.   
-
-  # This is great, but I think it is limited due to pagination limits.  
+  ######################## 
 
   # GET USERS
   token = access_token
-  url = 'https://graph.microsoft.com/v1.0/users?$top=999'
+  url = 'https://graph.microsoft.com/v1.0/users?$top=100'
+  #url = 'https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,manager,mail,jobTitle,Department,usertype'
   # Previously the URL was this to select specific items: https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,mail,jobTitle,Department,usertype
   # This fixes the issue for now, but we are going to have more than 999 soon. 
 
@@ -72,11 +69,35 @@ def ms_graph_pull():
 
   ms_dict = graph_result.json()
   #print(type(ms_dict)) # shows this is class 'dict'
-  #print(ms_dict)  
-  # This is the list of dictionaries that contain the user information. 
-  # Using what is written here to look for items inside the dictionary: 
-  # https://bobbyhadz.com/blog/python-check-if-value-exists-in-list-of-dictionaries
-  ms_user_info = ms_dict['value']
+  #print(ms_dict)
+
+  users = ms_dict['value']
+
+  # need to write a block here to see if '@odata.nextLink' is contained in the ms_dict response. If it is, we need to run the above again
+  # with a new URL and append the results to the list. 
+  # This should be a function that takes the URL as a parameter probably. 
+
+  print(ms_dict)
+  #print(users)
+  #print(type(users)) 
+
+ ## This does the job, but takes a long time. Might just use $top to get larger numbers at once and we will just use the Object ID for the users
+  # to make changes using MS Graph. 
+  while '@odata.nextLink' in ms_dict:
+    if url is None:
+      print("No next link found.")
+    else:
+      print(f"There is a link for a next page. Changing URL and appending the results to the users list.")
+      url = ms_dict.get['@odata.nextLink']
+      graph_result = requests.get(url=url, headers=headers)
+      users.append(graph_result.json)
+      print(len(users))
+
+  print(users)
+
+  # https://learn.microsoft.com/en-us/graph/paging
+
+  #ms_user_info = ms_dict['value']
   #print(ms_dict['value'])
 
   # A for loop to match items in the dictionary and pull out that specific dictionary. 
@@ -90,6 +111,9 @@ def ms_graph_pull():
 
 #      break
 
+
+
+
   # Run it
-#ms_graph_pull()
+ms_graph_pull()
 
