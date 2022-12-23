@@ -8,21 +8,69 @@
 # https://docs.snowflake.com/en/user-guide/python-connector-example.html
 
 import snowflake.connector
+import requests
 import pandas as pd
+import json
 import msgraphpull as msg
+import logging # You know, for logging. You should write that in soon. 
 
+######## Working on replacing this below with OAuth. #########
+## Authenticate into Snowflake using SSO
+#ctx = snowflake.connector.connect(
+	#user='josh.marcus@talkiatry.com',
+	#authenticator='externalbrowser',
+	#account='pra18133',
+	#region='us-east-1',
+	#)
 
-# Authenticate into Snowflake using SSO
-ctx = snowflake.connector.connect(
-	user='josh.marcus@talkiatry.com',
-	authenticator='externalbrowser',
-	account='pra18133',
-	region='us-east-1',
-	)
-
-# Currently working on OAuth for this script in Snowflake. Once completed with the Data team use the following to set up
-# OAuth for this script:
 # https://community.snowflake.com/s/article/How-To-Test-Azure-OAuth-Connection-To-Snowflake-End-To-End-Using-Python-Client-Credentials-Flow
+
+# Snowflake Options 
+# This information partially derived from putting the token in at jwt.io
+USER = "d919f591-ed37-4df3-aa8d-b757d8a5b8f3"
+ACCOUNT = "pra18133" # Changed from pra18133.us-east-1
+REGION = "us-east-1"
+ROLE = "AAD_ROLE"
+DATABASE = "ANALYTICS"
+SCHEMA = "COMMON"
+WAREHOUSE = "AAD_WH"
+
+# Azure AD options
+AUTH_CLIENT_ID = "be49d25b-e84f-4a5b-9726-c616a16ca4c5"
+AUTH_CLIENT_SECRET = "nO58Q~hqpy93aKskNwKOrA5tV_7z4YJYH.4QzcB5"
+AUTH_GRANT_TYPE = "client_credentials"
+SCOPE_URL = 'api://e2b6615d-8867-4196-bf8b-ba61aa2f53fa/.default'
+TOKEN_URL = 'https://login.microsoftonline.com/803a6c90-ec72-4384-b2c0-1a376841a04b/oauth2/v2.0/token'
+PAYLOAD = "client_id={clientId}&" \
+          "client_secret={clientSecret}&" \
+          "grant_type={grantType}&" \
+          "scope={scopeUrl}".format(clientId=AUTH_CLIENT_ID, clientSecret=AUTH_CLIENT_SECRET, grantType=AUTH_GRANT_TYPE,
+                                    scopeUrl=SCOPE_URL)
+
+print("Getting JWT token... ")
+response = requests.post(TOKEN_URL, data=PAYLOAD)
+json_data = json.loads(response.text)
+#print(json_data) # printing the JSON output for debugging purposes. 
+TOKEN = json_data['access_token']
+print(TOKEN) # Show me the token, baby. Take this out later. 
+print("Token obtained!")
+
+# Oh look, some logs. 
+logging.basicConfig(filename="log.log", level=logging.DEBUG	)
+
+# Snowflake connection
+print("Connecting to Snowflake... ")
+ctx = snowflake.connector.connect(
+                user=USER,
+                account=ACCOUNT,
+                region=REGION,
+                role=ROLE,
+                authenticator="oauth",
+                token=TOKEN,
+                warehouse=WAREHOUSE,
+                database=DATABASE,
+                schema=SCHEMA
+                )
 
 # Set up a cursor object.
 cs = ctx.cursor()
@@ -36,8 +84,8 @@ ORDER by EMPLOYEE_LAST_NAME;
 
 try:
 	#run the query
-	cs.execute("USE ROLE engineer_role")
-	cs.execute("USE WAREHOUSE engineer_wh")
+	#cs.execute("USE ROLE engineer_role")
+	cs.execute("USE WAREHOUSE AAD_WH")
 	cs.execute(sql_query)
 	results = cs.fetch_pandas_all()
 
@@ -79,8 +127,6 @@ try:
 #			continue
 #			#print(f"Employee Name: {employee_full_name} \nEmployee Email: {employee_email}\n")
 
-	#Call the function from ms_graph_pull
-	#msg.ms_graph_pull()
 
 	# Now trying to pull in the MS Graph information and will write a block to check for matches in the MS Dict and the ADP data and print the results. 
 		if employee_email or employee_full_name in msg.ms_user_info:
