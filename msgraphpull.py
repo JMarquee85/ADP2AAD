@@ -8,6 +8,8 @@ import json
 import requests #remove this once everything below is put into its own script. 
 import pandas as pd
 
+
+
 # The function to auth in to MS Graph and pull the user information. 
 def ms_graph_pull():
 
@@ -80,10 +82,12 @@ def ms_graph_pull():
       ms_dict = graph_result.json()
       #print(ms_dict['@odata.nextLink'])
       aad_users.append(ms_dict['value'])
+
+  return aad_users
       
 
-  print(aad_users[0])
-  print(type(aad_users))
+  #print(aad_users[0])
+  #print(type(aad_users))
   #print(len(aad_users))
 
   # Creating a list of just users using some list comprehension. 

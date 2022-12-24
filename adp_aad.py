@@ -16,7 +16,9 @@ import logging
 
 # Pull the Microsoft user information from msgraphpull
 print(f"Now pulling AAD users via Microsoft Graph...")
-ms_graph_pull()
+ms_users = ms_graph_pull()
+#print(ms_users[1:10])
+
 
 # Snowflake Options 
 # This information partially derived from putting the token in at jwt.io
@@ -120,10 +122,14 @@ try:
 #			continue
 #			#print(f"Employee Name: {employee_full_name} \nEmployee Email: {employee_email}\n")
 
+	
+
 
 	# Now trying to pull in the MS Graph information and will write a block to check for matches in the MS Dict and the ADP data and print the results. 
-		if employee_email or employee_full_name in msgraphpull.aad_users:
-			print (f"Match for {employee_full_name} found!")
+	# This is working again, except many of the names it's catching here do exist in AAD. Need to dig a bit into that. 
+		if employee_email or employee_full_name in ms_users:
+			#print (f"Match for {employee_full_name} found!")
+			continue
 		else:
 			print(f"User {employee_full_name} not found!")
 
