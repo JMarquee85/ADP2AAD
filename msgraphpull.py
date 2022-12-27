@@ -37,7 +37,7 @@ def ms_graph_pull():
   if not token_result:
     token_result = client.acquire_token_for_client(scopes=scope)
     access_token = 'Bearer ' + token_result['access_token']
-    print('New access token was acquired from Azure AD')  
+    print('New access token acquired from Azure AD!')  
 
   ######################## 
 
@@ -63,6 +63,7 @@ def ms_graph_pull():
   #print(ms_dict)
   #print(ms_dict['@odata.nextLink'])
 
+  global aad_users
   aad_users = ms_dict['value'] #list
 
   #print(type(ms_dict))
@@ -76,17 +77,17 @@ def ms_graph_pull():
     if url is None:
       print("No next link found.")
     else:
-      #print(f"{url}")
       url = ms_dict.get('@odata.nextLink') 
       graph_result = requests.get(url=url, headers=headers) 
       ms_dict = graph_result.json()
       #print(ms_dict['@odata.nextLink'])
+      # Add something here that removes Service Accounts and Vendors. Something like:
+      # if department != "Service Account" or "Vendor" or "Shared Mailbox":
       aad_users.append(ms_dict['value'])
 
+  #print(aad_users)
   return aad_users
-      
 
-  #print(aad_users[0])
   #print(type(aad_users))
   #print(len(aad_users))
 
@@ -106,6 +107,19 @@ def ms_graph_pull():
 ## A function to update the users with Graph API commands.
 # Will likely pass the ADP information into this and compare it to the Graph information. 
 def update_user(emp_id, full_name, preferred_name, email, department, current_role, start_date, term_date, is_provider, manager, manager_email, city, state, zip_code):
-  #if email in ms_users:
-    #print(f"{full_name} found in the Microsoft Graph output!")
     print(f"ID: {emp_id}\nFull Name: {full_name}\nPreferred Name: {preferred_name}\nEmail: {email}\nDepartment: {department}\nJob Title: {current_role}\nStart Date: {start_date}\nTermination Date: {term_date}\nProvider: {is_provider}\nManager: {manager}\nManager Email: {manager_email}\nCity: {city}\nState: {state}\nZip Code: {zip_code}\n\n")
+
+
+
+
+  # Need a way to get access to the matching dictionary in the aad_users list of dictionaries based on input from the ADP info
+  # i.e.: get passed a user's email address and return the dictionary that contains that user's email address and compare the information we're getting
+  # from ADP, pass if it's the same and make the changes with Graph if it is not. 
+
+  # See here: https://stackoverflow.com/questions/7079241/python-get-a-dict-from-a-list-based-on-something-inside-the-dict
+  # And here: https://stackoverflow.com/questions/8653516/python-list-of-dictionaries-search
+  #found_dict = next((item for item in ms_graph_pull.aad_users if item['mail'] == email), None)
+                                      # This is showing as undefined. 
+                                      # Might just try to write the function to just make the changes regardless and write in the 
+                                      # check to see if the data matches in MS Graph as a second phase of this thing. 
+  #print(found_dict)

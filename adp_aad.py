@@ -95,6 +95,13 @@ try:
 	users_no_email = []
 	termed_users = []
 
+	# Function to check for a value inside of a dictionary
+	def email_check(some_dict, value):
+		for elem in some_dict:
+			if value in elem.values():
+				return True 
+		return False
+
 
 	# Filter through the pulled Snowflake df, set variables and do stuff. 
 	for row in df.itertuples(name='ADPUserList'):
@@ -114,24 +121,36 @@ try:
 		employee_state = getattr(row, 'EMPLOYEE_STATE')
 		employee_zip = getattr(row, 'EMPLOYEE_ZIP')
 
-	## Creating list of users with no email address or a non-Talkiatry one. 
-		#if employee_email == None or "@talkiatry.com" not in employee_email and employee_separation_date != None:
-			#users_no_email.append(employee_full_name)
+	# Write test to see if the ADP email address exists in MS Graph, run update_user if it does, and log it if it does not. 
+	# https://thispointer.com/python-check-if-value-exists-in-list-of-dictionaries/
+		value = employee_email
+		if email_check(ms_users, value):
+			print(f"{employee_email} found in MS Users dictionary!")
+		else:
+			print(f"Not found!")
 
 	# Run the update_user function here with the above info:
-		#update_user(employee_id, employee_full_name, employee_preferred_name, employee_email, employee_department, employee_current_role, employee_start_date, employee_separation_date, is_provider, employee_supervisor_name, employee_supervisor_email, employee_city, employee_state, employee_zip)
+		#if any(email_check):
+			#print(f"User found!\n")
+			#update_user(employee_id, employee_full_name, employee_preferred_name, employee_email, employee_department, employee_current_role, employee_start_date, employee_separation_date, is_provider, employee_supervisor_name, employee_supervisor_email, employee_city, employee_state, employee_zip)
+			#logging.info(f"{employee_full_name} sync attempted in Microsoft Graph.")
+		#else: 
+			#print(f"User {employee_full_name} not found in MS Users!")
+
+	#print(ms_users)
+	#print(type(ms_users))
 	
 	# Create a block here that looks for Email == None or email does not contain @talkiatry.com, add them to a CSV, store locally and then create a ticket for HR to deal with this. 
 	# Also create a method in this program to email HR@Talkiatry.com if this is detected again. 
 
-	 #Now trying to pull in the MS Graph information and will write a block to check for matches in the MS Dict and the ADP data and print the results. 
-	 #This is working again, except many of the names it's catching here do exist in AAD. Need to dig a bit into that. 
-		if employee_email or employee_full_name in ms_users:
-			#print (f"Match for {employee_full_name} found!")
-			continue
-		else:
-			print(f"User {employee_full_name} not found!")
-			logging.error(f"User {employee_full_name} not found in Microsoft Graph Data!")
+	 ##Now trying to pull in the MS Graph information and will write a block to check for matches in the MS Dict and the ADP data and print the results. 
+	 ##This is working again, except many of the names it's catching here do exist in AAD. Need to dig a bit into that. 
+		#if employee_email or employee_full_name in ms_users:
+			##print (f"Match for {employee_full_name} found!")
+			#continue
+		#else:
+			#print(f"User {employee_full_name} not found!")
+			#logging.error(f"User {employee_full_name} not found in Microsoft Graph Data!")
 
 
 finally:
