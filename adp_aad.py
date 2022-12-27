@@ -13,17 +13,15 @@ import pandas as pd
 import json
 from msgraphpull import *
 import logging 
+import csv
 
 # Pull the Microsoft user information from msgraphpull
 print(f"Now pulling AAD users via Microsoft Graph...")
 ms_users = ms_graph_pull()
-#print(ms_users[1:10])
-
 
 # Snowflake Options 
-# This information partially derived from putting the token in at jwt.io
 USER = "d919f591-ed37-4df3-aa8d-b757d8a5b8f3"
-ACCOUNT = "pra18133" # Changed from pra18133.us-east-1
+ACCOUNT = "pra18133"
 REGION = "us-east-1"
 ROLE = "AAD_ROLE"
 DATABASE = "ANALYTICS"
@@ -45,13 +43,13 @@ PAYLOAD = "client_id={clientId}&" \
 print("Getting JWT token... ")
 response = requests.post(TOKEN_URL, data=PAYLOAD)
 json_data = json.loads(response.text)
-#print(json_data) # printing the JSON output for debugging purposes. 
 TOKEN = json_data['access_token']
-#print(TOKEN) # Show me the token, baby. Take this out later. 
 print("Token obtained!")
 
 # Oh look, some logs. 
-logging.basicConfig(filename="log.log", level=logging.DEBUG	)
+logging.basicConfig(filename="debug.log", level=logging.DEBUG, filemode="w")
+#logging.basicConfig(filename="info.log", level=logging.INFO)
+#logging.basicConfig(filename="error.log", level=logging.ERROR )
 
 # Snowflake connection
 print("Connecting to Snowflake... ")
@@ -93,6 +91,10 @@ try:
 	results,
 	columns=[col[0] for col in cs.description],)	
 
+	# List to hold the user names with no email/ a non-talkiatry email address listed in ADP. 
+	users_no_email = []
+	termed_users = []
+
 
 	# Filter through the pulled Snowflake df, set variables and do stuff. 
 	for row in df.itertuples(name='ADPUserList'):
@@ -103,7 +105,7 @@ try:
 		employee_email = getattr(row, 'EMPLOYEE_EMAIL')
 		employee_department = getattr(row, 'EMPLOYEE_DEPARTMENT_OU_NAME_PREFERRED')
 		employee_current_role = getattr(row, 'EMPLOYEE_CURRENT_ROLE')
-		employee_current_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
+		employee_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
 		employee_separation_date = getattr(row, 'EMPLOYEE_SEPARATION_DATE') # To filter for termed users, can use if employee_separation_date is not None:
 		is_provider = getattr(row, 'IS_EMPLOYEE_CLINICAL_PROVIDER') #1 for yes, 0 for no
 		employee_supervisor_name = getattr(row, 'EMPLOYEE_SUPERVISOR_NAME')
@@ -111,27 +113,26 @@ try:
 		employee_city = getattr(row, 'EMPLOYEE_CITY')
 		employee_state = getattr(row, 'EMPLOYEE_STATE')
 		employee_zip = getattr(row, 'EMPLOYEE_ZIP')
-		employee_start_date = getattr(row, 'EMPLOYEE_CURRENT_START_DATE')
 
-		## This is currently to filter this out to just a few users. 
-#		if employee_separation_date is not None:
-#			print(f"{employee_full_name},{employee_email}")
-#			#print(f"{employee_full_name} is no longer with the company as of {employee_separation_date}\n")
-#			#print (row, '\n')
-#		else:
-#			continue
-#			#print(f"Employee Name: {employee_full_name} \nEmployee Email: {employee_email}\n")
+	## Creating list of users with no email address or a non-Talkiatry one. 
+		#if employee_email == None or "@talkiatry.com" not in employee_email and employee_separation_date != None:
+			#users_no_email.append(employee_full_name)
 
+	# Run the update_user function here with the above info:
+		#update_user(employee_id, employee_full_name, employee_preferred_name, employee_email, employee_department, employee_current_role, employee_start_date, employee_separation_date, is_provider, employee_supervisor_name, employee_supervisor_email, employee_city, employee_state, employee_zip)
 	
+	# Create a block here that looks for Email == None or email does not contain @talkiatry.com, add them to a CSV, store locally and then create a ticket for HR to deal with this. 
+	# Also create a method in this program to email HR@Talkiatry.com if this is detected again. 
 
-
-	# Now trying to pull in the MS Graph information and will write a block to check for matches in the MS Dict and the ADP data and print the results. 
-	# This is working again, except many of the names it's catching here do exist in AAD. Need to dig a bit into that. 
+	 #Now trying to pull in the MS Graph information and will write a block to check for matches in the MS Dict and the ADP data and print the results. 
+	 #This is working again, except many of the names it's catching here do exist in AAD. Need to dig a bit into that. 
 		if employee_email or employee_full_name in ms_users:
 			#print (f"Match for {employee_full_name} found!")
 			continue
 		else:
 			print(f"User {employee_full_name} not found!")
+			logging.error(f"User {employee_full_name} not found in Microsoft Graph Data!")
+
 
 finally:
 	cs.close()

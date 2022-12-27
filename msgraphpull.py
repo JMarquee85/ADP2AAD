@@ -70,13 +70,13 @@ def ms_graph_pull():
   #print(type(aad_users)) 
 
  # Trying to cycle through the ms graph user information with pagination. 
-  print(f"Paginating Microsoft Graph output.")
+  print(f"Paginating Microsoft Graph output...")
 
   while '@odata.nextLink' in ms_dict:
     if url is None:
       print("No next link found.")
     else:
-      print(f"{url}")
+      #print(f"{url}")
       url = ms_dict.get('@odata.nextLink') 
       graph_result = requests.get(url=url, headers=headers) 
       ms_dict = graph_result.json()
@@ -101,9 +101,11 @@ def ms_graph_pull():
 
 ###################################
 
-## A function to update the users with Graph API commands.
-#def update_user():
-  ## Something coming soon.
-  #print('Nothing here yet.') 
-#   
+# Write a class version of the below as well. 
 
+## A function to update the users with Graph API commands.
+# Will likely pass the ADP information into this and compare it to the Graph information. 
+def update_user(emp_id, full_name, preferred_name, email, department, current_role, start_date, term_date, is_provider, manager, manager_email, city, state, zip_code):
+  #if email in ms_users:
+    #print(f"{full_name} found in the Microsoft Graph output!")
+    print(f"ID: {emp_id}\nFull Name: {full_name}\nPreferred Name: {preferred_name}\nEmail: {email}\nDepartment: {department}\nJob Title: {current_role}\nStart Date: {start_date}\nTermination Date: {term_date}\nProvider: {is_provider}\nManager: {manager}\nManager Email: {manager_email}\nCity: {city}\nState: {state}\nZip Code: {zip_code}\n\n")

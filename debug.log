@@ -1,0 +1,434 @@
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.8.1, Python Version: 3.10.8, Platform: Windows-10-10.0.22000-SP0
+DEBUG:snowflake.connector.connection:connect
+DEBUG:snowflake.connector.connection:__config
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+DEBUG:snowflake.connector.converter:use_numpy: False
+DEBUG:snowflake.connector.converter_issue23517:initialized
+DEBUG:snowflake.connector.connection:REST API object was created: pra18133.us-east-1.snowflakecomputing.com:443
+DEBUG:snowflake.connector.auth:authenticate
+DEBUG:snowflake.connector.auth:assertion content: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJhcGk6Ly9lMmI2NjE1ZC04ODY3LTQxOTYtYmY4Yi1iYTYxYWEyZjUzZmEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC84MDNhNmM5MC1lYzcyLTQzODQtYjJjMC0xYTM3Njg0MWEwNGIvIiwiaWF0IjoxNjcyMTc3NDMxLCJuYmYiOjE2NzIxNzc0MzEsImV4cCI6MTY3MjE4MTMzMSwiYWlvIjoiRTJaZ1lOaTcvc21OY3JZSmhuOHFyZSt3dEU3ZkFBQT0iLCJhcHBpZCI6ImJlNDlkMjViLWU4NGYtNGE1Yi05NzI2LWM2MTZhMTZjYTRjNSIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzgwM2E2YzkwLWVjNzItNDM4NC1iMmMwLTFhMzc2ODQxYTA0Yi8iLCJvaWQiOiJkOTE5ZjU5MS1lZDM3LTRkZjMtYWE4ZC1iNzU3ZDhhNWI4ZjMiLCJyaCI6IjAuQVgwQWtHdzZnSExzaEVPeXdCbzNhRUdnUzExaHR1Sm5pSlpCdjR1Nllhb3ZVX3A5QUFBLiIsInJvbGVzIjpbInNlc3Npb246cm9sZTpBQURfUk9MRSJdLCJzdWIiOiJkOTE5ZjU5MS1lZDM3LTRkZjMtYWE4ZC1iNzU3ZDhhNWI4ZjMiLCJ0aWQiOiI4MDNhNmM5MC1lYzcyLTQzODQtYjJjMC0xYTM3Njg0MWEwNGIiLCJ1dGkiOiJESU5SQ3hDa1YwU0plZlN2RkJHREFnIiwidmVyIjoiMS4wIn0.bWt47YUopHOMTjcUYgd0nOT7JJf0wSnOGuTgb4bmDM2yUUzu3phhHpyQGEwUPQfRAsFydScmdGcdnSH0IORcUd4tnMcX0qxoOGZhD4MJ723okuUehZhUEdw9VcqooCRIqWC6OEGQvcxCCavXQYznitzVPjD4YxSoYBAmKifE4Znm11cLZmUX7TIoEjkzNjHxfvjMSOnJ2yeWmB419gZqGkEmTTrj8Pzl9BcXoJN3fbgXN5U9EJ8lFhAhDimWQPnkzwLjPWRBNY3kdh45qxyGrEC0k2Wg7hdUahwa3MTDav2R5OlKa_siQOzc53DZQEparkM9jcVQrByFrFpqKA43nw
+DEBUG:snowflake.connector.auth:account=pra18133, user=d919f591-ed37-4df3-aa8d-b757d8a5b8f3, database=ANALYTICS, schema=COMMON, warehouse=AAD_WH, role=AAD_ROLE, request_id=0beecef0-cf7d-4927-91f2-08879e772ab7
+DEBUG:snowflake.connector.auth:body['data']: {'CLIENT_APP_ID': 'PythonConnector', 'CLIENT_APP_VERSION': '2.8.1', 'SVN_REVISION': None, 'ACCOUNT_NAME': 'pra18133', 'LOGIN_NAME': 'd919f591-ed37-4df3-aa8d-b757d8a5b8f3', 'CLIENT_ENVIRONMENT': {'APPLICATION': 'PythonConnector', 'OS': 'Windows', 'OS_VERSION': 'Windows-10-10.0.22000-SP0', 'PYTHON_VERSION': '3.10.8', 'PYTHON_RUNTIME': 'CPython', 'PYTHON_COMPILER': 'MSC v.1933 64 bit (AMD64)', 'OCSP_MODE': 'FAIL_OPEN', 'TRACING': 10, 'LOGIN_TIMEOUT': 120, 'NETWORK_TIMEOUT': None}, 'AUTHENTICATOR': 'OAUTH', 'TOKEN': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJhcGk6Ly9lMmI2NjE1ZC04ODY3LTQxOTYtYmY4Yi1iYTYxYWEyZjUzZmEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC84MDNhNmM5MC1lYzcyLTQzODQtYjJjMC0xYTM3Njg0MWEwNGIvIiwiaWF0IjoxNjcyMTc3NDMxLCJuYmYiOjE2NzIxNzc0MzEsImV4cCI6MTY3MjE4MTMzMSwiYWlvIjoiRTJaZ1lOaTcvc21OY3JZSmhuOHFyZSt3dEU3ZkFBQT0iLCJhcHBpZCI6ImJlNDlkMjViLWU4NGYtNGE1Yi05NzI2LWM2MTZhMTZjYTRjNSIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzgwM2E2YzkwLWVjNzItNDM4NC1iMmMwLTFhMzc2ODQxYTA0Yi8iLCJvaWQiOiJkOTE5ZjU5MS1lZDM3LTRkZjMtYWE4ZC1iNzU3ZDhhNWI4ZjMiLCJyaCI6IjAuQVgwQWtHdzZnSExzaEVPeXdCbzNhRUdnUzExaHR1Sm5pSlpCdjR1Nllhb3ZVX3A5QUFBLiIsInJvbGVzIjpbInNlc3Npb246cm9sZTpBQURfUk9MRSJdLCJzdWIiOiJkOTE5ZjU5MS1lZDM3LTRkZjMtYWE4ZC1iNzU3ZDhhNWI4ZjMiLCJ0aWQiOiI4MDNhNmM5MC1lYzcyLTQzODQtYjJjMC0xYTM3Njg0MWEwNGIiLCJ1dGkiOiJESU5SQ3hDa1YwU0plZlN2RkJHREFnIiwidmVyIjoiMS4wIn0.bWt47YUopHOMTjcUYgd0nOT7JJf0wSnOGuTgb4bmDM2yUUzu3phhHpyQGEwUPQfRAsFydScmdGcdnSH0IORcUd4tnMcX0qxoOGZhD4MJ723okuUehZhUEdw9VcqooCRIqWC6OEGQvcxCCavXQYznitzVPjD4YxSoYBAmKifE4Znm11cLZmUX7TIoEjkzNjHxfvjMSOnJ2yeWmB419gZqGkEmTTrj8Pzl9BcXoJN3fbgXN5U9EJ8lFhAhDimWQPnkzwLjPWRBNY3kdh45qxyGrEC0k2Wg7hdUahwa3MTDav2R5OlKa_siQOzc53DZQEparkM9jcVQrByFrFpqKA43nw', 'SESSION_PARAMETERS': {'CLIENT_PREFETCH_THREADS': 4}}
+DEBUG:snowflake.connector.auth:Timeout set to 120
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 1/1 active sessions
+DEBUG:snowflake.connector.network:remaining request timeout: 120, retry cnt: 1
+DEBUG:snowflake.connector.network:Request guid: 92983e11-3274-4924-aaad-49c49557ce57
+DEBUG:snowflake.connector.network:socket timeout: 60
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:Starting new HTTPS connection (1): pra18133.us-east-1.snowflakecomputing.com:443
+DEBUG:filelock:Attempting to acquire lock 2396213644448 on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
+DEBUG:filelock:Lock 2396213644448 acquired on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
+DEBUG:filelock:Attempting to acquire lock 2396213915568 on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
+DEBUG:filelock:Lock 2396213915568 not acquired on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock, waiting 0.05 seconds ...
+DEBUG:filelock:Attempting to acquire lock 2396213915568 on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
+DEBUG:filelock:Timeout on acquiring lock 2396213915568 on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
+DEBUG:snowflake.connector.cache:acquiring C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock timed out, skipping saving...
+DEBUG:filelock:Attempting to release lock 2396213644448 on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
+DEBUG:filelock:Lock 2396213644448 released on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
+DEBUG:snowflake.connector.ocsp_snowflake:cache directory: C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches
+DEBUG:snowflake.connector.ssl_wrap_socket:OCSP Mode: FAIL_OPEN, OCSP response cache file name: None
+DEBUG:snowflake.connector.ocsp_snowflake:ocsp_response_cache_uri: file://C:/Users/JoshMarcus/AppData/Local/Snowflake/Caches/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP_VALIDATION_CACHE size: 0
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP response cache server is enabled: http://ocsp.snowflakecomputing.com/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP dynamic cache server RETRY URL: None
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-01 15:50:07+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-15 00:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:Read OCSP response cache file: C:/Users/JoshMarcus/AppData/Local/Snowflake/Caches/ocsp_response_cache.json, count=205
+DEBUG:snowflake.connector.ocsp_snowflake:validating certificate: pra18133.us-east-1.snowflakecomputing.com
+DEBUG:snowflake.connector.ocsp_asn1crypto:# of certificates: 4
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('common_name', '*.us-east-1.snowflakecomputing.com')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')]), issuer: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:reading certificate bundle: C:\Python310\lib\site-packages\certifi\cacert.pem
+DEBUG:snowflake.connector.ocsp_asn1crypto:not found issuer_der: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('common_name', '*.us-east-1.snowflakecomputing.com')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:snowflake.connector.ocsp_snowflake:writing OCSP response cache file to C:/Users/JoshMarcus/AppData/Local/Snowflake/Caches/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:encoding OCSP response cache to JSON
+DEBUG:snowflake.connector.ocsp_snowflake:ok
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://pra18133.us-east-1.snowflakecomputing.com:443 "POST /session/v1/login-request?request_id=0beecef0-cf7d-4927-91f2-08879e772ab7&databaseName=ANALYTICS&schemaName=COMMON&warehouse=AAD_WH&roleName=AAD_ROLE&request_guid=92983e11-3274-4924-aaad-49c49557ce57 HTTP/1.1" 200 1551
+DEBUG:snowflake.connector.network:SUCCESS
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 0/1 active sessions
+DEBUG:snowflake.connector.network:ret[code] = None, after post request
+DEBUG:snowflake.connector.auth:completed authentication
+DEBUG:snowflake.connector.auth:token = ******
+DEBUG:snowflake.connector.auth:master_token = ******
+DEBUG:snowflake.connector.auth:id_token = NULL
+DEBUG:snowflake.connector.auth:mfa_token = NULL
+DEBUG:snowflake.connector.connection:cursor
+DEBUG:snowflake.connector.cursor:executing SQL/command
+DEBUG:snowflake.connector.cursor:binding: [USE WAREHOUSE AAD_WH] with input=[None], processed=[{}]
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+DEBUG:snowflake.connector.connection:sequence counter: 1
+DEBUG:snowflake.connector.cursor:Request id: a85aea2c-7470-4795-ae5f-e7178c7bcebe
+DEBUG:snowflake.connector.cursor:running query [USE WAREHOUSE AAD_WH]
+DEBUG:snowflake.connector.cursor:is_file_transfer: False
+DEBUG:snowflake.connector.connection:_cmd_query
+DEBUG:snowflake.connector.connection:sql=[USE WAREHOUSE AAD_WH], sequence_id=[1], is_file_transfer=[False]
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 1/1 active sessions
+DEBUG:snowflake.connector.network:remaining request timeout: None, retry cnt: 1
+DEBUG:snowflake.connector.network:Request guid: 334bed29-9ce0-4698-9fac-80e1e33b9731
+DEBUG:snowflake.connector.network:socket timeout: 60
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://pra18133.us-east-1.snowflakecomputing.com:443 "POST /queries/v1/query-request?requestId=a85aea2c-7470-4795-ae5f-e7178c7bcebe&request_guid=334bed29-9ce0-4698-9fac-80e1e33b9731 HTTP/1.1" 200 1110
+DEBUG:snowflake.connector.network:SUCCESS
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 0/1 active sessions
+DEBUG:snowflake.connector.network:ret[code] = None, after post request
+DEBUG:snowflake.connector.network:Query id: 01a941bc-0402-dc89-0061-aa8303041732
+DEBUG:snowflake.connector.cursor:sfqid: 01a941bc-0402-dc89-0061-aa8303041732
+INFO:snowflake.connector.cursor:query execution done
+DEBUG:snowflake.connector.cursor:SUCCESS
+DEBUG:snowflake.connector.cursor:PUT OR GET: None
+DEBUG:snowflake.connector.cursor:Query result format: json
+DEBUG:snowflake.connector.result_batch:parsing for result batch id: 1
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+DEBUG:snowflake.connector.cursor:executing SQL/command
+DEBUG:snowflake.connector.cursor:binding: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;] with input=[None], processed=[{}]
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+DEBUG:snowflake.connector.connection:sequence counter: 2
+DEBUG:snowflake.connector.cursor:Request id: a3db0ca3-2698-41c3-92e1-939eb1b41877
+DEBUG:snowflake.connector.cursor:running query [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+DEBUG:snowflake.connector.cursor:is_file_transfer: False
+DEBUG:snowflake.connector.connection:_cmd_query
+DEBUG:snowflake.connector.connection:sql=[SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;], sequence_id=[2], is_file_transfer=[False]
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 1/1 active sessions
+DEBUG:snowflake.connector.network:remaining request timeout: None, retry cnt: 1
+DEBUG:snowflake.connector.network:Request guid: 35f774d7-5869-4872-aed8-8565a5a8bcf1
+DEBUG:snowflake.connector.network:socket timeout: 60
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://pra18133.us-east-1.snowflakecomputing.com:443 "POST /queries/v1/query-request?requestId=a3db0ca3-2698-41c3-92e1-939eb1b41877&request_guid=35f774d7-5869-4872-aed8-8565a5a8bcf1 HTTP/1.1" 200 2156
+DEBUG:snowflake.connector.network:SUCCESS
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 0/1 active sessions
+DEBUG:snowflake.connector.network:ret[code] = None, after post request
+DEBUG:snowflake.connector.network:Query id: 01a941bc-0402-dc27-0061-aa8303040cde
+DEBUG:snowflake.connector.cursor:sfqid: 01a941bc-0402-dc27-0061-aa8303040cde
+INFO:snowflake.connector.cursor:query execution done
+DEBUG:snowflake.connector.cursor:SUCCESS
+DEBUG:snowflake.connector.cursor:PUT OR GET: None
+DEBUG:snowflake.connector.cursor:Query result format: arrow
+DEBUG:snowflake.connector.result_batch:chunk size=2
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+DEBUG:snowflake.connector.result_set:result batch 1 has id: data_0_0_0
+DEBUG:snowflake.connector.result_set:result batch 2 has id: data_0_0_1
+DEBUG:snowflake.connector.result_set:beginning to schedule result batch downloads
+DEBUG:snowflake.connector.result_set:queuing download of result batch id: data_0_0_0
+DEBUG:snowflake.connector.result_batch:started downloading result batch id: data_0_0_0
+DEBUG:snowflake.connector.result_set:queuing download of result batch id: data_0_0_1
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.network:Session status for SessionPool 'None', SessionPool 1/1 active sessions
+DEBUG:snowflake.connector.result_batch:downloading result batch id: data_0_0_0 with existing session <snowflake.connector.vendored.requests.sessions.Session object at 0x0000022DE97AA5F0>
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:Starting new HTTPS connection (1): sfc-va2-ds1-32-customer-stage.s3.amazonaws.com:443
+DEBUG:snowflake.connector.result_batch:started downloading result batch id: data_0_0_1
+DEBUG:snowflake.connector.result_set:user requesting to consume result batch 1
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.network:Session status for SessionPool 'None', SessionPool 2/2 active sessions
+DEBUG:snowflake.connector.result_batch:downloading result batch id: data_0_0_1 with existing session <snowflake.connector.vendored.requests.sessions.Session object at 0x0000022DE97AB070>
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:Starting new HTTPS connection (1): sfc-va2-ds1-32-customer-stage.s3.amazonaws.com:443
+DEBUG:snowflake.connector.ssl_wrap_socket:OCSP Mode: FAIL_OPEN, OCSP response cache file name: None
+DEBUG:snowflake.connector.ssl_wrap_socket:OCSP Mode: FAIL_OPEN, OCSP response cache file name: None
+DEBUG:snowflake.connector.ocsp_snowflake:ocsp_response_cache_uri: file://C:/Users/JoshMarcus/AppData/Local/Snowflake/Caches/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:ocsp_response_cache_uri: file://C:/Users/JoshMarcus/AppData/Local/Snowflake/Caches/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP_VALIDATION_CACHE size: 205
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP_VALIDATION_CACHE size: 205
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP response cache server is enabled: http://ocsp.snowflakecomputing.com/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP response cache server is enabled: http://ocsp.snowflakecomputing.com/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP dynamic cache server RETRY URL: None
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP dynamic cache server RETRY URL: None
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-05-12 23:58:59+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-01 15:50:07+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-01 15:50:07+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-01 15:50:07+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-01 15:50:07+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-15 00:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-15 00:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-15 00:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-01-15 00:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 15:48:31+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:Read OCSP response cache file: C:/Users/JoshMarcus/AppData/Local/Snowflake/Caches/ocsp_response_cache.json, count=205
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:validating certificate: sfc-va2-ds1-32-customer-stage.s3.amazonaws.com
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-07-15 16:47:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:# of certificates: 4
+DEBUG:snowflake.connector.ocsp_snowflake:Read OCSP response cache file: C:/Users/JoshMarcus/AppData/Local/Snowflake/Caches/ocsp_response_cache.json, count=205
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('common_name', '*.s3.amazonaws.com')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_snowflake:validating certificate: sfc-va2-ds1-32-customer-stage.s3.amazonaws.com
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:# of certificates: 4
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')]), issuer: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('common_name', '*.s3.amazonaws.com')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:not found issuer_der: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')]), issuer: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('common_name', '*.s3.amazonaws.com')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:not found issuer_der: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('common_name', '*.s3.amazonaws.com')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:writing OCSP response cache file to C:/Users/JoshMarcus/AppData/Local/Snowflake/Caches/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:snowflake.connector.ocsp_snowflake:encoding OCSP response cache to JSON
+DEBUG:snowflake.connector.ocsp_snowflake:ok
+DEBUG:snowflake.connector.ocsp_snowflake:ok
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://sfc-va2-ds1-32-customer-stage.s3.amazonaws.com:443 "GET /fruw-s-v2sb2557/results/01a9405d-0402-dc27-0061-aa8303038336_0/main/data_0_0_0?x-amz-server-side-encryption-customer-algorithm=AES256&response-content-encoding=gzip&AWSAccessKeyId=AKIAQM2ONWTMNPDIKQV5&Expires=1672199332&Signature=%2FExa9bnQGd7bnijB2YyMD512648%3D HTTP/1.1" 200 21268
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://sfc-va2-ds1-32-customer-stage.s3.amazonaws.com:443 "GET /fruw-s-v2sb2557/results/01a9405d-0402-dc27-0061-aa8303038336_0/main/data_0_0_1?x-amz-server-side-encryption-customer-algorithm=AES256&response-content-encoding=gzip&AWSAccessKeyId=AKIAQM2ONWTMNPDIKQV5&Expires=1672199332&Signature=Zl4GT579lnghH%2FU4QswY4R7Uv78%3D HTTP/1.1" 200 128924
+DEBUG:snowflake.connector.network:Session status for SessionPool 'None', SessionPool 1/2 active sessions
+DEBUG:snowflake.connector.result_batch:successfully downloaded result batch id: data_0_0_0
+DEBUG:snowflake.connector.result_batch:started loading result batch id: data_0_0_0
+DEBUG:snowflake.connector.arrow_iterator:Batches read: 1
+DEBUG:snowflake.connector.CArrowIterator:Arrow BatchSize: 1
+DEBUG:snowflake.connector.result_batch:finished loading result batch id: data_0_0_0
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.network:Session status for SessionPool 'None', SessionPool 0/2 active sessions
+DEBUG:snowflake.connector.result_batch:successfully downloaded result batch id: data_0_0_1
+DEBUG:snowflake.connector.result_batch:started loading result batch id: data_0_0_1
+DEBUG:snowflake.connector.arrow_iterator:Batches read: 7
+DEBUG:snowflake.connector.CArrowIterator:Arrow BatchSize: 7
+DEBUG:snowflake.connector.result_batch:finished loading result batch id: data_0_0_1
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.result_set:user began consuming result batch 1
+DEBUG:snowflake.connector.result_set:user finished consuming result batch 1
+DEBUG:snowflake.connector.result_set:user requesting to consume result batch 2
+DEBUG:snowflake.connector.result_set:user began consuming result batch 2
+DEBUG:snowflake.connector.result_set:user finished consuming result batch 2
+ERROR:root:User Tiffany Abtahi not found in Microsoft Graph Data!
+ERROR:root:User Mary Bartek not found in Microsoft Graph Data!
+ERROR:root:User Catherine Cashman not found in Microsoft Graph Data!
+ERROR:root:User Ivan Chavarria-Siles not found in Microsoft Graph Data!
+ERROR:root:User Amber Frank not found in Microsoft Graph Data!
+ERROR:root:User Mindy Gavinaitis not found in Microsoft Graph Data!
+ERROR:root:User Tamika Gordon not found in Microsoft Graph Data!
+ERROR:root:User Bridgette Hathaway not found in Microsoft Graph Data!
+ERROR:root:User Alexandra Hill not found in Microsoft Graph Data!
+ERROR:root:User Allison Holt not found in Microsoft Graph Data!
+ERROR:root:User Michelle Hornbaker-Park not found in Microsoft Graph Data!
+ERROR:root:User Nina Jacobs not found in Microsoft Graph Data!
+ERROR:root:User Marnie Stefan Acta not found in Microsoft Graph Data!
+ERROR:root:User Candice Webb not found in Microsoft Graph Data!
+ERROR:root:User Jessica Westmoreland not found in Microsoft Graph Data!
+ERROR:root:User Winifred Wolfe not found in Microsoft Graph Data!
