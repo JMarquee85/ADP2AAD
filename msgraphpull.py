@@ -157,6 +157,8 @@ def update_user(
     emp_id,
     full_name,
     preferred_name,
+    first_name,
+    last_name,
     email,
     department,
     current_role,
@@ -173,37 +175,101 @@ def update_user(
     try:
 
         user_ms_id = get_ms_id(email)  # returns user_id
+        print(user_ms_id)
 
-        graph_url = graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
+        graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
+        print(graph_url)
+
+        headers = {"Authorization": token, "Content-type": "application/json"}
 
         # CHANGE CORE USER INFO (json)
         # https://learn.microsoft.com/en-us/graph/api/user-update?view=graph-rest-1.0&tabs=http
         # Add additional information to ExtensionAttributes for later use
         # https://learn.microsoft.com/en-us/graph/extensibility-overview?tabs=http
         print(f"Sending HTTP request to change core information for {email}...")
-        update_user_body = f'{{"displayName": "{full_name}", "department":"{department}, "jobTitle": "{current_role}", "city": "{city}", "state": "{state}", "employeeId": "{emp_id}", "givenName": "{full_name}", "employeeHireDate": "{start_date}", "postalCode": "{zip_code}", "extensionAttribute5": "{is_provider}"}}'
+        update_user_body = {
+            "displayName": full_name,
+            "department": department,
+            "jobTitle": current_role,
+            "city": city,
+            "state": state,
+            "employeeId": emp_id,
+            "givenName": first_name,
+            "surname": last_name,
+            "employeeHireDate": start_date,
+            "postalCode": zip_code,
+        }
+        # put the information into a JSON format
+        user_json = json.dumps(update_user_body)
+
+        ###### Test
+        # print(update_user_body)
+        # print(type(user_json))
+        # print(user_json)
+        ########
+
         # PATCH request to update user goes here:
         update_user_action = requests.patch(
-            url=graph_url, data=update_user_body, headers=headers
+            url=graph_url,
+            data=user_json,
+            headers=headers,
         )
+        # Show the request
+        print(update_user_action)
+        print(update_user_action.text)  # Getting a resource does not exist error here.
 
         # CHANGE USER MANAGER
         # https://learn.microsoft.com/en-us/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http
         # get manager's object id
         manager_id = get_ms_id(manager_email)
         # Assign manager url
-        manager_url = graph_url + "manager/$ref"
-        manager_update_body = f'"@odata.id": "{graph_url}{manager_id}"'
+        manager_url = graph_url + "/manager/$ref/"
+        manager_update_body = {"@odata.id": graph_url + manager_id}
+        # put this information into a JSON format
+        mgr_json = json.dumps(manager_update_body)
         print(f"Sending HTTP request to change manager information for {email}...")
         # PUT request to take the action
         manager_update_action = requests.put(
-            url=manager_url, data=manager_update_body, headers=headers
+            url=manager_url,
+            data=mgr_json,
+            headers=headers,
         )
+        # Show the request
+        print(manager_update_action)
+        print(manager_update_action.text)
 
     except Exception as e:
         print("Exception encountered: ")
-        print(e.message)
+        # print(e.message)
         print(f"User {email} probably not found in Azure AD!")
+
+
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+
+
+def get_ms_user_info(email):
+
+    graph_url = (
+        "https://graph.microsoft.com/v1.0/users/"
+        + email
+        + "?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
+    )
+    get_user_info = requests.get(url=graph_url, headers=headers)
+    mgr_graph_url = "https://graph.microsoft.com/v1.0/users/" + email + "/manager"
+    get_user_manager = requests.get(url=mgr_graph_url, headers=headers)
+
+    try:
+        # Get a user's information using their MSid.
+        get_user_result = get_user_info.json()
+        get_manager_result = get_user_manager.json()
+        print(get_user_result)
+        print(f"Manager: {get_manager_result['userPrincipalName']}")
+    except:
+        print(f"User {email} has no manager!")
 
 
 #####################################################################################################
@@ -222,21 +288,24 @@ def update_user(
 
 # Test the above function with Test User data.
 ms_auth_token()
+# get_ms_user_info("josh.marcus@talkiatry.com")
 update_user(
-    "123789621736",
-    "Testerson Userstein",
-    "Test User",
-    "test.user@talkiatry.com",
-    "Some Different Department",
-    "Head of Testing",
-    "2021-01-15",
+    "12389612897653",
+    "Josh Marcus",
+    "Josh Marcus",
+    "Josh",
+    "Marcus",
+    "josh.marcus@talkiatry.com",
+    "Technology",
+    "Manager - IT Services",
+    "2021-07-20",
     "None",
     "0",
-    "Josh Marcus",
-    "josh.marcus@talkiatry.com",
-    "Winchester",
-    "KY",
-    "40391",
+    "Dharmendra Sant",
+    "dharmendra.sant@talkiatry.com",
+    "El Paso",
+    "Texas",
+    "79930",
 )
 
 

@@ -115,6 +115,8 @@ try:
         employee_id = getattr(row, "EMPLOYEE_ID")
         employee_full_name = getattr(row, "EMPLOYEE_FULL_NAME")
         employee_preferred_name = getattr(row, "EMPLOYEE_PREFERRED_NAME")
+        employee_first_name = getattr(row, "EMPLOYEE_FIRST_NAME")
+        employee_last_name = getattr(row, "EMPLOYEE_LAST_NAME")
         employee_email = getattr(row, "EMPLOYEE_EMAIL")
         employee_department = getattr(row, "EMPLOYEE_DEPARTMENT_OU_NAME_PREFERRED")
         employee_current_role = getattr(row, "EMPLOYEE_CURRENT_ROLE")
