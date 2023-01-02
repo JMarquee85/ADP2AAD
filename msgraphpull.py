@@ -216,7 +216,7 @@ def update_user(
         )
         # Show the request
         print(update_user_action)
-        print(update_user_action.text)  # Getting a resource does not exist error here.
+        print(update_user_action.text)
 
         # CHANGE USER MANAGER
         # https://learn.microsoft.com/en-us/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http
@@ -224,7 +224,7 @@ def update_user(
         manager_id = get_ms_id(manager_email)
         # Assign manager url
         manager_url = graph_url + "/manager/$ref/"
-        manager_update_body = {"@odata.id": graph_url + manager_id}
+        manager_update_body = {"@odata.id": graph_url + "/" + manager_id}
         # put this information into a JSON format
         mgr_json = json.dumps(manager_update_body)
         print(f"Sending HTTP request to change manager information for {email}...")
