@@ -15,6 +15,9 @@ from msgraphpull import *
 import logging
 import csv
 
+# Authenticate Microsoft
+print("Authenticating into MS Graph...")
+ms_auth_token()
 # Pull the Microsoft user information from msgraphpull
 print(f"Now pulling AAD users via Microsoft Graph...")
 ms_users = ms_graph_pull()
@@ -98,17 +101,6 @@ try:
         columns=[col[0] for col in cs.description],
     )
 
-    # List to hold the user names with no email/ a non-talkiatry email address listed in ADP.
-    users_no_email = []
-    termed_users = []
-
-    # Function to check for a value inside of a dictionary
-    def email_check(some_dict, value):
-        for elem in some_dict:
-            if value in elem.values():
-                return True
-        return False
-
     # Filter through the pulled Snowflake df, set variables and do stuff.
     for row in df.itertuples(name="ADPUserList"):
         # Can store this in a separate file later for readability- see variables.py
@@ -133,24 +125,20 @@ try:
         employee_state = getattr(row, "EMPLOYEE_STATE")
         employee_zip = getattr(row, "EMPLOYEE_ZIP")
 
-        # Write test to see if the ADP email address exists in MS Graph, run update_user if it does, and log it if it does not.
-        # https://thispointer.com/python-check-if-value-exists-in-list-of-dictionaries/
-        value = employee_email
-        if email_check(ms_users, value):
-            print(f"{employee_email} found in MS Users dictionary!")
+        # Write a check to see if the user's email address exists in the MS information at all. Could write a function for this and call it a day.
+        # This takes a while to do its thing and the way I have written it here doesn't seem to be the best approach.
+        # Look into using list comprehension again and reference the dictionary that you pull at the beginning of this to see if you can run a check against that successfully.
+        does_user_exist(employee_email)
+        if does_user_exist:
+            print(f"{employee_email} exists!")
         else:
-            print(f"Not found!")
+            print(f"Not able to find {employee_email}...")
 
-    # Run the update_user function here with the above info:
-    # if any(email_check):
-    # print(f"User found!\n")
-    # update_user(employee_id, employee_full_name, employee_preferred_name, employee_email, employee_department, employee_current_role, employee_start_date, employee_separation_date, is_provider, employee_supervisor_name, employee_supervisor_email, employee_city, employee_state, employee_zip)
-    # logging.info(f"{employee_full_name} sync attempted in Microsoft Graph.")
-    # else:
-    # print(f"User {employee_full_name} not found in MS Users!")
+    # If employee separation date exists, check MS to see if user exists. If so, change mailbox to shared and then deleted user.
 
-    # print(ms_users)
-    # print(type(ms_users))
+    # If employee email or hire date does not exist, add message to the log and pass
+
+    # If employee separation date does not exist (else), pass the information as normal into update_user()
 
     # Create a block here that looks for Email == None or email does not contain @talkiatry.com, add them to a CSV, store locally and then create a ticket for HR to deal with this.
     # Also create a method in this program to email HR@Talkiatry.com if this is detected again.

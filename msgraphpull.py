@@ -101,7 +101,7 @@ def ms_graph_pull():
             # if department != "Service Account" or "Vendor" or "Shared Mailbox":
             aad_users.append(ms_dict["value"])
 
-    print(aad_users)
+    # print(aad_users)
     return aad_users
 
 
@@ -150,6 +150,25 @@ def get_ms_user(ms_id):
 #####################################################################################################
 #####################################################################################################
 #####################################################################################################
+
+
+def does_user_exist(email):
+
+    graph_url = "https://graph.microsoft.com/v1.0/users/" + str(email)
+    get_user_status = requests.get(url=graph_url, headers=headers)
+
+    get_user_info_return = get_user_status.json()
+
+    if "error" in get_user_info_return:
+        return False
+
+
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+
 
 ## A function to update the users with Graph API commands.
 # Will likely pass the ADP information into this and compare it to the Graph information.
@@ -201,12 +220,6 @@ def update_user(
         }
         # put the information into a JSON format
         user_json = json.dumps(update_user_body)
-
-        ###### Test
-        # print(update_user_body)
-        # print(type(user_json))
-        # print(user_json)
-        ########
 
         # PATCH request to update user goes here:
         update_user_action = requests.patch(
@@ -288,25 +301,26 @@ def get_ms_user_info(email):
 
 # Test the above function with Test User data.
 ms_auth_token()
+does_user_exist("josh.marcus@talkiatry.com")
 # get_ms_user_info("josh.marcus@talkiatry.com")
-update_user(
-    "12389612897653",
-    "Josh Marcus",
-    "Josh Marcus",
-    "Josh",
-    "Marcus",
-    "josh.marcus@talkiatry.com",
-    "Technology",
-    "Manager - IT Services",
-    "2021-07-20",
-    "None",
-    "0",
-    "Dharmendra Sant",
-    "dharmendra.sant@talkiatry.com",
-    "El Paso",
-    "Texas",
-    "79930",
-)
+# update_user(
+# "12389612897653",
+# "Josh Marcus",
+# "Josh Marcus",
+# "Josh",
+# "Marcus",
+# "josh.marcus@talkiatry.com",
+# "Technology",
+# "Manager - IT Services",
+# "2021-07-20",
+# "None",
+# "0",
+# "Dharmendra Sant",
+# "dharmendra.sant@talkiatry.com",
+# "El Paso",
+# "Texas",
+# "79930",
+# )
 
 
 #####################################################################################################
