@@ -315,3 +315,238 @@ INFO:snowflake.connector.cursor:Number of results in first chunk: 1
 INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
 INFO:snowflake.connector.cursor:query execution done
 INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.8.1, Python Version: 3.9.6, Platform: macOS-13.0-arm64-arm-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:No MS Graph dictionary was located for jakia.ahmed@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for chelsea.ahmed@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for None!
+INFO:root:No MS Graph dictionary was located for lubna.akthar@talkiatry.com!
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.8.1, Python Version: 3.9.6, Platform: macOS-13.0-arm64-arm-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:No MS Graph dictionary was located for jakia.ahmed@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for chelsea.ahmed@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for None!
+INFO:root:No MS Graph dictionary was located for lubna.akthar@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for clara.alvarez@talkiatry.com!
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:No MS Graph dictionary was located for jakia.ahmed@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for chelsea.ahmed@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for None!
+INFO:root:No MS Graph dictionary was located for lubna.akthar@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for clara.alvarez@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for chidinma.anamah@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for mesbahul.anik@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for danielle.aron@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for dayana.arteaga@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for christopher.atherley@talkiatry.com!
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:No MS Graph dictionary was located for jakia.ahmed@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for chelsea.ahmed@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for None!
+INFO:root:No MS Graph dictionary was located for lubna.akthar@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for clara.alvarez@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for chidinma.anamah@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for mesbahul.anik@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for danielle.aron@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for dayana.arteaga@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for christopher.atherley@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for chloe.baird@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for diya.banerjee@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for jennifer.bautista@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for shelley.beaumonte@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for jacqueline.berenson@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for ben.berg@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for veronica.bernabe@talkiatry.com!
+INFO:root:No manager listed in AAD for Yecenia Berrios!
+INFO:root:No MS Graph dictionary was located for siddhartha.bupathiraju@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for bridget.bortnick@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for sara.bowles@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for yanina.brayman@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for noah.breen@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for None!
+INFO:root:No MS Graph dictionary was located for imoni.brown@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for deborah.buloran@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for oksana.bundzyak@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for kathleen.burtonmarks@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for mayra.cabrera@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for vanessa.cao@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for nicole.carl@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for maria.carvajal@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for george.chang@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for None!
+INFO:root:No MS Graph dictionary was located for leslya.segovia@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for kristi.chism@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for kerry.chrystal@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for gary.ciuffetelli@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for jailene.colon@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for bryan.colosky@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for natasha.conklin@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for suehey.contreras@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for rita.cook@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for nhi.corcoran@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for francis.corona@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for rebecca.costanza@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for ashley.covarrubias@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for lisa.rosario@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for cesar.depaz@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for thea.dendler@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for dana.denwitty@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for anthony.difrancesco@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for vien.dinh@talkiatry.com!
+INFO:root:No MS Graph dictionary was located for david.dixon@talkiatry.com!

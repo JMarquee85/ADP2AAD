@@ -126,16 +126,54 @@ try:
         employee_state = getattr(row, "EMPLOYEE_STATE")
         employee_zip = getattr(row, "EMPLOYEE_ZIP")
 
-    for user in msgraphpull.aad_users:
-    	if type(user) is dict:
-     		print(user['userPrincipalName']) # This is good, but stops at Anthony Mazzarulli. Issue with pagination in other script?
-     		# Each pagination of the microsoft graph information returns a list with dictionaries and if I write a check to filter for type dict
-     		# then the subsequent lists are passed over. 
+        # Check if user has a termination date. 
 
-        #if employee_email in ms_users:
-        	#print(f"{employee_email} found!")
-        #else:
-        	#print(f"Not finding {employee_email}...")
+	        # If yes, try to delete the user from Microsoft and log that action. 
+
+	        # If no, move on to the next steps. 
+		        # Return the MS dictionary (return_msuser_dict()) that was pulled and compare the ADP information with it. 
+			        # If the information matches, move on. 
+			        # If the information doesn't, call the function to update the user in MS Graph. 
+
+			    # See if the ADP manager matches the MS Graph manager. 
+			    	# If it does, move on. 
+			    	# If it does not, run the function to update it in MS Graph. 
+
+        
+
+     	# function that checks the email returned from ADP with the ms_users lists of dictionaries
+     	# compares the ADP information with what is in the matching dictionary
+     	# if the values do not match, update the MSGraph information. 
+     	# if they all DO match, continue.
+        
+        # Write test function to see if we can successfully compare ADP manager values and print out which ones match and which ones do not. 
+        return_dict = return_msuser_dict(employee_email, employee_full_name, employee_preferred_name, ms_users)
+        if return_dict:
+        	#print(return_dict)
+        	ms_manager = get_ms_user_manager(employee_email)
+        	#print(f"The manager for {employee_full_name} is {ms_manager}.\n")
+
+        	if ms_manager is None:
+        		print(f"No manager listed in AAD for {employee_full_name}!")
+        		logging.info(f"No manager listed in AAD for {employee_full_name}!")
+
+        	if ms_manager and employee_supervisor_email:
+
+	        	if ms_manager.lower() == employee_supervisor_email.lower():
+	        		print(f"{employee_full_name} manager is a match in ADP and MS and is {ms_manager}.\n")
+	        	else:
+	        		print(f"Manager for {employee_full_name} does not match!\nADP manager: {employee_supervisor_email}\nMS manager: {ms_manager}\n")
+
+        else:
+        	print(f"No MS Graph dictionary was located for {employee_email}!")
+        	logging.info(f"No MS Graph dictionary was located for {employee_email}!")
+
+    ##### ms_users output testing
+    #for user in ms_users:
+    	#if type(user) is dict:
+     		#print(f"Email: {user['userPrincipalName']}\nTitle: {user['jobTitle']}\nDepartment: {user['department']}\nAccount Enabled: {user['accountEnabled']}\n")
+        
+
 
         # if employee found in the ms_users list of dictionaries, run the update_user() function, if not, print a message, add them to the logs.
 

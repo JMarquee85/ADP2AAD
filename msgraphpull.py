@@ -18,6 +18,8 @@ logging.basicConfig(filename="msgraph.log", level=logging.INFO)
 #####################################################################################################
 #####################################################################################################
 
+######## Find a way to append all ms managers to the dictionary for each user. #############
+
 # MS authentication token
 def ms_auth_token():
 
@@ -78,7 +80,7 @@ def ms_graph_pull():
 
     # MS Graph API URL
     # url = 'https://graph.microsoft.com/v1.0/users?$top=100'
-    url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,manager,mail,jobTitle,Department,usertype"
+    url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,manager,mail,jobTitle,Department,usertype,accountEnabled"
 
     graph_result = requests.get(url=url, headers=headers)
 
@@ -101,9 +103,8 @@ def ms_graph_pull():
             user_return = ms_dict["value"]
             for item in user_return: 
               if type(item) is dict:
-                if item['department'] is not None and ("#EXT#") not in item['userPrincipalName']:
-                  if not ("Vendor" or "Service Account" or "Shared Mailbox") in item['department']:
-                    aad_users.append(item)
+                if item['accountEnabled'] and item['department'] is not None and item['jobTitle'] is not None and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
+                  aad_users.append(item)
 
     return aad_users
 
@@ -164,6 +165,30 @@ def does_user_exist(email):
 
     if "error" in get_user_info_return:
         return False
+
+
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+
+def delete_user(email):
+
+  # Have to be authenticated with ms_auth_token() 
+  ms_id = get_ms_id(email)
+  graph_del_url = "https://graph.microsoft.com/v1.0/users/" + str(ms_id)
+
+  delete_user_action = requests.delete(
+            url=graph_del_url,
+            headers=headers,
+        )
+
+  delete_user_actiion_status = delete_user_action.json()
+
+  if "error" in delete_user_actiion_status:
+    return 
+
 
 
 #####################################################################################################
@@ -234,30 +259,61 @@ def update_user(
         print(update_user_action)
         print(update_user_action.text)
 
-        # CHANGE USER MANAGER
-        # https://learn.microsoft.com/en-us/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http
-        # get manager's object id
-        manager_id = get_ms_id(manager_email)
-        # Assign manager url
-        manager_url = graph_url + "/manager/$ref/"
-        manager_update_body = {"@odata.id": graph_url + "/" + manager_id}
-        # put this information into a JSON format
-        mgr_json = json.dumps(manager_update_body)
-        print(f"Sending HTTP request to change manager information for {email}...")
-        # PUT request to take the action
-        manager_update_action = requests.put(
-            url=manager_url,
-            data=mgr_json,
-            headers=headers,
-        )
-        # Show the request
-        print(manager_update_action)
-        print(manager_update_action.text)
+        #Log successful core information update.
+        logging.info(f"{email} core information updated in Azure AD!")
 
-    except Exception as e:
-        print("Exception encountered: ")
-        # print(e.message)
-        print(f"User {email} probably not found in Azure AD!")
+    # Error updating core information. 
+    except Exception as core_update_error:
+        print(f"Error updating core information for {email}!")
+        print(f"User {email} probably not found in Azure AD... ")
+        # Add error to logs.
+        logging.info(f"Error updating information for {email} in Azure AD!\n{core_update_error.message}")
+
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+
+def update_manager(email, manager, manager_email):
+
+  # Must be authenticated with ms_auth_token() before using this function. 
+
+  try: 
+    user_ms_id = get_ms_id(email)  # returns user_id
+    #print(user_ms_id)
+
+    graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
+    #print(graph_url)
+
+    headers = {"Authorization": token, "Content-type": "application/json"}
+
+    # CHANGE USER MANAGER
+    # https://learn.microsoft.com/en-us/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http
+    # get manager's object id
+    manager_id = get_ms_id(manager_email)
+    # Assign manager url
+    manager_url = graph_url + "/manager/$ref/"
+    manager_update_body = {"@odata.id": graph_url + "/" + manager_id}
+    # put this information into a JSON format
+    mgr_json = json.dumps(manager_update_body)
+    print(f"Sending HTTP request to change {email} manager to {manager_email}...")
+    # PUT request to take the action
+    manager_update_action = requests.put(
+        url=manager_url,
+        data=mgr_json,
+        headers=headers,
+    )
+    # Show the request
+    print(manager_update_action)
+    print(manager_update_action.text)
+
+    # Add the change to the log file
+    logging.info(f"{email} manager changed to: {manager_email}!")
+
+  except Exception as manager_update_error:
+      print(f"Error encountered changing the manager for {email}!")
+      logging.error(msg)
 
 
 #####################################################################################################
@@ -294,6 +350,43 @@ def get_ms_user_info(email):
 #####################################################################################################
 #####################################################################################################
 
+def get_ms_user_manager(email):
+
+    graph_url = (
+        "https://graph.microsoft.com/v1.0/users/"
+        + email
+        + "?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
+    )
+    get_user_info = requests.get(url=graph_url, headers=headers)
+    mgr_graph_url = "https://graph.microsoft.com/v1.0/users/" + email + "/manager"
+    get_user_manager = requests.get(url=mgr_graph_url, headers=headers)
+
+    try:
+        # Get a user's information using their MSid.
+        get_user_result = get_user_info.json()
+        get_manager_result = get_user_manager.json()
+        return get_manager_result['userPrincipalName']
+    except:
+        print(f"User {email} has no manager!")
+
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+
+# A function to return the specific user dictionary to match the ADP user:
+def return_msuser_dict(email, full_name, preferred_name, dict_list):
+  return [element for element in dict_list if element['userPrincipalName'] == email or element['displayName'] == full_name or element['displayName'] == preferred_name]
+
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+
+def user_compare(email):
+  pass
 
 # Run stuff
 ms_auth_token()
