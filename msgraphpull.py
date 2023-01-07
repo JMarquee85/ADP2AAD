@@ -70,12 +70,13 @@ def ms_auth_token():
 # The function to auth in to MS Graph and pull the user information.
 def ms_graph_pull():
 
-    # Get a token.
-    # ms_auth_token()
+    # You will need to authenticate into MS Graph for this to work. 
+    # Run the ms_auth_token() function first to authenticate.
 
     # Make aad_users global
     global aad_users
 
+    # MS Graph API URL
     # url = 'https://graph.microsoft.com/v1.0/users?$top=100'
     url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,userPrincipalName,manager,mail,jobTitle,Department,usertype"
 
@@ -96,12 +97,14 @@ def ms_graph_pull():
             url = ms_dict.get("@odata.nextLink")
             graph_result = requests.get(url=url, headers=headers)
             ms_dict = graph_result.json()
-            # print(ms_dict['@odata.nextLink'])
-            # Add something here that removes Service Accounts and Vendors. Something like:
-            # if department != "Service Account" or "Vendor" or "Shared Mailbox":
-            aad_users.append(ms_dict["value"])
+            # print(ms_dict['@odata.nextLink']) #uncomment this to show the link to the next page of the returned Microsoft data.
+            user_return = ms_dict["value"]
+            for item in user_return: 
+              if type(item) is dict:
+                if item['department'] is not None and ("#EXT#") not in item['userPrincipalName']:
+                  if not ("Vendor" or "Service Account" or "Shared Mailbox") in item['department']:
+                    aad_users.append(item)
 
-    # print(aad_users)
     return aad_users
 
 
@@ -293,15 +296,15 @@ def get_ms_user_info(email):
 
 
 # Run stuff
-
-# ms_graph_pull()
+ms_auth_token()
+ms_graph_pull()
 # id_number = get_ms_id("test.user@talkiatry.com")
 # print(id_number)
 # get_ms_user("41967c91-0239-45e2-b318-7625f6584633")
 
 # Test the above function with Test User data.
-ms_auth_token()
-does_user_exist("josh.marcus@talkiatry.com")
+#ms_auth_token()
+#does_user_exist("josh.marcus@talkiatry.com")
 # get_ms_user_info("josh.marcus@talkiatry.com")
 # update_user(
 # "12389612897653",

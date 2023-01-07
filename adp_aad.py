@@ -11,6 +11,7 @@ import snowflake.connector
 import requests
 import pandas as pd
 import json
+import msgraphpull
 from msgraphpull import *
 import logging
 import csv
@@ -125,14 +126,42 @@ try:
         employee_state = getattr(row, "EMPLOYEE_STATE")
         employee_zip = getattr(row, "EMPLOYEE_ZIP")
 
+    for user in msgraphpull.aad_users:
+    	if type(user) is dict:
+     		print(user['userPrincipalName']) # This is good, but stops at Anthony Mazzarulli. Issue with pagination in other script?
+     		# Each pagination of the microsoft graph information returns a list with dictionaries and if I write a check to filter for type dict
+     		# then the subsequent lists are passed over. 
+
+        #if employee_email in ms_users:
+        	#print(f"{employee_email} found!")
+        #else:
+        	#print(f"Not finding {employee_email}...")
+
+        # if employee found in the ms_users list of dictionaries, run the update_user() function, if not, print a message, add them to the logs.
+
+    #Now trying to pull in the MS Graph information and will write a block to check for matches in the MS Dict and the ADP data and print the results.
+    #This is working again, except many of the names it's catching here do exist in AAD. Need to dig a bit into that.
+    # if employee_email or employee_full_name in ms_users:
+#    #print (f"Match for {employee_full_name} found!")
+#     continue
+#     else:
+#     print(f"User {employee_full_name} not found!")
+#     logging.error(f"User {employee_full_name} not found in Microsoft Graph Data!")#
+
+#    print(ms_users)`
+#    print(type(ms_users))
+
+	    
+
+
         # Write a check to see if the user's email address exists in the MS information at all. Could write a function for this and call it a day.
         # This takes a while to do its thing and the way I have written it here doesn't seem to be the best approach.
         # Look into using list comprehension again and reference the dictionary that you pull at the beginning of this to see if you can run a check against that successfully.
-        does_user_exist(employee_email)
-        if does_user_exist:
-            print(f"{employee_email} exists!")
-        else:
-            print(f"Not able to find {employee_email}...")
+        #does_user_exist(employee_email)
+#        if does_user_exist:
+#            print(f"{employee_email} exists!")
+#        else:
+#            print(f"Not able to find {employee_email}...")
 
     # If employee separation date exists, check MS to see if user exists. If so, change mailbox to shared and then deleted user.
 

@@ -108,3 +108,210 @@ INFO:snowflake.connector.connection:closed
 INFO:snowflake.connector.connection:No async queries seem to be running, deleting session
 INFO:snowflake.connector.connection:closed
 INFO:snowflake.connector.connection:No async queries seem to be running, deleting session
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.8.1, Python Version: 3.9.6, Platform: macOS-13.0-arm64-arm-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 117
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 117
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 117
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
