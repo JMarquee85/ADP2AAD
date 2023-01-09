@@ -80,7 +80,7 @@ def ms_graph_pull():
 
     # MS Graph API URL
     # url = 'https://graph.microsoft.com/v1.0/users?$top=100'
-    url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,givenName,surname,userPrincipalName,manager,mail,jobTitle,Department,usertype,accountEnabled,city,state,postalCode"
+    url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,givenName,surname,userPrincipalName,manager,mail,jobTitle,Department,usertype,accountEnabled,city,state,postalCode,employeeId"
 
     graph_result = requests.get(url=url, headers=headers)
 
@@ -88,7 +88,7 @@ def ms_graph_pull():
 
     aad_users = ms_dict[
         "value"
-    ]  # list of just the user information. Ends up as a list of dictionaries.
+    ]  # list of just the user information. A list of dictionaries.
 
     print(f"Paginating Microsoft Graph output...")
 
@@ -103,7 +103,12 @@ def ms_graph_pull():
             user_return = ms_dict["value"]
             for item in user_return: 
               if type(item) is dict:
-                if item['accountEnabled'] and item['department'] is not None and item['jobTitle'] is not None and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
+                #old version
+                #if item['accountEnabled'] and item['department'] is not None and item['jobTitle'] is not None and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
+                #slightly newer version
+                if item['department'] is not None and item['jobTitle'] is not None and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
+                #new version... does not work for some reason. Should figure that out because we would ideally want to get dictionaries from MSGraph for comparison for users that might not have a department. 
+                #if item['accountEnabled'] and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
                   aad_users.append(item)
     #print(aad_users)
     return aad_users
@@ -248,6 +253,7 @@ def update_user(
             "surname": last_name,
             "employeeHireDate": start_date,
             "postalCode": zip_code,
+            "employeeId": emp_id
         }
         # put the information into a JSON format
         user_json = json.dumps(update_user_body)
@@ -344,7 +350,7 @@ def get_ms_user_info(email):
         print(get_user_result)
         print(f"Manager: {get_manager_result['userPrincipalName']}")
     except:
-        print(f"User {email} has no manager!")
+        logging.info(f"User {email} has no manager!\n")
 
 
 #####################################################################################################
@@ -379,16 +385,12 @@ def get_ms_user_manager(email):
 #####################################################################################################
 
 # A function to return the specific user dictionary to match the ADP user:
-def return_msuser_dict(email, full_name, preferred_name, dict_list):
-  dict_info = [element for element in dict_list if element['userPrincipalName'] == email or element['displayName'] == full_name or element['displayName'] == preferred_name]
+def return_msuser_dict(email, employee_id, full_name, preferred_name, dict_list):
+  dict_info = [element for element in dict_list if element['userPrincipalName'].casefold() == email or element['displayName'] == full_name or element['displayName'] == preferred_name or element['employeeId'] == employee_id]
   #print(dict_info) # A list with one dictionary inside. Stupid.
   for x in dict_info:
     #print(x)
     return x
-    #print(type(x))
-#  current_user_dict = {'id': dict_info['id'], 'displayName': dict_info['displayName'], 'userPrincipalName': dict_info['userPrincipalName'], 'mail': dict_info['mail'], 'jobTitle': dict_info['jobTitle'], 'department': dict_info['jobTitle'], 'department': dict_info['department'], 'userType': dict_info['userType'], 'accountEnabled': dict_info['accountEnabled']}
-#  print(type(current_user_dict))
-#  return current_user_dict
 
 #####################################################################################################
 #####################################################################################################
@@ -397,17 +399,23 @@ def return_msuser_dict(email, full_name, preferred_name, dict_list):
 #####################################################################################################
 
 # A function to compare the ADP information with the AAD information and not make the changes if they match. 
-def user_compare(email, full_name, preferred_name, first_name, last_name, department, title, manager_email, city, state, zip_code, msdict):
+def user_compare(email, employee_id, full_name, preferred_name, first_name, last_name, department, title, manager_email, city, state, zip_code, msdict):
 
   # Get user's manager
   ms_manager = get_ms_user_manager(email)
 
   # Need to handle if a user doesn't have a field filled in in ADP. Currently getting KeyErrors if users don't have information listed in ADP/MSG. 
-  if full_name != msdict['displayName'] or first_name != msdict['givenName'] or last_name != msdict['surname'] or department != msdict['department'] or city != msdict['city'] or state != msdict['state'] or zip_code != msdict['postalCode']:
+  if full_name != msdict['displayName'] or first_name != msdict['givenName'] or last_name != msdict['surname'] or department != msdict['department'] or city != msdict['city'] or state != msdict['state'] or zip_code != msdict['postalCode'] or employee_id != msdict['employeeId']:
   #if full_name == msdict['displayName'] and first_name == msdict['givenName'] and last_name == msdict['surname'] and department == msdict['department']:
     #return False 
     return "update"
 
+#####################################################################################################
+#####################################################################################################
+#####################################################################################################
+####################################### TESTING GROUNDS #############################################
+#####################################################################################################
+#####################################################################################################
 
 # Run stuff
 #ms_auth_token()
@@ -447,23 +455,3 @@ def user_compare(email, full_name, preferred_name, first_name, last_name, depart
 #####################################################################################################
 #####################################################################################################
 
-
-#####################################
-#####################################
-# Test for an existing value in the list of dictionaries (aad_users) output
-####################################
-####################################
-####################################
-
-# email = "josh.marcus@talkiatry.com"
-#
-## https://stackoverflow.com/questions/3897499/check-if-value-already-exists-within-list-of-dictionaries
-## list indices must be integers or slices, not str.
-# if any(x["userPrincipalName"] == email for x in aad_users):
-# print(f"The user {email} is here.")
-# else:
-# print(f"Sorry, not seeing {email} here...")
-
-###################################
-###################################
-###################################

@@ -14,6 +14,8 @@
 # Any way to store and pass along a photo? This was requested at an early stage. 
 # Down the road, there is probably a more efficient way to compare these. Put the MS data into a dataframe instead and compare the dataframes? 
 # Seems like pandas might be faster or provide some faster methods. 
+# Add threading. 
+# https://stackoverflow.com/questions/15143837/how-to-multi-thread-an-operation-within-a-loop-in-python
 
 import snowflake.connector
 import requests
@@ -142,20 +144,36 @@ try:
 
         # Get the dictionary related to this user in MSGraph
         # What's another way we could more readily identify the users? Maybe store their ADP employee ID in AAD?
-        return_dict = return_msuser_dict(employee_email, employee_full_name, employee_preferred_name, ms_users)
-        #print(return_dict) # Aaaaand this is a list, not a dictionary. 
+        if employee_email:
+        	return_dict = return_msuser_dict(employee_email.casefold(), employee_id, employee_full_name, employee_preferred_name, ms_users)
+        	#print(return_dict) # Aaaaand this is a list, not a dictionary. 
+        elif employee_email is None or "@talkiatry.com" not in employee_email: 
+        	return_dict = return_msuser_dict(employee_email, employee_id, employee_full_name, employee_preferred_name, ms_users)
+        else:
+        	return_dict = return_msuser_dict(employee_email, employee_id, employee_full_name, employee_preferred_name, ms_users)
+
 
         # Check if user has a termination date. 
-        # NOTE: Will there ever be a time where the separation date is put in ahead of time. Should write a check here to see 
+        # NOTE: Will there ever be a time where the separation date is put in ahead of time? Should write a check here to see 
         # if separation date matches now or in the past to avoid accidental deletion. 
-        if employee_status == "Active" or "Inactive":
+        if employee_status == "Terminated": 
+        	# Check if employee exists in MS. If so, deactivate account and delete. If not, move on. 
+        	if return_dict:
+        		print(f"User marked termed on {employee_separation_date}")
+        		print(f"User found in the MSGraph dictionaries. We would now delete {employee_full_name}!\n")
+        		#delete_user(employee_email)
+        	else: 
+        		print(f"{employee_full_name} termed on {employee_separation_date}, not found in MS info. They should have already been deleted.\n")
+        		logging.info(f"{employee_full_name} termed on {employee_separation_date}, not found in MS info. They should have already been deleted.\n")
+
+        # Action if user is Active		
+        elif employee_status == "Active" or "Inactive": # Inactive covers users on leave and keep their information updated. 
 			##### Compare ADP and MS info. 
-			# Getting NoneType error in here. 
 			# Because ADP users can choose their own email and change this field, don't compare or change any email addresses. We will handle our own copy of those specific fields. 
             if return_dict:
-                compare = user_compare(employee_email, employee_full_name, employee_preferred_name, employee_first_name, employee_last_name, employee_department, employee_current_role, employee_supervisor_email, employee_city, employee_state, employee_zip, return_dict)
+                compare = user_compare(employee_email, employee_id, employee_full_name, employee_preferred_name, employee_first_name, employee_last_name, employee_department, employee_current_role, employee_supervisor_email, employee_city, employee_state, employee_zip, return_dict)
             	# If the result of user_compare() detects differences in the core information and what is listed in ADP
-            	# Might consider taking this out, as we might just want to send the API call to make the changes regardless. 
+            	# It would be good to make this more specific in the future, like only change the manager if it's incorrect or change the city and state if they moved. This might require some kind of returns from the function to flag what needs to be changed.  
 
             	# These all seem to be coming back as matches, when I'm quite certain they are all not. 
                 if compare == "update":
@@ -168,18 +186,10 @@ try:
                 else:
                     print(f"All fields stored in ADP match AAD for {employee_full_name}! Not making any changes...\n") 
             else:
-                print(f"No MS graph dictionary found for {employee_full_name}!\nStart Date: {employee_start_date}\n(Have they been created in AAD yet? Have we sent the right information to compare?)\n")
-                no_ms_dictionary_found.append(employee_email)
-        		
-        # Action if user is terminated		
-        elif employee_status == "Terminated": 
-        	# Check if employee exists in MS. If so, deactivate account and delete. If not, move on. 
-        	if return_dict:
-        		print(f"User found in the MSGraph dictionaries. We would now delete {employee_full_name}!\n")
-        		#delete_user(employee_email)
-        	else: 
-        		print(f"{employee_full_name} termed on {employee_separation_date}, not found in MS info. They should have already been deleted.\n")
-        		logging.info(f"{employee_full_name} termed on {employee_separation_date}, not found in MS info. They should have already been deleted.\n")
+                print(f"\nNo MS graph dictionary found for {employee_full_name}!\nStart Date: {employee_start_date}\n(Have they been created in AAD yet? Have we sent the right information to compare?)\n")
+                no_graph_output = f"Email: {employee_email}\nName: {employee_full_name}\nPreferred Name: {employee_preferred_name}\nFirst Name: {employee_first_name}\nLast Name: {employee_last_name}\nDepartment: {employee_department}\nTitle: {employee_current_role}\nManager: {employee_supervisor_name}\nCity: {employee_city}\nState: {employee_state}\nZip: {employee_zip}\nHire Date: {employee_start_date}\nADP Employment Status: {employee_status}\n\n"
+                print(no_graph_output)
+                no_ms_dictionary_found.append(no_graph_output)
 
         	
         # Action if neither is true. 
@@ -196,4 +206,7 @@ finally:
     # Print the results of the lists collected in the loop. 
     # The MSDictionary one is almost definitely a name mismatch. I see a lot of users who changed their name. 
     # Maybe include a search by preferred name? Some other tweaks there?
-    print(f"No Employment Status Found:\n {no_status}\n\nNo MS Dictionary, but current employee:\n{no_ms_dictionary_found}\n\n")
+    print("No Graph Output:\n")
+    for x in no_ms_dictionary_found:
+    	print(x)
+    

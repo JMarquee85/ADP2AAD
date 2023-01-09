@@ -2413,3 +2413,1127 @@ INFO:snowflake.connector.cursor:Number of results in first chunk: 1
 INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
 INFO:snowflake.connector.cursor:query execution done
 INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 118
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:Jakia Ahmed termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Chelsea Ahmed termed on 2022-10-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Nahid Akter termed on 2022-01-10, not found in MS info. They should have already been deleted.
+
+INFO:root:Lubna Akthar termed on 2022-11-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Chidinma Anamah termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Mesbahul Anik termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Danielle Aron termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Dayana Arteaga termed on 2022-11-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Christopher Atherley termed on 2021-12-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Chloe Baird termed on 2021-09-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Diya Banerjee termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Jennifer Bautista termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelley Beaumonte termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Jacqueline Berenson termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Bentsion Berg termed on 2022-06-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Veronica Bernabe termed on 2022-10-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Siddhartha Bhupathiraju termed on 2022-07-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Bridget Bortnick termed on 2022-02-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Sara Bowles termed on 2022-04-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Noah Breen termed on 2022-04-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Margaret Brown termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Imoni Brown termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Oksana Bundzyak termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nicole Carl termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:JongYuan Chang termed on 2022-02-11, not found in MS info. They should have already been deleted.
+
+INFO:root:Ivan Chavarria-Siles termed on 2022-10-17, not found in MS info. They should have already been deleted.
+
+INFO:root:Kerry Chrystal termed on 2022-01-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Gary Ciuffetelli termed on 2021-12-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Jailene Colon termed on 2022-08-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Bryan Colosky termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Natasha Conklin termed on 2022-09-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Suehey Contreras termed on 2022-07-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Rita Cook termed on 2022-12-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Nhi Corcoran termed on 2022-04-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Francis Corona termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Rebecca Costanza termed on 2022-07-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Ashley Covarrubias termed on 2023-01-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Lisa Cruz-Rosario termed on 2022-07-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Thea Dendler termed on 2022-03-24, not found in MS info. They should have already been deleted.
+
+INFO:root:Dana Denwitty termed on 2022-11-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Vien Dinh termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Lauren Dressler termed on 2022-09-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Dashawn Duncan termed on 2023-01-04, not found in MS info. They should have already been deleted.
+
+INFO:root:Adrian Durelli termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Debra Eden termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Silvia Encinas Ramirez termed on 2022-08-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nasstaja Evans termed on 2022-05-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Andrea Evans termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Imran Faisal termed on 2022-06-24, not found in MS info. They should have already been deleted.
+
+INFO:root:William Farmer termed on 2022-05-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Magda Fenel termed on 2022-10-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Allan Flaggman termed on 2021-01-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Kayla Fong termed on 2022-07-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelly Garcia termed on 2022-09-14, not found in MS info. They should have already been deleted.
+
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:Jakia Ahmed termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Chelsea Ahmed termed on 2022-10-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Nahid Akter termed on 2022-01-10, not found in MS info. They should have already been deleted.
+
+INFO:root:Lubna Akthar termed on 2022-11-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Chidinma Anamah termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Mesbahul Anik termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Danielle Aron termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Dayana Arteaga termed on 2022-11-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Christopher Atherley termed on 2021-12-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Chloe Baird termed on 2021-09-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Diya Banerjee termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Jennifer Bautista termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelley Beaumonte termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Jacqueline Berenson termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Bentsion Berg termed on 2022-06-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Veronica Bernabe termed on 2022-10-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Siddhartha Bhupathiraju termed on 2022-07-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Bridget Bortnick termed on 2022-02-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Sara Bowles termed on 2022-04-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Noah Breen termed on 2022-04-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Margaret Brown termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Imoni Brown termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Oksana Bundzyak termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nicole Carl termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:JongYuan Chang termed on 2022-02-11, not found in MS info. They should have already been deleted.
+
+INFO:root:Ivan Chavarria-Siles termed on 2022-10-17, not found in MS info. They should have already been deleted.
+
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:Jakia Ahmed termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Chelsea Ahmed termed on 2022-10-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Nahid Akter termed on 2022-01-10, not found in MS info. They should have already been deleted.
+
+INFO:root:Lubna Akthar termed on 2022-11-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Chidinma Anamah termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Mesbahul Anik termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Danielle Aron termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Dayana Arteaga termed on 2022-11-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Christopher Atherley termed on 2021-12-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Chloe Baird termed on 2021-09-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Diya Banerjee termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Jennifer Bautista termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelley Beaumonte termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Jacqueline Berenson termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Bentsion Berg termed on 2022-06-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Veronica Bernabe termed on 2022-10-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Siddhartha Bhupathiraju termed on 2022-07-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Bridget Bortnick termed on 2022-02-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Sara Bowles termed on 2022-04-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Noah Breen termed on 2022-04-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Margaret Brown termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Imoni Brown termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Oksana Bundzyak termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nicole Carl termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:JongYuan Chang termed on 2022-02-11, not found in MS info. They should have already been deleted.
+
+INFO:root:Ivan Chavarria-Siles termed on 2022-10-17, not found in MS info. They should have already been deleted.
+
+INFO:root:Kerry Chrystal termed on 2022-01-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Gary Ciuffetelli termed on 2021-12-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Jailene Colon termed on 2022-08-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Bryan Colosky termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Natasha Conklin termed on 2022-09-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Suehey Contreras termed on 2022-07-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Rita Cook termed on 2022-12-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Nhi Corcoran termed on 2022-04-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Francis Corona termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Rebecca Costanza termed on 2022-07-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Ashley Covarrubias termed on 2023-01-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Lisa Cruz-Rosario termed on 2022-07-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Thea Dendler termed on 2022-03-24, not found in MS info. They should have already been deleted.
+
+INFO:root:Dana Denwitty termed on 2022-11-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Vien Dinh termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Lauren Dressler termed on 2022-09-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Dashawn Duncan termed on 2023-01-04, not found in MS info. They should have already been deleted.
+
+INFO:root:Adrian Durelli termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Debra Eden termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Silvia Encinas Ramirez termed on 2022-08-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nasstaja Evans termed on 2022-05-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Andrea Evans termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Imran Faisal termed on 2022-06-24, not found in MS info. They should have already been deleted.
+
+INFO:root:William Farmer termed on 2022-05-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Magda Fenel termed on 2022-10-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Allan Flaggman termed on 2021-01-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Kayla Fong termed on 2022-07-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelly Garcia termed on 2022-09-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Mindy Gavinaitis termed on 2022-06-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Kelly Gholston termed on 2022-10-25, not found in MS info. They should have already been deleted.
+
+INFO:root:Daniel Giacomelli termed on 2021-10-17, not found in MS info. They should have already been deleted.
+
+INFO:root:Bianca Gill termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Karl Goodkin termed on 2022-11-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Ebonie Green termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Carline Guerrier termed on 2021-12-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Kimberly Guillot termed on 2022-10-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Thomas Guyden termed on 2022-09-23, not found in MS info. They should have already been deleted.
+
+INFO:root:Alexandra Hasboun termed on 2022-07-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Benjamin Heisler termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Priscilla Hernandez termed on 2022-06-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Maria Hernandez Lopez termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Cecily Hinton termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Michael Hottois termed on 2022-12-23, not found in MS info. They should have already been deleted.
+
+INFO:root:Elizabeth Ianelli termed on 2022-07-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Samar Jasser termed on 2022-09-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Alexus Johnson termed on 2022-08-25, not found in MS info. They should have already been deleted.
+
+INFO:root:Derek Johnson termed on 2022-09-09, not found in MS info. They should have already been deleted.
+
+INFO:root:Tyisha Jones termed on 2022-03-24, not found in MS info. They should have already been deleted.
+
+INFO:root:Shacena Jones termed on 2022-06-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Stanley Joseph termed on 2022-09-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Fiona Joshua termed on 2022-08-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Skye Juster termed on 2022-04-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Navjot Khinda termed on 2021-10-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Sharon Kim termed on 2022-07-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Lenia Lindsay termed on 2022-10-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Regina Lisiecki termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Jaime Lo termed on 2022-11-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Cierra Love termed on 2022-11-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Claire Lytton termed on 2022-04-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Mama Makanera termed on 2022-07-21, not found in MS info. They should have already been deleted.
+
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:Jakia Ahmed termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Chelsea Ahmed termed on 2022-10-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Nahid Akter termed on 2022-01-10, not found in MS info. They should have already been deleted.
+
+INFO:root:Lubna Akthar termed on 2022-11-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Chidinma Anamah termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Mesbahul Anik termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Danielle Aron termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Dayana Arteaga termed on 2022-11-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Christopher Atherley termed on 2021-12-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Chloe Baird termed on 2021-09-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Diya Banerjee termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Jennifer Bautista termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelley Beaumonte termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Jacqueline Berenson termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Bentsion Berg termed on 2022-06-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Veronica Bernabe termed on 2022-10-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Siddhartha Bhupathiraju termed on 2022-07-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Bridget Bortnick termed on 2022-02-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Sara Bowles termed on 2022-04-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Noah Breen termed on 2022-04-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Margaret Brown termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Imoni Brown termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Oksana Bundzyak termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nicole Carl termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:JongYuan Chang termed on 2022-02-11, not found in MS info. They should have already been deleted.
+
+INFO:root:Ivan Chavarria-Siles termed on 2022-10-17, not found in MS info. They should have already been deleted.
+
+INFO:root:Kerry Chrystal termed on 2022-01-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Gary Ciuffetelli termed on 2021-12-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Jailene Colon termed on 2022-08-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Bryan Colosky termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Natasha Conklin termed on 2022-09-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Suehey Contreras termed on 2022-07-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Rita Cook termed on 2022-12-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Nhi Corcoran termed on 2022-04-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Francis Corona termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Rebecca Costanza termed on 2022-07-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Ashley Covarrubias termed on 2023-01-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Lisa Cruz-Rosario termed on 2022-07-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Thea Dendler termed on 2022-03-24, not found in MS info. They should have already been deleted.
+
+INFO:root:Dana Denwitty termed on 2022-11-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Vien Dinh termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Lauren Dressler termed on 2022-09-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Dashawn Duncan termed on 2023-01-04, not found in MS info. They should have already been deleted.
+
+INFO:root:Adrian Durelli termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Debra Eden termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Silvia Encinas Ramirez termed on 2022-08-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nasstaja Evans termed on 2022-05-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Andrea Evans termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Imran Faisal termed on 2022-06-24, not found in MS info. They should have already been deleted.
+
+INFO:root:William Farmer termed on 2022-05-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Magda Fenel termed on 2022-10-28, not found in MS info. They should have already been deleted.
+
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:Jakia Ahmed termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Chelsea Ahmed termed on 2022-10-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Lubna Akthar termed on 2022-11-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Chidinma Anamah termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Mesbahul Anik termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Danielle Aron termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Dayana Arteaga termed on 2022-11-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Christopher Atherley termed on 2021-12-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Chloe Baird termed on 2021-09-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Diya Banerjee termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Jennifer Bautista termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelley Beaumonte termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Jacqueline Berenson termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Bentsion Berg termed on 2022-06-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Veronica Bernabe termed on 2022-10-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Siddhartha Bhupathiraju termed on 2022-07-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Bridget Bortnick termed on 2022-02-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Sara Bowles termed on 2022-04-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Noah Breen termed on 2022-04-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Imoni Brown termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Oksana Bundzyak termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nicole Carl termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:JongYuan Chang termed on 2022-02-11, not found in MS info. They should have already been deleted.
+
+INFO:root:Ivan Chavarria-Siles termed on 2022-10-17, not found in MS info. They should have already been deleted.
+
+INFO:root:Kerry Chrystal termed on 2022-01-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Gary Ciuffetelli termed on 2021-12-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Jailene Colon termed on 2022-08-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Bryan Colosky termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Natasha Conklin termed on 2022-09-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Suehey Contreras termed on 2022-07-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Rita Cook termed on 2022-12-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Nhi Corcoran termed on 2022-04-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Francis Corona termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Rebecca Costanza termed on 2022-07-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Ashley Covarrubias termed on 2023-01-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Lisa Cruz-Rosario termed on 2022-07-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Thea Dendler termed on 2022-03-24, not found in MS info. They should have already been deleted.
+
+INFO:root:Dana Denwitty termed on 2022-11-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Vien Dinh termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Lauren Dressler termed on 2022-09-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Adrian Durelli termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Debra Eden termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Silvia Encinas Ramirez termed on 2022-08-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nasstaja Evans termed on 2022-05-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Andrea Evans termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Imran Faisal termed on 2022-06-24, not found in MS info. They should have already been deleted.
+
+INFO:root:William Farmer termed on 2022-05-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Magda Fenel termed on 2022-10-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Allan Flaggman termed on 2021-01-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Kayla Fong termed on 2022-07-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelly Garcia termed on 2022-09-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Kelly Gholston termed on 2022-10-25, not found in MS info. They should have already been deleted.
+
+INFO:root:Daniel Giacomelli termed on 2021-10-17, not found in MS info. They should have already been deleted.
+
+INFO:root:Bianca Gill termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Karl Goodkin termed on 2022-11-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Carline Guerrier termed on 2021-12-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Kimberly Guillot termed on 2022-10-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Thomas Guyden termed on 2022-09-23, not found in MS info. They should have already been deleted.
+
+INFO:root:Alexandra Hasboun termed on 2022-07-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Benjamin Heisler termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Priscilla Hernandez termed on 2022-06-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Maria Hernandez Lopez termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Cecily Hinton termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Elizabeth Ianelli termed on 2022-07-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Samar Jasser termed on 2022-09-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Alexus Johnson termed on 2022-08-25, not found in MS info. They should have already been deleted.
+
+INFO:root:Derek Johnson termed on 2022-09-09, not found in MS info. They should have already been deleted.
+
+INFO:root:Tyisha Jones termed on 2022-03-24, not found in MS info. They should have already been deleted.
+
+INFO:root:Shacena Jones termed on 2022-06-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Stanley Joseph termed on 2022-09-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Fiona Joshua termed on 2022-08-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Skye Juster termed on 2022-04-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Navjot Khinda termed on 2021-10-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Sharon Kim termed on 2022-07-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Lenia Lindsay termed on 2022-10-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Regina Lisiecki termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Jaime Lo termed on 2022-11-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Cierra Love termed on 2022-11-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Claire Lytton termed on 2022-04-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Mama Makanera termed on 2022-07-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Marie Mancuso termed on 2022-11-18, not found in MS info. They should have already been deleted.
+
+INFO:root:Cheryl Manley termed on 2022-11-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Janatul Maywa termed on 2022-08-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Tyasia McKeithan termed on 2022-12-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Andres Mendez termed on 2022-01-18, not found in MS info. They should have already been deleted.
+
+INFO:root:Donna Milliot termed on 2022-08-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Persephoni Mitchell termed on 2022-05-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Georges Moroz termed on 2020-12-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Victoria Mortensen termed on 2022-11-04, not found in MS info. They should have already been deleted.
+
+INFO:root:Tania Musliwala termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Thomas Newton termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Steven Nieves termed on 2022-12-05, not found in MS info. They should have already been deleted.
+
+INFO:root:Diana Novillo termed on 2022-05-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Jessica Nunnery termed on 2022-09-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Molly O'Donnell termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Rachel O'Driscoll termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Lauren O'Neal termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Judith Ofori-Akwaboah termed on 2022-08-23, not found in MS info. They should have already been deleted.
+
+INFO:root:Miriam Olenick termed on 2022-01-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Gregory Paladino termed on 2022-02-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Darlene J Palewitz termed on 2022-11-11, not found in MS info. They should have already been deleted.
+
+INFO:root:Anant Patel termed on 2022-12-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Jignesh Patel termed on 2022-09-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Melanie Pegg termed on 2022-12-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Brian Povlsen termed on 2022-07-20, not found in MS info. They should have already been deleted.
+
+INFO:root:JaCarra Powell termed on 2022-11-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Iyahna Rayside termed on 2022-05-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Indikha Reaves termed on 2022-06-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Asha Reed-Jones termed on 2022-10-04, not found in MS info. They should have already been deleted.
+
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.9.0, Python Version: 3.9.13, Platform: macOS-10.16-x86_64-i386-64bit
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:Jakia Ahmed termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Chelsea Ahmed termed on 2022-10-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Lubna Akthar termed on 2022-11-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Chidinma Anamah termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Mesbahul Anik termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Danielle Aron termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Dayana Arteaga termed on 2022-11-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Christopher Atherley termed on 2021-12-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Chloe Baird termed on 2021-09-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Diya Banerjee termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Jennifer Bautista termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelley Beaumonte termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Jacqueline Berenson termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Bentsion Berg termed on 2022-06-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Veronica Bernabe termed on 2022-10-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Siddhartha Bhupathiraju termed on 2022-07-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Bridget Bortnick termed on 2022-02-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Sara Bowles termed on 2022-04-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Noah Breen termed on 2022-04-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Imoni Brown termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Oksana Bundzyak termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nicole Carl termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:JongYuan Chang termed on 2022-02-11, not found in MS info. They should have already been deleted.
+
+INFO:root:Ivan Chavarria-Siles termed on 2022-10-17, not found in MS info. They should have already been deleted.
+
+INFO:root:Kerry Chrystal termed on 2022-01-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Gary Ciuffetelli termed on 2021-12-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Jailene Colon termed on 2022-08-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Bryan Colosky termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Natasha Conklin termed on 2022-09-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Suehey Contreras termed on 2022-07-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Rita Cook termed on 2022-12-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Nhi Corcoran termed on 2022-04-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Francis Corona termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Rebecca Costanza termed on 2022-07-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Ashley Covarrubias termed on 2023-01-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Lisa Cruz-Rosario termed on 2022-07-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Thea Dendler termed on 2022-03-24, not found in MS info. They should have already been deleted.
+
+INFO:root:Dana Denwitty termed on 2022-11-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Vien Dinh termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Lauren Dressler termed on 2022-09-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Adrian Durelli termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Debra Eden termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Silvia Encinas Ramirez termed on 2022-08-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nasstaja Evans termed on 2022-05-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Andrea Evans termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Imran Faisal termed on 2022-06-24, not found in MS info. They should have already been deleted.
+
+INFO:root:William Farmer termed on 2022-05-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Magda Fenel termed on 2022-10-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Allan Flaggman termed on 2021-01-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Kayla Fong termed on 2022-07-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelly Garcia termed on 2022-09-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Kelly Gholston termed on 2022-10-25, not found in MS info. They should have already been deleted.
+
+INFO:root:Daniel Giacomelli termed on 2021-10-17, not found in MS info. They should have already been deleted.
+
+INFO:root:Bianca Gill termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Karl Goodkin termed on 2022-11-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Carline Guerrier termed on 2021-12-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Kimberly Guillot termed on 2022-10-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Thomas Guyden termed on 2022-09-23, not found in MS info. They should have already been deleted.
+
+INFO:root:Alexandra Hasboun termed on 2022-07-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Benjamin Heisler termed on 2022-12-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Priscilla Hernandez termed on 2022-06-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Maria Hernandez Lopez termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Cecily Hinton termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Elizabeth Ianelli termed on 2022-07-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Samar Jasser termed on 2022-09-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Alexus Johnson termed on 2022-08-25, not found in MS info. They should have already been deleted.
+
+INFO:root:Derek Johnson termed on 2022-09-09, not found in MS info. They should have already been deleted.
+
+INFO:root:Tyisha Jones termed on 2022-03-24, not found in MS info. They should have already been deleted.
+
+INFO:root:Shacena Jones termed on 2022-06-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Stanley Joseph termed on 2022-09-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Fiona Joshua termed on 2022-08-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Skye Juster termed on 2022-04-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Navjot Khinda termed on 2021-10-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Sharon Kim termed on 2022-07-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Lenia Lindsay termed on 2022-10-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Regina Lisiecki termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Jaime Lo termed on 2022-11-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Cierra Love termed on 2022-11-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Claire Lytton termed on 2022-04-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Mama Makanera termed on 2022-07-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Marie Mancuso termed on 2022-11-18, not found in MS info. They should have already been deleted.
+
+INFO:root:Cheryl Manley termed on 2022-11-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Janatul Maywa termed on 2022-08-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Tyasia McKeithan termed on 2022-12-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Andres Mendez termed on 2022-01-18, not found in MS info. They should have already been deleted.
+
+INFO:root:Donna Milliot termed on 2022-08-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Persephoni Mitchell termed on 2022-05-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Georges Moroz termed on 2020-12-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Victoria Mortensen termed on 2022-11-04, not found in MS info. They should have already been deleted.
+
+INFO:root:Tania Musliwala termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Thomas Newton termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Steven Nieves termed on 2022-12-05, not found in MS info. They should have already been deleted.
+
+INFO:root:Diana Novillo termed on 2022-05-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Jessica Nunnery termed on 2022-09-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Molly O'Donnell termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Rachel O'Driscoll termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Lauren O'Neal termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Judith Ofori-Akwaboah termed on 2022-08-23, not found in MS info. They should have already been deleted.
+
+INFO:root:Miriam Olenick termed on 2022-01-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Gregory Paladino termed on 2022-02-28, not found in MS info. They should have already been deleted.
+
+INFO:root:Darlene J Palewitz termed on 2022-11-11, not found in MS info. They should have already been deleted.
+
+INFO:root:Anant Patel termed on 2022-12-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Jignesh Patel termed on 2022-09-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Melanie Pegg termed on 2022-12-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Brian Povlsen termed on 2022-07-20, not found in MS info. They should have already been deleted.
+
+INFO:root:JaCarra Powell termed on 2022-11-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Iyahna Rayside termed on 2022-05-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Indikha Reaves termed on 2022-06-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Asha Reed-Jones termed on 2022-10-04, not found in MS info. They should have already been deleted.
+
+INFO:root:Mauro Restuccia termed on 2021-11-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Karina Rincon termed on 2022-11-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Pamela Ringer-Woods termed on 2022-08-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Emmett Schaller termed on 2022-11-11, not found in MS info. They should have already been deleted.
+
+INFO:root:Yakov Semenov termed on 2022-12-08, not found in MS info. They should have already been deleted.
+
+INFO:root:Olivia Shapiro termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Maninder Sharma termed on 2022-11-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Nakita Showell termed on 2022-10-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Teasia Sims termed on 2022-08-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Navjot Singh termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Brian Siringo termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Victoria Smith termed on 2022-11-04, not found in MS info. They should have already been deleted.
+
+INFO:root:Sarah Smith termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Jane Spencer termed on 2022-07-15, not found in MS info. They should have already been deleted.
+
+INFO:root:Gavin Stebbins termed on 2022-09-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Eric Stephens termed on 2022-03-21, not found in MS info. They should have already been deleted.
+
+INFO:root:Virginia Suarez termed on 2022-09-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Bianca Sylvain termed on 2022-10-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Jasmine Tate termed on 2022-12-05, not found in MS info. They should have already been deleted.
+
+INFO:root:Katherine Taveras termed on 2022-09-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Sharon Taylor termed on 2022-07-18, not found in MS info. They should have already been deleted.
+
+INFO:root:Alicia Thomas termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Shalander Timothy termed on 2022-03-31, not found in MS info. They should have already been deleted.
+
+INFO:root:Courtney Upshaw termed on 2022-08-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Chantelle Vaca termed on 2022-11-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Rosalina Volpe termed on 2022-08-03, not found in MS info. They should have already been deleted.
+
+INFO:root:Angela Warren termed on 2022-11-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Sehrish Waseem termed on 2022-09-10, not found in MS info. They should have already been deleted.
+
+INFO:root:Kari Whatley termed on 2022-11-04, not found in MS info. They should have already been deleted.
+
+INFO:root:Douglas Whikehart termed on 2022-11-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Melissa Willey termed on 2022-05-27, not found in MS info. They should have already been deleted.
+
+INFO:root:Susan Williams termed on 2022-08-26, not found in MS info. They should have already been deleted.
+
+INFO:root:Cristina Wiltse termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Crystal Winfield termed on 2022-05-04, not found in MS info. They should have already been deleted.
+
+INFO:root:Dana Xiadani termed on 2022-11-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Brook Yewer termed on 2022-08-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Maria Zuniga termed on 2022-09-09, not found in MS info. They should have already been deleted.
+
