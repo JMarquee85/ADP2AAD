@@ -163,7 +163,7 @@ try:
         		print(f"User found in the MSGraph dictionaries. We would now delete {employee_full_name}!\n")
         		#delete_user(employee_email)
         	else: 
-        		print(f"{employee_full_name} termed on {employee_separation_date}, not found in MS info. They should have already been deleted.\n")
+        		print(f"{employee_full_name} termed on {employee_separation_date}, not found in MS info. Should be deleted already.\n")
         		logging.info(f"{employee_full_name} termed on {employee_separation_date}, not found in MS info. They should have already been deleted.\n")
 
         # Action if user is Active		
