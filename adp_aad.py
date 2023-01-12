@@ -26,7 +26,6 @@ from msgraphpull import *
 import logging
 import csv
 
-<<<<<<< HEAD
 def snowflake_user_pull(ms_user_list):
 
 	# Lists of things to collect along the way. 
