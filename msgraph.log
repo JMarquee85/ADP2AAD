@@ -60,3 +60,80 @@ Traceback (most recent call last):
   File "/home/josh/.local/lib/python3.10/site-packages/snowflake/connector/network.py", line 1105, in _request_exec
     raise RetryRequest(err)
 snowflake.connector.network.RetryRequest: HTTPSConnectionPool(host='pra18133.us-east-1.snowflakecomputing.com', port=443): Max retries exceeded with url: /session?delete=true&request_guid=986d5a66-8f1e-4612-aac5-fd73d3f83fd7 (Caused by NewConnectionError('<snowflake.connector.vendored.urllib3.connection.HTTPSConnection object at 0x7fc90fbbfcd0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.8.3, Python Version: 3.10.6, Platform: Linux-5.15.0-57-generic-x86_64-with-glibc2.35
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:closed
+INFO:snowflake.connector.connection:No async queries seem to be running, deleting session
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.8.3, Python Version: 3.10.6, Platform: Linux-5.15.0-57-generic-x86_64-with-glibc2.35
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:snowflake.connector.connection:closed
+INFO:snowflake.connector.connection:No async queries seem to be running, deleting session
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.8.3, Python Version: 3.10.6, Platform: Linux-5.15.0-57-generic-x86_64-with-glibc2.35
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+INFO:snowflake.connector.cursor:query execution done
+INFO:snowflake.connector.cursor:Number of results in first chunk: 0
+INFO:root:Chelsea Ahmed termed on 2022-10-19, not found in MS info. They should have already been deleted.
+
+INFO:root:Jakia Ahmed termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Lubna Akthar termed on 2022-11-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Chidinma Anamah termed on 2022-12-30, not found in MS info. They should have already been deleted.
+
+INFO:root:Mesbahul Anik termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Danielle Aron termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Dayana Arteaga termed on 2022-11-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Christopher Atherley termed on 2021-12-20, not found in MS info. They should have already been deleted.
+
+INFO:root:Chloe Baird termed on 2021-09-22, not found in MS info. They should have already been deleted.
+
+INFO:root:Diya Banerjee termed on 2022-05-06, not found in MS info. They should have already been deleted.
+
+INFO:root:Jennifer Bautista termed on 2022-12-02, not found in MS info. They should have already been deleted.
+
+INFO:root:Shelley Beaumonte termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Jacqueline Berenson termed on 2022-05-13, not found in MS info. They should have already been deleted.
+
+INFO:root:Bentsion Berg termed on 2022-06-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Veronica Bernabe termed on 2022-10-14, not found in MS info. They should have already been deleted.
+
+INFO:root:Siddhartha Bhupathiraju termed on 2022-07-12, not found in MS info. They should have already been deleted.
+
+INFO:root:Bridget Bortnick termed on 2022-02-16, not found in MS info. They should have already been deleted.
+
+INFO:root:Sara Bowles termed on 2022-04-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Noah Breen termed on 2022-04-29, not found in MS info. They should have already been deleted.
+
+INFO:root:Imoni Brown termed on 2022-10-07, not found in MS info. They should have already been deleted.
+
+INFO:root:Margaret Brown termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Oksana Bundzyak termed on 2022-09-01, not found in MS info. They should have already been deleted.
+
+INFO:root:Nicole Carl termed on 2022-09-01, not found in MS info. They should have already been deleted.
+

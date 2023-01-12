@@ -19379,3 +19379,265 @@ DEBUG:filelock:Attempting to acquire lock 2151803199280 on C:\Users\JoshMarcus\A
 DEBUG:filelock:Lock 2151803199280 acquired on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
 DEBUG:filelock:Attempting to release lock 2151803199280 on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
 DEBUG:filelock:Lock 2151803199280 released on C:\Users\JoshMarcus\AppData\Local\Snowflake\Caches\ocsp_cache.lock
+INFO:snowflake.connector.connection:Snowflake Connector for Python Version: 2.8.3, Python Version: 3.10.6, Platform: Linux-5.15.0-57-generic-x86_64-with-glibc2.35
+DEBUG:snowflake.connector.connection:connect
+DEBUG:snowflake.connector.connection:__config
+INFO:snowflake.connector.connection:This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+INFO:snowflake.connector.connection:Setting use_openssl_only mode to False
+DEBUG:snowflake.connector.converter:use_numpy: False
+DEBUG:snowflake.connector.connection:REST API object was created: pra18133.us-east-1.snowflakecomputing.com:443
+DEBUG:snowflake.connector.auth:authenticate
+DEBUG:snowflake.connector.auth:assertion content: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJhcGk6Ly9lMmI2NjE1ZC04ODY3LTQxOTYtYmY4Yi1iYTYxYWEyZjUzZmEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC84MDNhNmM5MC1lYzcyLTQzODQtYjJjMC0xYTM3Njg0MWEwNGIvIiwiaWF0IjoxNjczNDg0Mzk2LCJuYmYiOjE2NzM0ODQzOTYsImV4cCI6MTY3MzQ4ODI5NiwiYWlvIjoiRTJaZ1lManBlV2pDeWlidmlNKzNKbnhPL2lzNkNRQT0iLCJhcHBpZCI6ImJlNDlkMjViLWU4NGYtNGE1Yi05NzI2LWM2MTZhMTZjYTRjNSIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzgwM2E2YzkwLWVjNzItNDM4NC1iMmMwLTFhMzc2ODQxYTA0Yi8iLCJvaWQiOiJkOTE5ZjU5MS1lZDM3LTRkZjMtYWE4ZC1iNzU3ZDhhNWI4ZjMiLCJyaCI6IjAuQVgwQWtHdzZnSExzaEVPeXdCbzNhRUdnUzExaHR1Sm5pSlpCdjR1Nllhb3ZVX3A5QUFBLiIsInJvbGVzIjpbInNlc3Npb246cm9sZTpBQURfUk9MRSJdLCJzdWIiOiJkOTE5ZjU5MS1lZDM3LTRkZjMtYWE4ZC1iNzU3ZDhhNWI4ZjMiLCJ0aWQiOiI4MDNhNmM5MC1lYzcyLTQzODQtYjJjMC0xYTM3Njg0MWEwNGIiLCJ1dGkiOiJaOFVrdkpGNF8wSzR0RTNLSDl5T0FBIiwidmVyIjoiMS4wIn0.D4a6QKPcvS65YaeRe3ptKUWlfqMDAhaf8m7onc2uVaBRuVMhkr6oprw2SvfJdtJ9co4a-Qn4SOjxGu63iIuDdUqSK_1IIAR6k3bWv5Qgi7_9SQs8BXM5RYr8PkPG4nJtM0IXv8ybfpJyJ6NZqhW_N-irYg7qXX0lPxRS5Pjgk_dIE5LOtSu--DE0kc8ArUnihxc8UG8PeSRC6b5BwhD1oLFzF2vETO6i5pGO8G9TBJN-3cHWT-Txxkw114_BIg89CXKtc5-N08VmriUpLIxyNApalpSs0oq0Kn9aN6qAQJgcO46ztcFh2NoU4rA5KkKv5Q0fC8anajX7qkhmo_dERw
+DEBUG:snowflake.connector.auth:account=pra18133, user=d919f591-ed37-4df3-aa8d-b757d8a5b8f3, database=ANALYTICS, schema=COMMON, warehouse=AAD_WH, role=AAD_ROLE, request_id=33cfaa76-6020-4f1b-9901-a00a2331ec9c
+DEBUG:snowflake.connector.auth:body['data']: {'CLIENT_APP_ID': 'PythonConnector', 'CLIENT_APP_VERSION': '2.8.3', 'SVN_REVISION': None, 'ACCOUNT_NAME': 'pra18133', 'LOGIN_NAME': 'd919f591-ed37-4df3-aa8d-b757d8a5b8f3', 'CLIENT_ENVIRONMENT': {'APPLICATION': 'PythonConnector', 'OS': 'Linux', 'OS_VERSION': 'Linux-5.15.0-57-generic-x86_64-with-glibc2.35', 'PYTHON_VERSION': '3.10.6', 'PYTHON_RUNTIME': 'CPython', 'PYTHON_COMPILER': 'GCC 11.3.0', 'OCSP_MODE': 'FAIL_OPEN', 'TRACING': 10, 'LOGIN_TIMEOUT': 120, 'NETWORK_TIMEOUT': None}, 'AUTHENTICATOR': 'OAUTH', 'TOKEN': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyIsImtpZCI6Ii1LSTNROW5OUjdiUm9meG1lWm9YcWJIWkdldyJ9.eyJhdWQiOiJhcGk6Ly9lMmI2NjE1ZC04ODY3LTQxOTYtYmY4Yi1iYTYxYWEyZjUzZmEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC84MDNhNmM5MC1lYzcyLTQzODQtYjJjMC0xYTM3Njg0MWEwNGIvIiwiaWF0IjoxNjczNDg0Mzk2LCJuYmYiOjE2NzM0ODQzOTYsImV4cCI6MTY3MzQ4ODI5NiwiYWlvIjoiRTJaZ1lManBlV2pDeWlidmlNKzNKbnhPL2lzNkNRQT0iLCJhcHBpZCI6ImJlNDlkMjViLWU4NGYtNGE1Yi05NzI2LWM2MTZhMTZjYTRjNSIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzgwM2E2YzkwLWVjNzItNDM4NC1iMmMwLTFhMzc2ODQxYTA0Yi8iLCJvaWQiOiJkOTE5ZjU5MS1lZDM3LTRkZjMtYWE4ZC1iNzU3ZDhhNWI4ZjMiLCJyaCI6IjAuQVgwQWtHdzZnSExzaEVPeXdCbzNhRUdnUzExaHR1Sm5pSlpCdjR1Nllhb3ZVX3A5QUFBLiIsInJvbGVzIjpbInNlc3Npb246cm9sZTpBQURfUk9MRSJdLCJzdWIiOiJkOTE5ZjU5MS1lZDM3LTRkZjMtYWE4ZC1iNzU3ZDhhNWI4ZjMiLCJ0aWQiOiI4MDNhNmM5MC1lYzcyLTQzODQtYjJjMC0xYTM3Njg0MWEwNGIiLCJ1dGkiOiJaOFVrdkpGNF8wSzR0RTNLSDl5T0FBIiwidmVyIjoiMS4wIn0.D4a6QKPcvS65YaeRe3ptKUWlfqMDAhaf8m7onc2uVaBRuVMhkr6oprw2SvfJdtJ9co4a-Qn4SOjxGu63iIuDdUqSK_1IIAR6k3bWv5Qgi7_9SQs8BXM5RYr8PkPG4nJtM0IXv8ybfpJyJ6NZqhW_N-irYg7qXX0lPxRS5Pjgk_dIE5LOtSu--DE0kc8ArUnihxc8UG8PeSRC6b5BwhD1oLFzF2vETO6i5pGO8G9TBJN-3cHWT-Txxkw114_BIg89CXKtc5-N08VmriUpLIxyNApalpSs0oq0Kn9aN6qAQJgcO46ztcFh2NoU4rA5KkKv5Q0fC8anajX7qkhmo_dERw', 'SESSION_PARAMETERS': {'CLIENT_PREFETCH_THREADS': 4}}
+DEBUG:snowflake.connector.auth:Timeout set to 120
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 1/1 active sessions
+DEBUG:snowflake.connector.network:remaining request timeout: 120, retry cnt: 1
+DEBUG:snowflake.connector.network:Request guid: 9a1cdab3-8ae1-4f06-8151-ad76179f7f16
+DEBUG:snowflake.connector.network:socket timeout: 60
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:Starting new HTTPS connection (1): pra18133.us-east-1.snowflakecomputing.com:443
+DEBUG:snowflake.connector.ocsp_snowflake:cache directory: /home/josh/.cache/snowflake
+DEBUG:filelock:Attempting to acquire lock 139800132301200 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800132301200 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800132301200 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800132301200 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800128006960 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800128006960 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800128006960 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800128006960 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800123279056 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123279056 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800123279056 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123279056 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800127686688 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800127686688 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800127686688 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800127686688 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800123361168 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123361168 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800123361168 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123361168 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800128109584 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800128109584 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800128109584 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800128109584 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800123468304 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123468304 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800123468304 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123468304 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:snowflake.connector.ssl_wrap_socket:OCSP Mode: FAIL_OPEN, OCSP response cache file name: None
+DEBUG:snowflake.connector.ocsp_snowflake:ocsp_response_cache_uri: file:///home/josh/.cache/snowflake/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP_VALIDATION_CACHE size: 194
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP response cache server is enabled: http://ocsp.snowflakecomputing.com/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP dynamic cache server RETRY URL: None
+DEBUG:snowflake.connector.ocsp_snowflake:validating certificate: pra18133.us-east-1.snowflakecomputing.com
+DEBUG:snowflake.connector.ocsp_asn1crypto:# of certificates: 4
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('common_name', '*.us-east-1.snowflakecomputing.com')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')]), issuer: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:filelock:Attempting to acquire lock 139800127839136 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800127839136 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800127839136 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800127839136 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:reading certificate bundle: /home/josh/.local/lib/python3.10/site-packages/certifi/cacert.pem
+DEBUG:filelock:Attempting to acquire lock 139800123573104 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123573104 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800123573104 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123573104 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800124117040 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800124117040 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800124117040 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800124117040 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800124184448 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800124184448 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800124184448 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800124184448 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800124304368 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800124304368 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800124304368 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800124304368 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:snowflake.connector.ocsp_asn1crypto:not found issuer_der: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:filelock:Attempting to acquire lock 139800119199056 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119199056 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800119199056 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119199056 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('common_name', '*.us-east-1.snowflakecomputing.com')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:filelock:Attempting to acquire lock 139800123610240 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123610240 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800123610240 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123610240 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:snowflake.connector.ocsp_snowflake:ok
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://pra18133.us-east-1.snowflakecomputing.com:443 "POST /session/v1/login-request?request_id=33cfaa76-6020-4f1b-9901-a00a2331ec9c&databaseName=ANALYTICS&schemaName=COMMON&warehouse=AAD_WH&roleName=AAD_ROLE&request_guid=9a1cdab3-8ae1-4f06-8151-ad76179f7f16 HTTP/1.1" 200 1542
+DEBUG:snowflake.connector.network:SUCCESS
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 0/1 active sessions
+DEBUG:snowflake.connector.network:ret[code] = None, after post request
+DEBUG:snowflake.connector.auth:completed authentication
+DEBUG:snowflake.connector.auth:token = ******
+DEBUG:snowflake.connector.auth:master_token = ******
+DEBUG:snowflake.connector.auth:id_token = NULL
+DEBUG:snowflake.connector.auth:mfa_token = NULL
+DEBUG:snowflake.connector.connection:cursor
+DEBUG:snowflake.connector.cursor:executing SQL/command
+DEBUG:snowflake.connector.cursor:binding: [USE WAREHOUSE AAD_WH] with input=[None], processed=[{}]
+INFO:snowflake.connector.cursor:query: [USE WAREHOUSE AAD_WH]
+DEBUG:snowflake.connector.connection:sequence counter: 1
+DEBUG:snowflake.connector.cursor:Request id: 6d144ee6-0b1d-4c4a-a4c1-d4adf72470c2
+DEBUG:snowflake.connector.cursor:running query [USE WAREHOUSE AAD_WH]
+DEBUG:snowflake.connector.cursor:is_file_transfer: True
+DEBUG:snowflake.connector.connection:_cmd_query
+DEBUG:snowflake.connector.connection:sql=[USE WAREHOUSE AAD_WH], sequence_id=[1], is_file_transfer=[False]
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 1/1 active sessions
+DEBUG:snowflake.connector.network:remaining request timeout: None, retry cnt: 1
+DEBUG:snowflake.connector.network:Request guid: b98efdb6-f1dd-47aa-8a36-41e075b06e3c
+DEBUG:snowflake.connector.network:socket timeout: 60
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://pra18133.us-east-1.snowflakecomputing.com:443 "POST /queries/v1/query-request?requestId=6d144ee6-0b1d-4c4a-a4c1-d4adf72470c2&request_guid=b98efdb6-f1dd-47aa-8a36-41e075b06e3c HTTP/1.1" 200 1112
+DEBUG:snowflake.connector.network:SUCCESS
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 0/1 active sessions
+DEBUG:snowflake.connector.network:ret[code] = None, after post request
+DEBUG:snowflake.connector.network:Query id: 01a996d3-0402-e154-0061-aa830322a906
+DEBUG:snowflake.connector.cursor:sfqid: 01a996d3-0402-e154-0061-aa830322a906
+INFO:snowflake.connector.cursor:query execution done
+DEBUG:snowflake.connector.cursor:SUCCESS
+DEBUG:snowflake.connector.cursor:PUT OR GET: False
+DEBUG:snowflake.connector.cursor:Query result format: json
+DEBUG:snowflake.connector.result_batch:parsing for result batch id: 1
+INFO:snowflake.connector.cursor:Number of results in first chunk: 1
+DEBUG:snowflake.connector.cursor:executing SQL/command
+DEBUG:snowflake.connector.cursor:binding: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;] with input=[None], processed=[{}]
+INFO:snowflake.connector.cursor:query: [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+DEBUG:snowflake.connector.connection:sequence counter: 2
+DEBUG:snowflake.connector.cursor:Request id: cbbc0c58-055d-4c90-bff3-7ce42783e96b
+DEBUG:snowflake.connector.cursor:running query [SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;]
+DEBUG:snowflake.connector.cursor:is_file_transfer: True
+DEBUG:snowflake.connector.connection:_cmd_query
+DEBUG:snowflake.connector.connection:sql=[SELECT * FROM analytics.common.dim_employees ORDER by EMPLOYEE_LAST_NAME;], sequence_id=[2], is_file_transfer=[False]
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 1/1 active sessions
+DEBUG:snowflake.connector.network:remaining request timeout: None, retry cnt: 1
+DEBUG:snowflake.connector.network:Request guid: 0cef34c8-7e24-46f6-95af-6c4889dd7e16
+DEBUG:snowflake.connector.network:socket timeout: 60
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://pra18133.us-east-1.snowflakecomputing.com:443 "POST /queries/v1/query-request?requestId=cbbc0c58-055d-4c90-bff3-7ce42783e96b&request_guid=0cef34c8-7e24-46f6-95af-6c4889dd7e16 HTTP/1.1" 200 None
+DEBUG:snowflake.connector.network:SUCCESS
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 0/1 active sessions
+DEBUG:snowflake.connector.network:ret[code] = None, after post request
+DEBUG:snowflake.connector.network:Query id: 01a996d3-0402-e45b-0061-aa830322b1da
+DEBUG:snowflake.connector.cursor:sfqid: 01a996d3-0402-e45b-0061-aa830322b1da
+INFO:snowflake.connector.cursor:query execution done
+DEBUG:snowflake.connector.cursor:SUCCESS
+DEBUG:snowflake.connector.cursor:PUT OR GET: False
+DEBUG:snowflake.connector.cursor:Query result format: arrow
+DEBUG:snowflake.connector.result_batch:chunk size=1
+INFO:snowflake.connector.cursor:Number of results in first chunk: 118
+DEBUG:snowflake.connector.arrow_iterator:Batches read: 1
+DEBUG:snowflake.connector.CArrowIterator:Arrow BatchSize: 1
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:filelock:Attempting to acquire lock 139800123664384 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123664384 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800123664384 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800123664384 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:snowflake.connector.result_set:result batch 1 has id: data_0_0_1
+DEBUG:snowflake.connector.result_set:beginning to schedule result batch downloads
+DEBUG:snowflake.connector.result_set:queuing download of result batch id: data_0_0_1
+DEBUG:snowflake.connector.result_batch:started downloading result batch id: data_0_0_1
+DEBUG:snowflake.connector.result_set:user requesting to consume result batch 1
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.vendored.urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:snowflake.connector.network:Session status for SessionPool 'None', SessionPool 1/1 active sessions
+DEBUG:snowflake.connector.result_batch:downloading result batch id: data_0_0_1 with existing session <snowflake.connector.vendored.requests.sessions.Session object at 0x7f25c0bcf2e0>
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:Starting new HTTPS connection (1): sfc-va2-ds1-32-customer-stage.s3.amazonaws.com:443
+DEBUG:snowflake.connector.ssl_wrap_socket:OCSP Mode: FAIL_OPEN, OCSP response cache file name: None
+DEBUG:snowflake.connector.ocsp_snowflake:ocsp_response_cache_uri: file:///home/josh/.cache/snowflake/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP_VALIDATION_CACHE size: 194
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP response cache server is enabled: http://ocsp.snowflakecomputing.com/ocsp_response_cache.json
+DEBUG:snowflake.connector.ocsp_snowflake:OCSP dynamic cache server RETRY URL: None
+DEBUG:snowflake.connector.ocsp_snowflake:validating certificate: sfc-va2-ds1-32-customer-stage.s3.amazonaws.com
+DEBUG:snowflake.connector.ocsp_asn1crypto:# of certificates: 4
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('common_name', '*.s3.amazonaws.com')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:filelock:Attempting to acquire lock 139800127838320 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800127838320 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800127838320 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800127838320 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')]), issuer: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')]), issuer: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:not found issuer_der: OrderedDict([('country_name', 'US'), ('organization_name', 'Starfield Technologies, Inc.'), ('organizational_unit_name', 'Starfield Class 2 Certification Authority')])
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('common_name', '*.s3.amazonaws.com')])
+DEBUG:filelock:Attempting to acquire lock 139800119307008 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119307008 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800119307008 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119307008 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:41:06+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('organizational_unit_name', 'Server CA 1B'), ('common_name', 'Amazon')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2025-09-15 19:45:34+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('organization_name', 'Amazon'), ('common_name', 'Amazon Root CA 1')])
+DEBUG:snowflake.connector.ocsp_asn1crypto:Verifying the attached certificate is signed by the issuer. Valid Not After: 2023-06-22 07:00:00+00:00
+DEBUG:snowflake.connector.ocsp_snowflake:hit cache for subject: OrderedDict([('country_name', 'US'), ('state_or_province_name', 'Arizona'), ('locality_name', 'Scottsdale'), ('organization_name', 'Starfield Technologies, Inc.'), ('common_name', 'Starfield Services Root Certificate Authority - G2')])
+DEBUG:snowflake.connector.ocsp_snowflake:ok
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://sfc-va2-ds1-32-customer-stage.s3.amazonaws.com:443 "GET /fruw-s-v2sb2557/results/01a996d3-0402-e45b-0061-aa830322b1da_0/main/data_0_0_1?x-amz-server-side-encryption-customer-algorithm=AES256&response-content-encoding=gzip&AWSAccessKeyId=AKIAQM2ONWTMNPDIKQV5&Expires=1673506301&Signature=HNGczttkcQIK3gdm6TP7U1rtShQ%3D HTTP/1.1" 200 133419
+DEBUG:snowflake.connector.network:Session status for SessionPool 'None', SessionPool 0/1 active sessions
+DEBUG:snowflake.connector.result_batch:successfully downloaded result batch id: data_0_0_1
+DEBUG:snowflake.connector.result_batch:started loading result batch id: data_0_0_1
+DEBUG:snowflake.connector.arrow_iterator:Batches read: 7
+DEBUG:snowflake.connector.CArrowIterator:Arrow BatchSize: 7
+DEBUG:snowflake.connector.result_batch:finished loading result batch id: data_0_0_1
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.CArrowIterator:Convert fixed number column to double column, column scale 8, column type id: 7
+DEBUG:snowflake.connector.result_set:user began consuming result batch 1
+DEBUG:snowflake.connector.result_set:user finished consuming result batch 1
+DEBUG:filelock:Attempting to acquire lock 139800119509056 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119509056 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800119509056 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119509056 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800124190304 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800124190304 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800124190304 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800124190304 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800119487760 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119487760 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800119487760 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119487760 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800119487664 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119487664 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800119487664 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119487664 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800119487904 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119487904 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800119487904 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119487904 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+INFO:snowflake.connector.connection:closed
+DEBUG:snowflake.connector.telemetry:Closing telemetry client.
+INFO:snowflake.connector.connection:No async queries seem to be running, deleting session
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 1/1 active sessions
+DEBUG:snowflake.connector.network:remaining request timeout: 5, retry cnt: 1
+DEBUG:snowflake.connector.network:Request guid: 58424529-1d31-456b-952e-f8fb52a68299
+DEBUG:snowflake.connector.network:socket timeout: 60
+DEBUG:snowflake.connector.vendored.urllib3.connectionpool:https://pra18133.us-east-1.snowflakecomputing.com:443 "POST /session?delete=true&request_guid=58424529-1d31-456b-952e-f8fb52a68299 HTTP/1.1" 200 76
+DEBUG:snowflake.connector.network:SUCCESS
+DEBUG:snowflake.connector.network:Session status for SessionPool 'pra18133.us-east-1.snowflakecomputing.com', SessionPool 0/1 active sessions
+DEBUG:snowflake.connector.network:ret[code] = None, after post request
+DEBUG:snowflake.connector.connection:Session is closed
+DEBUG:filelock:Attempting to acquire lock 139800119488048 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119488048 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800119488048 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119488048 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800119481472 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119481472 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800119481472 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800119481472 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to acquire lock 139800131804736 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800131804736 acquired on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Attempting to release lock 139800131804736 on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
+DEBUG:filelock:Lock 139800131804736 released on /home/josh/.cache/snowflake/ocsp_response_validation_cache.lock
