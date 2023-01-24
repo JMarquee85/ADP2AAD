@@ -13,11 +13,6 @@ import logging
 logging.basicConfig(filename="msgraph.log", level=logging.INFO)
 
 #####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-
 ######## Find a way to append all ms managers to the dictionary for each user. #############
 
 # MS authentication token
@@ -64,15 +59,11 @@ def ms_auth_token():
 
 
 #####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
 
 # The function to auth in to MS Graph and pull the user information.
 def ms_graph_pull():
 
-    # You will need to authenticate into MS Graph for this to work. 
+    # You will need to authenticate into MS Graph for this to work.
     # Run the ms_auth_token() function first to authenticate.
 
     # Make aad_users global
@@ -101,23 +92,41 @@ def ms_graph_pull():
             ms_dict = graph_result.json()
             # print(ms_dict['@odata.nextLink']) #uncomment this to show the link to the next page of the returned Microsoft data.
             user_return = ms_dict["value"]
-            for item in user_return: 
-              if type(item) is dict:
-                #old version
-                #if item['accountEnabled'] and item['department'] is not None and item['jobTitle'] is not None and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
-                #slightly newer version
-                if item['department'] is not None and item['jobTitle'] is not None and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
-                #new version... does not work for some reason. Should figure that out because we would ideally want to get dictionaries from MSGraph for comparison for users that might not have a department. 
-                #if item['accountEnabled'] and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
-                  aad_users.append(item)
-    #print(aad_users)
+            for item in user_return:
+                if type(item) is dict:
+                    # old version
+                    # if item['accountEnabled'] and item['department'] is not None and item['jobTitle'] is not None and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
+                    # slightly newer version
+                    if (
+                        item["department"] is not None
+                        and item["jobTitle"] is not None
+                        and ("#EXT#") not in item["userPrincipalName"]
+                        and (
+                            "Automation"
+                            or "Shared"
+                            or "Admin Account"
+                            or "TERMED"
+                            or "Termed"
+                            or "termed"
+                            or "Test Account"
+                            or "Calendar"
+                            or "Mailbox"
+                            or "Call Queue"
+                            or "NLE"
+                            or "Phone"
+                            or "Auto Attendant"
+                            or "IVR"
+                        )
+                        not in item["jobTitle"]
+                        and ("Vendor" or "Service Account" or "Shared Mailbox")
+                        not in item["department"]
+                    ):
+                        # if item['accountEnabled'] and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
+                        aad_users.append(item)
+    # print(aad_users)
     return aad_users
 
 
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
 #####################################################################################################
 
 
@@ -138,10 +147,6 @@ def get_ms_id(email):
 
 
 #####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
 
 
 def get_ms_user(ms_id):
@@ -154,10 +159,6 @@ def get_ms_user(ms_id):
     return get_user_result
 
 
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
 #####################################################################################################
 
 
@@ -173,41 +174,31 @@ def does_user_exist(email):
 
 
 #####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
+
 
 def delete_user(email):
 
-  # Have to be authenticated with ms_auth_token() 
-  ms_id = get_ms_id(email)
-  graph_del_url = "https://graph.microsoft.com/v1.0/users/" + str(ms_id)
+    # Have to be authenticated with ms_auth_token()
+    ms_id = get_ms_id(email)
+    graph_del_url = "https://graph.microsoft.com/v1.0/users/" + str(ms_id)
 
-  delete_user_action = requests.delete(
-            url=graph_del_url,
-            headers=headers,
-        )
+    delete_user_action = requests.delete(
+        url=graph_del_url,
+        headers=headers,
+    )
 
-  delete_user_actiion_status = delete_user_action.json()
+    delete_user_actiion_status = delete_user_action.json()
 
-  logging.info(f"User {email} has been deleted from AAD!")
+    logging.info(f"User {email} has been deleted from AAD!")
 
-  if "error" in delete_user_actiion_status:
-    print(f"Error deleting user {email}!")
-    logging.info(f"Error deleting user {email}!") 
-
+    if "error" in delete_user_actiion_status:
+        print(f"Error deleting user {email}!")
+        logging.info(f"Error deleting user {email}!")
 
 
 #####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
 
-
-## A function to update the users with Graph API commands.
-# Will likely pass the ADP information into this and compare it to the Graph information.
+## A function to update the users with Graph API calls.
 def update_user(
     emp_id,
     full_name,
@@ -226,7 +217,6 @@ def update_user(
     state,
     zip_code,
 ):
-
 
     try:
 
@@ -254,7 +244,7 @@ def update_user(
             "surname": last_name,
             "employeeHireDate": start_date,
             "postalCode": zip_code,
-            "employeeId": emp_id
+            "employeeId": emp_id,
         }
         # put the information into a JSON format
         user_json = json.dumps(update_user_body)
@@ -269,67 +259,63 @@ def update_user(
         print(update_user_action)
         print(update_user_action.text)
 
-        #Log successful core information update.
+        # Log successful core information update.
         logging.info(f"{email} core information updated in Azure AD!")
 
-    # Error updating core information. 
+    # Error updating core information.
     except Exception as core_update_error:
         print(f"Error updating core information for {email}!")
         print(f"User {email} probably not found in Azure AD... ")
         # Add error to logs.
-        logging.info(f"Error updating information for {email} in Azure AD!\n{core_update_error.message}")
+        logging.info(
+            f"Error updating information for {email} in Azure AD!\n{core_update_error.message}"
+        )
+
 
 #####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
+
 
 def update_manager(email, manager, manager_email):
 
-  # Must be authenticated with ms_auth_token() before using this function. 
+    # Must be authenticated with ms_auth_token() before using this function.
 
-  try: 
-    user_ms_id = get_ms_id(email)  # returns user_id
-    #print(user_ms_id)
+    try:
+        user_ms_id = get_ms_id(email)  # returns user_id
+        # print(user_ms_id)
 
-    graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
-    #print(graph_url)
+        graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
+        # print(graph_url)
 
-    headers = {"Authorization": token, "Content-type": "application/json"}
+        headers = {"Authorization": token, "Content-type": "application/json"}
 
-    # CHANGE USER MANAGER
-    # https://learn.microsoft.com/en-us/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http
-    # get manager's object id
-    manager_id = get_ms_id(manager_email)
-    # Assign manager url
-    manager_url = graph_url + "/manager/$ref/"
-    manager_update_body = {"@odata.id": graph_url + "/" + manager_id}
-    # put this information into a JSON format
-    mgr_json = json.dumps(manager_update_body)
-    print(f"Sending HTTP request to change {email} manager to {manager_email}...")
-    # PUT request to take the action
-    manager_update_action = requests.put(
-        url=manager_url,
-        data=mgr_json,
-        headers=headers,
-    )
-    # Show the request
-    print(manager_update_action)
-    print(manager_update_action.text)
+        # CHANGE USER MANAGER
+        # https://learn.microsoft.com/en-us/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http
+        # get manager's object id
+        manager_id = get_ms_id(manager_email)
+        # Assign manager url
+        manager_url = graph_url + "/manager/$ref/"
+        manager_update_body = {"@odata.id": graph_url + "/" + manager_id}
+        # put this information into a JSON format
+        mgr_json = json.dumps(manager_update_body)
+        print(f"Sending HTTP request to change {email} manager to {manager_email}...")
+        # PUT request to take the action
+        manager_update_action = requests.put(
+            url=manager_url,
+            data=mgr_json,
+            headers=headers,
+        )
+        # Show the request
+        print(manager_update_action)
+        print(manager_update_action.text)
 
-    # Add the change to the log file
-    logging.info(f"{email} manager changed to: {manager_email}!")
+        # Add the change to the log file
+        logging.info(f"{email} manager changed to: {manager_email}!")
 
-  except Exception as manager_update_error:
-      print(f"Error encountered changing the manager for {email}!")
-      logging.error(msg)
+    except Exception as manager_update_error:
+        print(f"Error encountered changing the manager for {email}!")
+        logging.error(msg)
 
 
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
 #####################################################################################################
 
 
@@ -355,63 +341,83 @@ def get_ms_user_info(email):
 
 
 #####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
+
 
 def get_ms_user_manager(email):
 
-    graph_url = (
-        "https://graph.microsoft.com/v1.0/users/"
-        + email
-        + "?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
-    )
+    graph_url = f"https://graph.microsoft.com/v1.0/users/{email}?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
     get_user_info = requests.get(url=graph_url, headers=headers)
-    mgr_graph_url = "https://graph.microsoft.com/v1.0/users/" + email + "/manager"
+    mgr_graph_url = f"https://graph.microsoft.com/v1.0/users/{email}/manager"
     get_user_manager = requests.get(url=mgr_graph_url, headers=headers)
 
     try:
         # Get a user's information using their MSid.
         get_user_result = get_user_info.json()
         get_manager_result = get_user_manager.json()
-        return get_manager_result['displayName']
+        return get_manager_result["displayName"]
     except:
         print(f"User {email} has no manager!")
 
+
 #####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
+
 
 # A function to return the specific user dictionary to match the ADP user:
 def return_msuser_dict(email, employee_id, full_name, preferred_name, dict_list):
-  dict_info = [element for element in dict_list if element['userPrincipalName'].casefold() == email or element['displayName'] == full_name or element['displayName'] == preferred_name or element['employeeId'] == employee_id]
-  #print(dict_info) # A list with one dictionary inside. Stupid.
-  for x in dict_info:
-    #print(x)
-    return x
+    dict_info = [
+        element
+        for element in dict_list
+        if element["userPrincipalName"].casefold() == email
+        or element["displayName"] == full_name
+        or element["displayName"] == preferred_name
+        or element["employeeId"] == employee_id
+    ]
+    # print(dict_info) # A list with one dictionary inside. Stupid.
+    for x in dict_info:
+        # print(x)
+        return x
+
 
 #####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
 
-# A function to compare the ADP information with the AAD information and not make the changes if they match. 
-def user_compare(email, employee_id, full_name, preferred_name, first_name, last_name, department, title, manager_email, city, state, zip_code, msdict):
 
-  # Get user's manager
-  ms_manager = get_ms_user_manager(email)
+# A function to compare the ADP information with the AAD information and not make the changes if they match.
+def user_compare(
+    email,
+    employee_id,
+    full_name,
+    preferred_name,
+    first_name,
+    last_name,
+    department,
+    title,
+    manager_email,
+    city,
+    state,
+    zip_code,
+    msdict,
+):
 
-  # Need to handle if a user doesn't have a field filled in in ADP. Currently getting KeyErrors if users don't have information listed in ADP/MSG. 
-  if full_name != msdict['displayName'] or first_name != msdict['givenName'] or last_name != msdict['surname'] or department != msdict['department'] or city != msdict['city'] or state != msdict['state'] or zip_code != msdict['postalCode'] or employee_id != msdict['employeeId']:
-  #if full_name == msdict['displayName'] and first_name == msdict['givenName'] and last_name == msdict['surname'] and department == msdict['department']:
-    #return False 
-    return "update"
+    # Get user's manager
+    ms_manager = get_ms_user_manager(email)
 
-#####################################################################################################
+    # Need to handle if a user doesn't have a field filled in in ADP. Currently getting KeyErrors if users don't have information listed in ADP/MSG.
+    if (
+        full_name != msdict["displayName"]
+        or first_name != msdict["givenName"]
+        or last_name != msdict["surname"]
+        or department != msdict["department"]
+        or city != msdict["city"]
+        or state != msdict["state"]
+        or zip_code != msdict["postalCode"]
+        or employee_id != msdict["employeeId"]
+        or manager_email != ms_manager
+    ):
+        # if full_name == msdict['displayName'] and first_name == msdict['givenName'] and last_name == msdict['surname'] and department == msdict['department']:
+        # return False
+        return "update"
+
+
 #####################################################################################################
 #####################################################################################################
 ####################################### TESTING GROUNDS #############################################
@@ -419,16 +425,16 @@ def user_compare(email, employee_id, full_name, preferred_name, first_name, last
 #####################################################################################################
 
 # Run stuff
-#ms_auth_token()
-#ms_graph_pull()
-#print(aad_users)
+# ms_auth_token()
+# ms_graph_pull()
+# print(aad_users)
 # id_number = get_ms_id("test.user@talkiatry.com")
 # print(id_number)
 # get_ms_user("41967c91-0239-45e2-b318-7625f6584633")
 
 # Test the above function with Test User data.
-#ms_auth_token()
-#does_user_exist("josh.marcus@talkiatry.com")
+# ms_auth_token()
+# does_user_exist("josh.marcus@talkiatry.com")
 # get_ms_user_info("josh.marcus@talkiatry.com")
 # update_user(
 # "12389612897653",
@@ -455,4 +461,3 @@ def user_compare(email, employee_id, full_name, preferred_name, first_name, last
 #####################################################################################################
 #####################################################################################################
 #####################################################################################################
-
