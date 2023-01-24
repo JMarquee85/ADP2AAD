@@ -94,9 +94,6 @@ def ms_graph_pull():
             user_return = ms_dict["value"]
             for item in user_return:
                 if type(item) is dict:
-                    # old version
-                    # if item['accountEnabled'] and item['department'] is not None and item['jobTitle'] is not None and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
-                    # slightly newer version
                     if (
                         item["department"] is not None
                         and item["jobTitle"] is not None
@@ -105,14 +102,14 @@ def ms_graph_pull():
                             "Automation"
                             or "Shared"
                             or "Admin Account"
-                            or "TERMED"
-                            or "Termed"
-                            or "termed"
+                            # or "TERMED"
+                            # or "Termed"
+                            # or "termed"
                             or "Test Account"
                             or "Calendar"
                             or "Mailbox"
                             or "Call Queue"
-                            or "NLE"
+                            # or "NLE"
                             or "Phone"
                             or "Auto Attendant"
                             or "IVR"
@@ -221,10 +218,10 @@ def update_user(
     try:
 
         user_ms_id = get_ms_id(email)  # returns user_id
-        print(user_ms_id)
+        # print(user_ms_id)
 
         graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
-        print(graph_url)
+        # print(graph_url)
 
         headers = {"Authorization": token, "Content-type": "application/json"}
 
@@ -232,9 +229,9 @@ def update_user(
         # https://learn.microsoft.com/en-us/graph/api/user-update?view=graph-rest-1.0&tabs=http
         # Add additional information to ExtensionAttributes for later use
         # https://learn.microsoft.com/en-us/graph/extensibility-overview?tabs=http
-        print(f"Sending HTTP request to change core information for {email}...")
+        print(f"\nSending HTTP request to change core information for {email}...")
         update_user_body = {
-            "displayName": full_name,
+            "displayName": preferred_name,
             "department": department,
             "jobTitle": current_role,
             "city": city,
@@ -256,20 +253,23 @@ def update_user(
             headers=headers,
         )
         # Show the request
-        print(update_user_action)
-        print(update_user_action.text)
+        change_result = update_user_action.text
+        if update_user_action.status_code == 204:
+            print("Core update successful!")
+        else:
+            print(
+                f"Core information not updated! Status Code: {update_user_action.status_code}"
+            )
 
         # Log successful core information update.
         logging.info(f"{email} core information updated in Azure AD!")
 
     # Error updating core information.
-    except Exception as core_update_error:
+    except:
         print(f"Error updating core information for {email}!")
-        print(f"User {email} probably not found in Azure AD... ")
+        print(f"User {email} likely not in Azure AD... ")
         # Add error to logs.
-        logging.info(
-            f"Error updating information for {email} in Azure AD!\n{core_update_error.message}"
-        )
+        logging.info(f"Error updating information for {email} in Azure AD!\n")
 
 
 #####################################################################################################
@@ -293,8 +293,13 @@ def update_manager(email, manager, manager_email):
         # get manager's object id
         manager_id = get_ms_id(manager_email)
         # Assign manager url
-        manager_url = graph_url + "/manager/$ref/"
-        manager_update_body = {"@odata.id": graph_url + "/" + manager_id}
+        manager_url = (
+            "https://graph.microsoft.com/v1.0/users/" + user_ms_id + "/manager/$ref"
+        )
+        manager_update_body = {
+            "@odata.id": "https://graph.microsoft.com/v1.0/users/" + manager_id
+        }
+        # manager_update_body = {"@odata.id": graph_url}
         # put this information into a JSON format
         mgr_json = json.dumps(manager_update_body)
         print(f"Sending HTTP request to change {email} manager to {manager_email}...")
@@ -305,15 +310,19 @@ def update_manager(email, manager, manager_email):
             headers=headers,
         )
         # Show the request
-        print(manager_update_action)
-        print(manager_update_action.text)
+        if manager_update_action.status_code == 204:
+            print(f"Manager update successful!")
+        else:
+            print(
+                f"Error updating manager! Status Code: {manager_update_action.status_code}"
+            )
 
         # Add the change to the log file
         logging.info(f"{email} manager changed to: {manager_email}!")
 
     except Exception as manager_update_error:
         print(f"Error encountered changing the manager for {email}!")
-        logging.error(msg)
+        logging.error(f"Error encountered changing the manager for {email}!")
 
 
 #####################################################################################################

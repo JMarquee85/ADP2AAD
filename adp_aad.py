@@ -175,7 +175,7 @@ def snowflake_user_pull(ms_user_list):
                     print(
                         f"User found in the MSGraph dictionaries. Now deleting {employee_full_name} from Azure AD!\n"
                     )
-                    # delete_user(employee_email)
+                    delete_user(employee_email)
                 else:
                     print(
                         f"{employee_full_name} termed on {employee_separation_date}, not found in Azure AD. Should be deleted already.\n"
@@ -210,16 +210,32 @@ def snowflake_user_pull(ms_user_list):
                     # It would be good to make this more specific in the future, like only change the manager if it's incorrect or change the city and state if they moved. This might require some kind of returns from the function to flag what needs to be changed.
 
                     if compare == "update":
-                        print(
-                            f"Here, we will change the core information for {employee_full_name}."
+                        update_user(
+                            employee_id,
+                            employee_full_name,
+                            employee_preferred_name,
+                            employee_first_name,
+                            employee_last_name,
+                            employee_email,
+                            employee_department,
+                            employee_current_role,
+                            employee_start_date,
+                            employee_separation_date,
+                            is_provider,
+                            employee_supervisor_name,
+                            employee_supervisor_email,
+                            employee_city,
+                            employee_state,
+                            employee_zip,
                         )
-                        # update_user(employee_id, employee_full_name, employee_preferred_name, employee_first_name, employee_last_name, employee_email, employee_department, employee_current_role, employee_start_date, employee_separation_date, is_provider, employee_supervisor_name, employee_supervisor_email, employee_city, employee_state, employee_zip)
                         # Add check to see if the manager is the same.
                         # Write new function called check_mgr and return update if it should be changed.
-                        print(
-                            f"Here we would update the manager for {employee_full_name}!\n"
+                        # print(f"Updating manager for {employee_full_name}...")
+                        update_manager(
+                            employee_email,
+                            employee_supervisor_name,
+                            employee_supervisor_email,
                         )
-                        # update_manager(employee_email, employee_supervisor_name, employee_supervisor_email)
                         # If there are differences, return True and run the function to change the user info in MS. Otherwise, pass.
                     else:
                         print(
