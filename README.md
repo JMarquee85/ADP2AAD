@@ -28,3 +28,9 @@ If they do exist, a function is run to check if all fields match between the ADP
 - Add threading to put user update API calls into jobs.
 - https://stackoverflow.com/questions/15143837/how-to-multi-thread-an-operation-within-a-loop-in-python
 - Add the employee licensed states to extension attributes to get Providers in the appropriate state based distros. 
+- Checks on existing information matches don't appear to be fully functional. Look into this when possible. 
+
+## Resources
+
+https://docs.snowflake.com/en/user-guide/python-connector-example.html
+https://jmwiki.com/en/python/snowflake_python_connector

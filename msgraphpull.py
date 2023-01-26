@@ -63,14 +63,11 @@ def ms_auth_token():
 # The function to auth in to MS Graph and pull the user information.
 def ms_graph_pull():
 
-    # You will need to authenticate into MS Graph for this to work.
-    # Run the ms_auth_token() function first to authenticate.
+    # ms_auth_token() function has to be run to authenticate.
 
-    # Make aad_users global
     global aad_users
 
     # MS Graph API URL
-    # url = 'https://graph.microsoft.com/v1.0/users?$top=100'
     url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,givenName,surname,userPrincipalName,manager,mail,jobTitle,Department,usertype,accountEnabled,city,state,postalCode,employeeId"
 
     graph_result = requests.get(url=url, headers=headers)
@@ -118,7 +115,6 @@ def ms_graph_pull():
                         and ("Vendor" or "Service Account" or "Shared Mailbox")
                         not in item["department"]
                     ):
-                        # if item['accountEnabled'] and ("#EXT#") not in item['userPrincipalName'] and ("Automation" or "Shared" or "Admin Account" or "TERMED" or "Termed" or "termed" or "Test Account" or "Calendar" or "Mailbox" or "Call Queue" or "NLE" or "Phone" or "Auto Attendant" or "IVR") not in item['jobTitle'] and ("Vendor" or "Service Account" or "Shared Mailbox") not in item['department']:
                         aad_users.append(item)
     # print(aad_users)
     return aad_users
@@ -363,7 +359,7 @@ def get_ms_user_manager(email):
         # Get a user's information using their MSid.
         get_user_result = get_user_info.json()
         get_manager_result = get_user_manager.json()
-        return get_manager_result["displayName"]
+        return get_manager_result["userPrincipalName"]
     except:
         print(f"User {email} has no manager!")
 
@@ -381,9 +377,7 @@ def return_msuser_dict(email, employee_id, full_name, preferred_name, dict_list)
         or element["displayName"] == preferred_name
         or element["employeeId"] == employee_id
     ]
-    # print(dict_info) # A list with one dictionary inside. Stupid.
     for x in dict_info:
-        # print(x)
         return x
 
 
@@ -422,9 +416,9 @@ def user_compare(
         or employee_id != msdict["employeeId"]
         or manager_email != ms_manager
     ):
-        # if full_name == msdict['displayName'] and first_name == msdict['givenName'] and last_name == msdict['surname'] and department == msdict['department']:
-        # return False
         return "update"
+    else:
+        return "do not update"
 
 
 #####################################################################################################

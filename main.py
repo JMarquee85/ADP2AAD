@@ -1,4 +1,7 @@
-# This is probably not formatted correctly, but I'm putting the main playbook in here.
+# ADP>AAD Integration
+# Josh Marcus - Talkiatry
+# josh.marcus@talkiatry.com
+# Initial Release: 1/25/2023
 
 from adp_aad import *
 from msgraphpull import *

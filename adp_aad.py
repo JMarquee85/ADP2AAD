@@ -1,21 +1,3 @@
-#######################
-# Query Snowflake for the latest ADP data#
-# Query Microsoft Graph to retrieve a list of all AAD user entities
-# Create a dict to look up AAD users by email address#
-# Iterate through data from Snowflake#
-# Locate AAD user for each entry from Snowflake and update via Microsoft Graph (if there are changes)
-
-# https://docs.snowflake.com/en/user-guide/python-connector-example.html
-
-# Stuff to do:
-# Create a CSV report for various reporting. Create a new one each time, based on date and time of the operation or add time stamps as the
-# process is completed.
-# Report things like users that are deleted, users in ADP that do not have emails listed or emails that do not end in @talkiatry.com (per Megan Hirsch, there might not be a lot we can do on this one as the user can change this field on their own.)
-# Any way to store and pass along a photo? This was requested at an early stage.
-# Down the road, there is probably a more efficient way to compare these. Put the MS data into a dataframe instead and compare the dataframes?
-# Add threading to put user update API calls into jobs.
-# https://stackoverflow.com/questions/15143837/how-to-multi-thread-an-operation-within-a-loop-in-python
-
 import snowflake.connector
 import requests
 import pandas as pd
@@ -23,7 +5,6 @@ import json
 import msgraphpull
 from msgraphpull import *
 import logging
-import csv
 
 
 def snowflake_user_pull(ms_user_list):
@@ -66,7 +47,7 @@ def snowflake_user_pull(ms_user_list):
     print("Token obtained!")
 
     # Oh look, some logs.
-    logging.basicConfig(filename="debug.log", level=logging.INFO)  # filemode="w" add to
+    logging.basicConfig(filename="debug.log", level=logging.INFO)
     # logging.basicConfig(filename="info.log", level=logging.INFO)
     # logging.basicConfig(filename="error.log", level=logging.ERROR )
 
@@ -138,7 +119,6 @@ def snowflake_user_pull(ms_user_list):
             employee_zip = getattr(row, "EMPLOYEE_ZIP")
 
             # Get the dictionary related to this user in MSGraph
-            # Work email field in ADP is going to be unchangable soon.
             if employee_email:
                 return_dict = return_msuser_dict(
                     employee_email.casefold(),
@@ -165,9 +145,7 @@ def snowflake_user_pull(ms_user_list):
                     ms_user_list,
                 )
 
-            # Check if user has a termination date.
-            # NOTE: Will there ever be a time where the separation date is put in ahead of time? Should write a check here to see
-            # if separation date matches now or in the past to avoid accidental deletion.
+            # Check if user is terminated.
             if employee_status == "Terminated":
                 # Check if employee exists in MS. If so, deactivate account and delete. If not, move on.
                 if return_dict:
@@ -189,7 +167,7 @@ def snowflake_user_pull(ms_user_list):
                 employee_status == "Active" or "Inactive"
             ):  # Inactive covers users on leave and keep their information updated.
                 ##### Compare ADP and MS info.
-                # Because ADP users can choose their own email and change this field, don't compare or change any email addresses. We will handle our own copy of those specific fields.
+                # Don't compare or change any email addresses. We will handle our own copy of those specific fields.
                 if return_dict:
                     compare = user_compare(
                         employee_email,
@@ -207,7 +185,7 @@ def snowflake_user_pull(ms_user_list):
                         return_dict,
                     )
                     # If the result of user_compare() detects differences in the core information and what is listed in ADP
-                    # It would be good to make this more specific in the future, like only change the manager if it's incorrect or change the city and state if they moved. This might require some kind of returns from the function to flag what needs to be changed.
+                    # Make this more specific in the future, like only change the manager if it's incorrect or change the city and state if they moved. This might require some kind of returns from the function to flag what needs to be changed.
 
                     if compare == "update":
                         update_user(
@@ -236,10 +214,9 @@ def snowflake_user_pull(ms_user_list):
                             employee_supervisor_name,
                             employee_supervisor_email,
                         )
-                        # If there are differences, return True and run the function to change the user info in MS. Otherwise, pass.
                     else:
                         print(
-                            f"All fields stored in ADP match AAD for {employee_full_name}! Not making any changes...\n"
+                            f"\nAll fields stored in ADP match AAD for {employee_full_name}! Not making any changes...\n"
                         )
                 else:
                     print(
@@ -257,12 +234,3 @@ def snowflake_user_pull(ms_user_list):
 
     finally:
         cs.close()
-
-        # Print the results of the lists collected in the loop.
-        # The MSDictionary one is almost definitely a name mismatch. I see a lot of users who changed their name.
-        # Maybe include a search by preferred name? Some other tweaks there?
-        # print("No Graph Output:\n")
-
-
-#        for x in no_ms_dictionary_found:
-#            print(x)
