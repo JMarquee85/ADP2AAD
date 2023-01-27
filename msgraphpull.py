@@ -206,9 +206,9 @@ def update_user(
     is_provider,
     manager,
     manager_email,
-    city,
+    #city,
     state,
-    zip_code,
+    #zip_code,
 ):
 
     try:
@@ -230,13 +230,13 @@ def update_user(
             "displayName": preferred_name,
             "department": department,
             "jobTitle": current_role,
-            "city": city,
+            #"city": city,
             "state": state,
             "employeeId": emp_id,
             "givenName": first_name,
             "surname": last_name,
             "employeeHireDate": start_date,
-            "postalCode": zip_code,
+           #"postalCode": zip_code,
             "employeeId": emp_id,
         }
         # put the information into a JSON format
@@ -395,9 +395,9 @@ def user_compare(
     department,
     title,
     manager_email,
-    city,
+    #city,
     state,
-    zip_code,
+    #zip_code,
     msdict,
 ):
 
@@ -410,9 +410,9 @@ def user_compare(
         or first_name != msdict["givenName"]
         or last_name != msdict["surname"]
         or department != msdict["department"]
-        or city != msdict["city"]
+        #or city != msdict["city"]
         or state != msdict["state"]
-        or zip_code != msdict["postalCode"]
+       #or zip_code != msdict["postalCode"]
         or employee_id != msdict["employeeId"]
         or manager_email != ms_manager
     ):

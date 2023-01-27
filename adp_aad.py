@@ -2,6 +2,7 @@ import snowflake.connector
 import requests
 import pandas as pd
 import json
+import threading
 import msgraphpull
 from msgraphpull import *
 import logging
@@ -12,6 +13,7 @@ def snowflake_user_pull(ms_user_list):
     # Lists of things to collect along the way.
     no_status = []
     no_ms_dictionary_found = []
+    threads = []
 
     # Snowflake Options
     USER = "d919f591-ed37-4df3-aa8d-b757d8a5b8f3"
@@ -114,9 +116,9 @@ def snowflake_user_pull(ms_user_list):
             )  # 1 for yes, 0 for no
             employee_supervisor_name = getattr(row, "EMPLOYEE_SUPERVISOR_NAME")
             employee_supervisor_email = getattr(row, "EMPLOYEE_SUPERVISOR_EMAIL")
-            employee_city = getattr(row, "EMPLOYEE_CITY")
+            #employee_city = getattr(row, "EMPLOYEE_CITY")
             employee_state = getattr(row, "EMPLOYEE_STATE")
-            employee_zip = getattr(row, "EMPLOYEE_ZIP")
+            #employee_zip = getattr(row, "EMPLOYEE_ZIP")
 
             # Get the dictionary related to this user in MSGraph
             if employee_email:
@@ -179,41 +181,76 @@ def snowflake_user_pull(ms_user_list):
                         employee_department,
                         employee_current_role,
                         employee_supervisor_email,
-                        employee_city,
+                        #employee_city,
                         employee_state,
-                        employee_zip,
+                        #employee_zip,
                         return_dict,
                     )
                     # If the result of user_compare() detects differences in the core information and what is listed in ADP
                     # Make this more specific in the future, like only change the manager if it's incorrect or change the city and state if they moved. This might require some kind of returns from the function to flag what needs to be changed.
 
                     if compare == "update":
-                        update_user(
-                            employee_id,
-                            employee_full_name,
-                            employee_preferred_name,
-                            employee_first_name,
-                            employee_last_name,
-                            employee_email,
-                            employee_department,
-                            employee_current_role,
-                            employee_start_date,
-                            employee_separation_date,
-                            is_provider,
-                            employee_supervisor_name,
-                            employee_supervisor_email,
-                            employee_city,
-                            employee_state,
-                            employee_zip,
+                        # Thread this process:
+                        update_thread = threading.Thread(
+                            target=update_user,
+                            args=(
+                                employee_id,
+                                employee_full_name,
+                                employee_preferred_name,
+                                employee_first_name,
+                                employee_last_name,
+                                employee_email,
+                                employee_department,
+                                employee_current_role,
+                                employee_start_date,
+                                employee_separation_date,
+                                is_provider,
+                                employee_supervisor_name,
+                                employee_supervisor_email,
+                                #employee_city,
+                                employee_state,
+                                #employee_zip,
+                            )
                         )
+                        update_thread.start()
+                        threads.append(update_thread)
+                        #
+                        # Original process:
+                        #
+                        # update_user(
+                        # employee_id,
+                        # employee_full_name,
+                        # employee_preferred_name,
+                        # employee_first_name,
+                        # employee_last_name,
+                        # employee_email,
+                        # employee_department,
+                        # employee_current_role,
+                        # employee_start_date,
+                        # employee_separation_date,
+                        # is_provider,
+                        # employee_supervisor_name,
+                        # employee_supervisor_email,
+                        # employee_city,
+                        # employee_state,
+                        # employee_zip,
+                        # )
                         # Add check to see if the manager is the same.
                         # Write new function called check_mgr and return update if it should be changed.
                         # print(f"Updating manager for {employee_full_name}...")
-                        update_manager(
-                            employee_email,
+
+                        # Thread this process:
+                        manager_thread = threading.Thread(target=update_manager,args=(employee_email,
                             employee_supervisor_name,
-                            employee_supervisor_email,
-                        )
+                            employee_supervisor_email))
+                        manager_thread.start()
+                        threads.append(manager_thread)
+                        #update_manager(
+                            #employee_email,
+                            #employee_supervisor_name,
+                            #employee_supervisor_email,
+                        #)
+
                     else:
                         print(
                             f"\nAll fields stored in ADP match AAD for {employee_full_name}! Not making any changes...\n"
@@ -233,4 +270,6 @@ def snowflake_user_pull(ms_user_list):
                 no_status.append(employee_email)
 
     finally:
+        for thread in threads:
+            thread.join()
         cs.close()
