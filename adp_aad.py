@@ -6,13 +6,16 @@ import threading
 import msgraphpull
 from msgraphpull import *
 import logging
+from tqdm import tqdm
 
+# Logging.
+logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="adp2aad.log", level=logging.INFO)
+# logging.basicConfig(filename="info.log", level=logging.INFO)
+# logging.basicConfig(filename="error.log", level=logging.ERROR)
 
 def snowflake_user_pull(ms_user_list):
 
-    # Lists of things to collect along the way.
-    no_status = []
-    no_ms_dictionary_found = []
+    # Thread list to run at the end of the file. 
     threads = []
 
     # Snowflake Options
@@ -42,19 +45,14 @@ def snowflake_user_pull(ms_user_list):
         )
     )
 
-    print("Getting Snowflake JWT token... ")
+    logging.info("Getting Snowflake JWT token... ")
     response = requests.post(TOKEN_URL, data=PAYLOAD)
     json_data = json.loads(response.text)
     TOKEN = json_data["access_token"]
-    print("Token obtained!")
-
-    # Oh look, some logs.
-    logging.basicConfig(filename="debug.log", level=logging.INFO)
-    # logging.basicConfig(filename="info.log", level=logging.INFO)
-    # logging.basicConfig(filename="error.log", level=logging.ERROR )
+    logging.info("Token obtained!")
 
     # Snowflake connection
-    print("Connecting to Snowflake... ")
+    logging.info("Connecting to Snowflake... ")
     ctx = snowflake.connector.connect(
         user=USER,
         account=ACCOUNT,
@@ -69,7 +67,7 @@ def snowflake_user_pull(ms_user_list):
 
     # Set up a cursor object.
     cs = ctx.cursor()
-    print("Snowflake cursor object created.\n")
+    logging.info("Snowflake cursor object created.")
 
     # Query snowflake for the current employee data and sort by last name.
     sql_query = """
@@ -83,7 +81,7 @@ def snowflake_user_pull(ms_user_list):
         cs.execute(sql_query)
         results = cs.fetch_pandas_all()
 
-        # Setting dataframe display if printed in the terminal.
+        # Setting dataframe display if logging.infoed in the terminal.
         pd.set_option("display.max_rows", None)
         pd.set_option("display.max_columns", 500)
         pd.set_option("display.width", 1000)
@@ -94,7 +92,7 @@ def snowflake_user_pull(ms_user_list):
         )
 
         # Loop through the Snowflake dataframe and set variables.
-        for row in df.itertuples(name="ADPUserList"):
+        for row in tqdm(df.itertuples(name="ADPUserList")):
             # Can store this in a separate file later for readability- see variables.py
             employee_id = getattr(row, "EMPLOYEE_ID")
             employee_full_name = getattr(row, "EMPLOYEE_FULL_NAME")
@@ -129,7 +127,7 @@ def snowflake_user_pull(ms_user_list):
                     employee_preferred_name,
                     ms_user_list,
                 )
-                # print(return_dict) # Aaaaand this is a list, not a dictionary.
+                # logging.info(return_dict) # Aaaaand this is a list, not a dictionary.
             elif employee_email is None or "@talkiatry.com" not in employee_email:
                 return_dict = return_msuser_dict(
                     employee_email,
@@ -151,17 +149,14 @@ def snowflake_user_pull(ms_user_list):
             if employee_status == "Terminated":
                 # Check if employee exists in MS. If so, deactivate account and delete. If not, move on.
                 if return_dict:
-                    print(f"User marked termed on {employee_separation_date}")
-                    print(
-                        f"User found in the MSGraph dictionaries. Now deleting {employee_full_name} from Azure AD!\n"
+                    logging.log(f"{employee_email} marked termed on {employee_separation_date}")
+                    logging.info(
+                        f"{employee_email} found in the MSGraph dictionaries. Now deleting {employee_email} from Azure AD!\n"
                     )
                     delete_user(employee_email)
                 else:
-                    print(
-                        f"{employee_full_name} termed on {employee_separation_date}, not found in Azure AD. Should be deleted already.\n"
-                    )
                     logging.info(
-                        f"{employee_full_name} termed on {employee_separation_date}, not found in Azure AD. They should have already been deleted.\n"
+                        f"{employee_email} termed on {employee_separation_date}, not found in Azure AD. Should be deleted already.\n"
                     )
 
             # Action if user is Active
@@ -237,7 +232,7 @@ def snowflake_user_pull(ms_user_list):
                         # )
                         # Add check to see if the manager is the same.
                         # Write new function called check_mgr and return update if it should be changed.
-                        # print(f"Updating manager for {employee_full_name}...")
+                        # logging.info(f"Updating manager for {employee_full_name}...")
 
                         # Thread this process:
                         manager_thread = threading.Thread(target=update_manager,args=(employee_email,
@@ -252,24 +247,29 @@ def snowflake_user_pull(ms_user_list):
                         #)
 
                     else:
-                        print(
-                            f"\nAll fields stored in ADP match AAD for {employee_full_name}! Not making any changes...\n"
+                        logging.info(
+                            f"All fields stored in ADP match AAD for {employee_email}! Not making any changes..."
                         )
                 else:
-                    print(
-                        f"\nNo MS graph dictionary found for {employee_full_name}!\nStart Date: {employee_start_date}\n(Have they been created in AAD yet? Have we sent the right information to compare?)\n"
+                    logging.info(
+                        f"\nNo MS graph dictionary found for {employee_email}!\nStart Date: {employee_start_date}\n(Have they been created in AAD yet? Have we sent the right information to compare?)\n"
                     )
-                    no_graph_output = f"Email: {employee_email}\nName: {employee_full_name}\nPreferred Name: {employee_preferred_name}\nFirst Name: {employee_first_name}\nLast Name: {employee_last_name}\nDepartment: {employee_department}\nTitle: {employee_current_role}\nManager: {employee_supervisor_name}\nCity: {employee_city}\nState: {employee_state}\nZip: {employee_zip}\nHire Date: {employee_start_date}\nADP Employment Status: {employee_status}\n\n"
-                    print(no_graph_output)
-                    no_ms_dictionary_found.append(no_graph_output)
+                    no_graph_output = f"Email: {employee_email}\nName: {employee_full_name}\nPreferred Name: {employee_preferred_name}\nFirst Name: {employee_first_name}\nLast Name: {employee_last_name}\nDepartment: {employee_department}\nTitle: {employee_current_role}\nManager: {employee_supervisor_name}\nState: {employee_state}\nHire Date: {employee_start_date}\nADP Employment Status: {employee_status}\n\n"
+                    logging.info(no_graph_output)
 
             # Action if neither is true.
             else:
-                print(f"employee_status not found for {employee_full_name}!\n")
-                logging.info(f"employee_status not found for {employee_full_name}!\n")
-                no_status.append(employee_email)
+                logging.info(f"ADP employee_status not found for {employee_email}!\n")
+
+        #for thread in threads:
+            #thread.join()
+        #cs.close()
+        #logging.info(f"ADP>AAD Sync Complete!")
 
     finally:
         for thread in threads:
+            logging.info(f"Running thread {thread}..")
             thread.join()
         cs.close()
+        logging.info(f"Snowflake session closed.")
+        logging.info(f"ADP>AAD Sync Complete!")

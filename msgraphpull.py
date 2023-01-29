@@ -9,8 +9,8 @@ import requests  # remove this once everything below is put into its own script.
 import pandas as pd
 import logging
 
-# start logging
-logging.basicConfig(filename="msgraph.log", level=logging.INFO)
+# Logging.
+logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="adp2aad.log", level=logging.INFO)
 
 #####################################################################################################
 ######## Find a way to append all ms managers to the dictionary for each user. #############
@@ -41,15 +41,15 @@ def ms_auth_token():
     # If the token is available in cache, save it to a variable
     if token_result:
         access_token = "Bearer " + token_result["access_token"]
-        print("Access token was loaded from cache")
+        logging.info("Access token was loaded from cache")
 
     # If the token is not available in cache, acquire a new one from Azure AD and save it to a variable
     if not token_result:
         token_result = client.acquire_token_for_client(scopes=scope)
         access_token = "Bearer " + token_result["access_token"]
-        print("New access token acquired from Azure AD!")
+        logging.info("New access token acquired from Azure AD!")
 
-    # print(access_token)
+    # logging.info(access_token)
     token = access_token
 
     # Headers variable creation
@@ -78,16 +78,16 @@ def ms_graph_pull():
         "value"
     ]  # list of just the user information. A list of dictionaries.
 
-    print(f"Paginating Microsoft Graph output...")
+    logging.info(f"Paginating Microsoft Graph output...")
 
     while "@odata.nextLink" in ms_dict:
         if url is None:
-            print("No next link found.")
+            logging.info("No next link found.")
         else:
             url = ms_dict.get("@odata.nextLink")
             graph_result = requests.get(url=url, headers=headers)
             ms_dict = graph_result.json()
-            # print(ms_dict['@odata.nextLink']) #uncomment this to show the link to the next page of the returned Microsoft data.
+            # logging.info(ms_dict['@odata.nextLink']) #uncomment this to show the link to the next page of the returned Microsoft data.
             user_return = ms_dict["value"]
             for item in user_return:
                 if type(item) is dict:
@@ -116,7 +116,7 @@ def ms_graph_pull():
                         not in item["department"]
                     ):
                         aad_users.append(item)
-    # print(aad_users)
+    # logging.info(aad_users)
     return aad_users
 
 
@@ -133,10 +133,10 @@ def get_ms_id(email):
         get_ms_id = requests.get(url=graph_url, headers=headers)
         user_result = get_ms_id.json()
         user_id = user_result["id"]  # This gets the user's ID.
-        # print(user_id)
+        # logging.info(user_id)
         return user_id
     except:
-        print(f"User email {email} not found in Azure AD!")
+        logging.info(f"User email {email} not found in Azure AD!")
 
 
 #####################################################################################################
@@ -185,7 +185,7 @@ def delete_user(email):
     logging.info(f"User {email} has been deleted from AAD!")
 
     if "error" in delete_user_actiion_status:
-        print(f"Error deleting user {email}!")
+        logging.info(f"Error deleting user {email}!")
         logging.info(f"Error deleting user {email}!")
 
 
@@ -214,10 +214,10 @@ def update_user(
     try:
 
         user_ms_id = get_ms_id(email)  # returns user_id
-        # print(user_ms_id)
+        # logging.info(user_ms_id)
 
         graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
-        # print(graph_url)
+        # logging.info(graph_url)
 
         headers = {"Authorization": token, "Content-type": "application/json"}
 
@@ -225,7 +225,7 @@ def update_user(
         # https://learn.microsoft.com/en-us/graph/api/user-update?view=graph-rest-1.0&tabs=http
         # Add additional information to ExtensionAttributes for later use
         # https://learn.microsoft.com/en-us/graph/extensibility-overview?tabs=http
-        print(f"\nSending HTTP request to change core information for {email}...")
+        logging.info(f"Sending HTTP request to change core information for {email}...")
         update_user_body = {
             "displayName": preferred_name,
             "department": department,
@@ -251,10 +251,10 @@ def update_user(
         # Show the request
         change_result = update_user_action.text
         if update_user_action.status_code == 204:
-            print("Core update successful!")
+            logging.info(f"{email} core information update successful!")
         else:
-            print(
-                f"Core information not updated! Status Code: {update_user_action.status_code}"
+            logging.info(
+                f"{email} core information not updated! Status Code: {update_user_action.status_code}"
             )
 
         # Log successful core information update.
@@ -262,8 +262,8 @@ def update_user(
 
     # Error updating core information.
     except:
-        print(f"Error updating core information for {email}!")
-        print(f"User {email} likely not in Azure AD... ")
+        logging.info(f"Error updating core information for {email}!")
+        logging.info(f"User {email} likely not in Azure AD... ")
         # Add error to logs.
         logging.info(f"Error updating information for {email} in Azure AD!\n")
 
@@ -277,10 +277,10 @@ def update_manager(email, manager, manager_email):
 
     try:
         user_ms_id = get_ms_id(email)  # returns user_id
-        # print(user_ms_id)
+        # logging.info(user_ms_id)
 
         graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
-        # print(graph_url)
+        # logging.info(graph_url)
 
         headers = {"Authorization": token, "Content-type": "application/json"}
 
@@ -298,7 +298,7 @@ def update_manager(email, manager, manager_email):
         # manager_update_body = {"@odata.id": graph_url}
         # put this information into a JSON format
         mgr_json = json.dumps(manager_update_body)
-        print(f"Sending HTTP request to change {email} manager to {manager_email}...")
+        logging.info(f"Sending HTTP request to change {email} manager to {manager_email}...")
         # PUT request to take the action
         manager_update_action = requests.put(
             url=manager_url,
@@ -307,9 +307,9 @@ def update_manager(email, manager, manager_email):
         )
         # Show the request
         if manager_update_action.status_code == 204:
-            print(f"Manager update successful!")
+            logging.info(f"{email} manager update successful!")
         else:
-            print(
+            logging.info(
                 f"Error updating manager! Status Code: {manager_update_action.status_code}"
             )
 
@@ -317,7 +317,7 @@ def update_manager(email, manager, manager_email):
         logging.info(f"{email} manager changed to: {manager_email}!")
 
     except Exception as manager_update_error:
-        print(f"Error encountered changing the manager for {email}!")
+        logging.info(f"Error encountered changing the manager for {email}!")
         logging.error(f"Error encountered changing the manager for {email}!")
 
 
@@ -339,8 +339,8 @@ def get_ms_user_info(email):
         # Get a user's information using their MSid.
         get_user_result = get_user_info.json()
         get_manager_result = get_user_manager.json()
-        print(get_user_result)
-        print(f"Manager: {get_manager_result['userPrincipalName']}")
+        logging.info(get_user_result)
+        logging.info(f"Manager: {get_manager_result['userPrincipalName']}")
     except:
         logging.info(f"User {email} has no manager!\n")
 
@@ -361,7 +361,7 @@ def get_ms_user_manager(email):
         get_manager_result = get_user_manager.json()
         return get_manager_result["userPrincipalName"]
     except:
-        print(f"User {email} has no manager!")
+        logging.info(f"User {email} has no manager!")
 
 
 #####################################################################################################
@@ -430,9 +430,9 @@ def user_compare(
 # Run stuff
 # ms_auth_token()
 # ms_graph_pull()
-# print(aad_users)
+# logging.info(aad_users)
 # id_number = get_ms_id("test.user@talkiatry.com")
-# print(id_number)
+# logging.info(id_number)
 # get_ms_user("41967c91-0239-45e2-b318-7625f6584633")
 
 # Test the above function with Test User data.
