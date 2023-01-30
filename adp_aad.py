@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import json
 import threading
-import multiprocessing
+import multiprocessing as mp
 import msgraphpull
 from msgraphpull import *
 import logging
@@ -19,6 +19,8 @@ def snowflake_user_pull(ms_user_list):
     # Thread list to run at the end of the file. 
     threads = []
     thread_group_counter = 1
+    processes = []
+    process_group_counter = 1
 
     # Snowflake Options
     USER = "d919f591-ed37-4df3-aa8d-b757d8a5b8f3"
@@ -83,7 +85,7 @@ def snowflake_user_pull(ms_user_list):
         cs.execute(sql_query)
         results = cs.fetch_pandas_all()
 
-        # Setting dataframe display if logging.infoed in the terminal.
+        # Setting dataframe display if printed in the terminal.
         pd.set_option("display.max_rows", None)
         pd.set_option("display.max_columns", 500)
         pd.set_option("display.width", 1000)
@@ -187,8 +189,7 @@ def snowflake_user_pull(ms_user_list):
                     # Make this more specific in the future, like only change the manager if it's incorrect or change the city and state if they moved. This might require some kind of returns from the function to flag what needs to be changed.
 
                     if compare == "update":
-                        # Thread this process:
-                        update_thread = threading.Thread(
+                        update_process = mp.Process(
                             target=update_user,
                             args=(
                                 employee_id,
@@ -209,18 +210,49 @@ def snowflake_user_pull(ms_user_list):
                                 #employee_zip,
                             )
                         )
-                        update_thread.start()
-                        threads.append(update_thread)
+                        update_process.start()
+                        processes.append(update_process)
+
+                        # Thread this process:
+                        #update_thread = threading.Thread(
+#                            target=update_user,
+#                            args=(
+#                                employee_id,
+#                                employee_full_name,
+#                                employee_preferred_name,
+#                                employee_first_name,
+#                                employee_last_name,
+#                                employee_email,
+#                                employee_department,
+#                                employee_current_role,
+#                                employee_start_date,
+#                                employee_separation_date,
+#                                is_provider,
+#                                employee_supervisor_name,
+#                                employee_supervisor_email,
+#                                #employee_city,
+#                                employee_state,
+#                                #employee_zip,
+#                            )
+#                        )
+#                        update_thread.start()
+#                        threads.append(update_thread)
                         
                         # Write new function called check_mgr and return update if it should be changed.
                         # logging.info(f"Updating manager for {employee_full_name}...")
 
-                        # Thread this process:
-                        manager_thread = threading.Thread(target=update_manager,args=(employee_email,
+                        manager_process = mp.Process(target=update_manager,args=(employee_email,
                             employee_supervisor_name,
                             employee_supervisor_email))
-                        manager_thread.start()
-                        threads.append(manager_thread)
+                        manager_process.start()
+                        processes.append(manager_process)
+
+                        # Thread this process:
+                        #manager_thread = threading.Thread(target=update_manager,args=(employee_email,
+#                            employee_supervisor_name,
+#                            employee_supervisor_email))
+#                        manager_thread.start()
+#                        threads.append(manager_thread)
 
                     else:
                         logging.info(
@@ -237,15 +269,26 @@ def snowflake_user_pull(ms_user_list):
             else:
                 logging.info(f"ADP employee_status not found for {employee_email}!\n")
 
-            if len(threads) >= 10:
-                logging.info(f"Running thread group {thread_group_counter}...")
-                for thread in tqdm(threads, desc=(f'Running thread group #{thread_group_counter}')):
-                    logging.info(f"Running thread {thread}..")
-                    thread.join()
-                threads = []
-                thread_group_counter += 1
+            # Run the joined processes stored in the processes list when they reach a certain number. 
+            if len(processes) >= 20:
+                logging.info(f"Running process group {process_group_counter}...")
+                for process in tqdm(processes, desc=(f'Running process group #{process_group_counter}')):
+                    logging.info(f"Running process {process}..")
+                    process.join()
+                processes = []
+                process_group_counter += 1
             else:
                 continue 
+
+            #if len(threads) >= 10:
+#                logging.info(f"Running thread group {thread_group_counter}...")
+#                for thread in tqdm(threads, desc=(f'Running thread group #{thread_group_counter}')):
+#                    logging.info(f"Running thread {thread}..")
+#                    thread.join()
+#                threads = []
+#                thread_group_counter += 1
+#            else:
+#                continue 
 
         #for thread in threads:
             #thread.join()

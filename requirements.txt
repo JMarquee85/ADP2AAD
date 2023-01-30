@@ -3,5 +3,6 @@ microsoftgraph-python
 pandas
 msal
 requests
+tqdm
 
 
