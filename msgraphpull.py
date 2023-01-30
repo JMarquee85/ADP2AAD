@@ -186,8 +186,6 @@ def delete_user(email):
 
     if "error" in delete_user_actiion_status:
         logging.info(f"Error deleting user {email}!")
-        logging.info(f"Error deleting user {email}!")
-
 
 #####################################################################################################
 
@@ -250,7 +248,7 @@ def update_user(
             timeout=90
         )
         # Show the request
-        print(f"Core information status: {update_user_action.status_code}")
+        #print(f"Core information status: {update_user_action.status_code}")
         if update_user_action.status_code == 204:
             logging.info(f"{email} core information update successful!")
         else:
@@ -307,7 +305,7 @@ def update_manager(email, manager, manager_email):
             timeout=90
         )
         # Show the request
-        print(f"Manager Update Status Code: {manager_update_action.status_code}")
+        #print(f"Manager Update Status Code: {manager_update_action.status_code}")
         if manager_update_action.status_code == 204:
             logging.info(f"{email} manager update successful!")
         else:
