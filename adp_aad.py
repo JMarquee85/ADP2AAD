@@ -267,7 +267,7 @@ def snowflake_user_pull(ms_user_list):
         #logging.info(f"ADP>AAD Sync Complete!")
 
     finally:
-        for thread in threads:
+        for thread in tqdm(threads, desc='Running threads'):
             logging.info(f"Running thread {thread}..")
             thread.join()
         cs.close()
