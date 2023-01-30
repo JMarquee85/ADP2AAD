@@ -29,6 +29,7 @@ If they do exist, a function is run to check if all fields match between the ADP
 - https://stackoverflow.com/questions/15143837/how-to-multi-thread-an-operation-within-a-loop-in-python
 - Add the employee licensed states to extension attributes to get Providers in the appropriate state based distros. 
 - Checks on existing information matches don't appear to be fully functional. Look into this when possible. 
+- Possibly batch multiple jobs into one JSON with batching - https://learn.microsoft.com/en-us/graph/json-batching
 
 ## Resources
 

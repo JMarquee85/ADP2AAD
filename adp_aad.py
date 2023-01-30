@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import json
 import threading
+import multiprocessing
 import msgraphpull
 from msgraphpull import *
 import logging
@@ -17,6 +18,7 @@ def snowflake_user_pull(ms_user_list):
 
     # Thread list to run at the end of the file. 
     threads = []
+    thread_group_counter = 1
 
     # Snowflake Options
     USER = "d919f591-ed37-4df3-aa8d-b757d8a5b8f3"
@@ -209,28 +211,7 @@ def snowflake_user_pull(ms_user_list):
                         )
                         update_thread.start()
                         threads.append(update_thread)
-                        #
-                        # Original process:
-                        #
-                        # update_user(
-                        # employee_id,
-                        # employee_full_name,
-                        # employee_preferred_name,
-                        # employee_first_name,
-                        # employee_last_name,
-                        # employee_email,
-                        # employee_department,
-                        # employee_current_role,
-                        # employee_start_date,
-                        # employee_separation_date,
-                        # is_provider,
-                        # employee_supervisor_name,
-                        # employee_supervisor_email,
-                        # employee_city,
-                        # employee_state,
-                        # employee_zip,
-                        # )
-                        # Add check to see if the manager is the same.
+                        
                         # Write new function called check_mgr and return update if it should be changed.
                         # logging.info(f"Updating manager for {employee_full_name}...")
 
@@ -240,11 +221,6 @@ def snowflake_user_pull(ms_user_list):
                             employee_supervisor_email))
                         manager_thread.start()
                         threads.append(manager_thread)
-                        #update_manager(
-                            #employee_email,
-                            #employee_supervisor_name,
-                            #employee_supervisor_email,
-                        #)
 
                     else:
                         logging.info(
@@ -261,13 +237,23 @@ def snowflake_user_pull(ms_user_list):
             else:
                 logging.info(f"ADP employee_status not found for {employee_email}!\n")
 
+            if len(threads) >= 10:
+                logging.info(f"Running thread group {thread_group_counter}...")
+                for thread in tqdm(threads, desc=(f'Running thread group #{thread_group_counter}')):
+                    logging.info(f"Running thread {thread}..")
+                    thread.join()
+                threads = []
+                thread_group_counter += 1
+            else:
+                continue 
+
         #for thread in threads:
             #thread.join()
         #cs.close()
         #logging.info(f"ADP>AAD Sync Complete!")
 
     finally:
-        for thread in tqdm(threads, desc='Running threads'):
+        for thread in tqdm(threads, desc=(f'Running thread group #{thread_group_counter}')):
             logging.info(f"Running thread {thread}..")
             thread.join()
         cs.close()
