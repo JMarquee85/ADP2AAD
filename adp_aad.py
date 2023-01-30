@@ -16,9 +16,7 @@ logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',datefmt='%Y
 
 def snowflake_user_pull(ms_user_list):
 
-    # Thread list to run at the end of the file. 
-    threads = []
-    thread_group_counter = 1
+    # Process list to run at the end of the file. 
     processes = []
     process_group_counter = 1
 
@@ -121,6 +119,15 @@ def snowflake_user_pull(ms_user_list):
             #employee_city = getattr(row, "EMPLOYEE_CITY")
             employee_state = getattr(row, "EMPLOYEE_STATE")
             #employee_zip = getattr(row, "EMPLOYEE_ZIP")
+
+            # Practicing state variable assignments for later use:
+            # Will assign these to extension attributes on the MS side for dynamic distros 
+            employee_licensed_states = getattr(row, "EMPLOYEE_LICENSED_STATES")
+            if employee_licensed_states:
+                print(f"{employee_preferred_name} licensed states: {employee_licensed_states}\n")
+            employee_certifications = getattr(row, "EMPLOYEE_CERTIFICATIONS")
+            if employee_certifications:
+                print(f"{employee_preferred_name} certifications: {employee_certifications}\n")
 
             # Get the dictionary related to this user in MSGraph
             if employee_email:
