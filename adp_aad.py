@@ -123,19 +123,19 @@ def snowflake_user_pull(ms_user_list):
             # Practicing state variable assignments for later use:
             # Will assign these to extension attributes on the MS side for dynamic distros 
             employee_licensed_states = getattr(row, "EMPLOYEE_LICENSED_STATES")
-            if employee_licensed_states:
-                print(f"{employee_preferred_name} licensed states: {employee_licensed_states}\n")
+            #if employee_licensed_states:
+                #print(f"{employee_preferred_name} licensed states: {employee_licensed_states}\n")
             employee_certifications = getattr(row, "EMPLOYEE_CERTIFICATIONS")
-            if employee_certifications:
-                print(f"{employee_preferred_name} certifications: {employee_certifications}\n")
+           #if employee_certifications:
+                #print(f"{employee_preferred_name} certifications: {employee_certifications}\n")
 
             # Get the dictionary related to this user in MSGraph
             if employee_email:
                 return_dict = return_msuser_dict(
                     employee_email.casefold(),
-                    employee_id,
-                    employee_full_name,
-                    employee_preferred_name,
+                    employee_id.casefold(),
+                    employee_full_name.casefold(),
+                    employee_preferred_name.casefold(),
                     ms_user_list,
                 )
                 # logging.info(return_dict) # Aaaaand this is a list, not a dictionary.
@@ -189,6 +189,7 @@ def snowflake_user_pull(ms_user_list):
                         employee_supervisor_email,
                         #employee_city,
                         employee_state,
+                        
                         #employee_zip,
                         return_dict,
                     )
@@ -219,31 +220,6 @@ def snowflake_user_pull(ms_user_list):
                         )
                         update_process.start()
                         processes.append(update_process)
-
-                        # Thread this process:
-                        #update_thread = threading.Thread(
-#                            target=update_user,
-#                            args=(
-#                                employee_id,
-#                                employee_full_name,
-#                                employee_preferred_name,
-#                                employee_first_name,
-#                                employee_last_name,
-#                                employee_email,
-#                                employee_department,
-#                                employee_current_role,
-#                                employee_start_date,
-#                                employee_separation_date,
-#                                is_provider,
-#                                employee_supervisor_name,
-#                                employee_supervisor_email,
-#                                #employee_city,
-#                                employee_state,
-#                                #employee_zip,
-#                            )
-#                        )
-#                        update_thread.start()
-#                        threads.append(update_thread)
                         
                         # Write new function called check_mgr and return update if it should be changed.
                         # logging.info(f"Updating manager for {employee_full_name}...")
@@ -253,13 +229,6 @@ def snowflake_user_pull(ms_user_list):
                             employee_supervisor_email))
                         manager_process.start()
                         processes.append(manager_process)
-
-                        # Thread this process:
-                        #manager_thread = threading.Thread(target=update_manager,args=(employee_email,
-#                            employee_supervisor_name,
-#                            employee_supervisor_email))
-#                        manager_thread.start()
-#                        threads.append(manager_thread)
 
                     else:
                         logging.info(
@@ -287,25 +256,10 @@ def snowflake_user_pull(ms_user_list):
             else:
                 continue 
 
-            #if len(threads) >= 10:
-#                logging.info(f"Running thread group {thread_group_counter}...")
-#                for thread in tqdm(threads, desc=(f'Running thread group #{thread_group_counter}')):
-#                    logging.info(f"Running thread {thread}..")
-#                    thread.join()
-#                threads = []
-#                thread_group_counter += 1
-#            else:
-#                continue 
-
-        #for thread in threads:
-            #thread.join()
-        #cs.close()
-        #logging.info(f"ADP>AAD Sync Complete!")
-
     finally:
-        for thread in tqdm(threads, desc=(f'Running thread group #{thread_group_counter}')):
-            logging.info(f"Running thread {thread}..")
-            thread.join()
+        for process in tqdm(processes, desc=(f'Running process group #{process_group_counter}')):
+            logging.info(f"Running process {process}..")
+            process.join()
         cs.close()
         logging.info(f"Snowflake session closed.")
         logging.info(f"ADP>AAD Sync Complete!")

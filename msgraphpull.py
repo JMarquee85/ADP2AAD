@@ -250,7 +250,7 @@ def update_user(
             timeout=30
         )
         # Show the request
-        change_result = update_user_action.text
+        print(f"Core information status: {update_user_action.status_code}")
         if update_user_action.status_code == 204:
             logging.info(f"{email} core information update successful!")
         else:
@@ -298,7 +298,7 @@ def update_manager(email, manager, manager_email):
         }
         # put this information into a JSON format
         mgr_json = json.dumps(manager_update_body)
-        logging.info(f"Sending HTTP request to change {email} manager to {manager_email}...")
+        logging.info(f"{email} changing manager to {manager_email} - sending HTTP request...")
         # PUT request to take the action
         manager_update_action = requests.put(
             url=manager_url,
@@ -307,6 +307,7 @@ def update_manager(email, manager, manager_email):
             timeout=30
         )
         # Show the request
+        print(f"Manager Update Status Code: {manager_update_action.status_code}")
         if manager_update_action.status_code == 204:
             logging.info(f"{email} manager update successful!")
         else:
@@ -318,7 +319,6 @@ def update_manager(email, manager, manager_email):
         logging.info(f"{email} manager changed to: {manager_email}!")
 
     except Exception as manager_update_error:
-        #logging.info(f"Error encountered changing the manager for {email}!")
         logging.error(f"Error encountered changing the manager for {email}!")
 
 
@@ -374,8 +374,8 @@ def return_msuser_dict(email, employee_id, full_name, preferred_name, dict_list)
         element
         for element in dict_list
         if element["userPrincipalName"].casefold() == email
-        or element["displayName"] == full_name
-        or element["displayName"] == preferred_name
+        or element["displayName"].casefold() == full_name
+        or element["displayName"].casefold() == preferred_name
         or element["employeeId"] == employee_id
     ]
     for x in dict_info:
