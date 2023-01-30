@@ -295,7 +295,6 @@ def update_manager(email, manager, manager_email):
         manager_update_body = {
             "@odata.id": "https://graph.microsoft.com/v1.0/users/" + manager_id
         }
-        # manager_update_body = {"@odata.id": graph_url}
         # put this information into a JSON format
         mgr_json = json.dumps(manager_update_body)
         logging.info(f"Sending HTTP request to change {email} manager to {manager_email}...")
@@ -317,7 +316,7 @@ def update_manager(email, manager, manager_email):
         logging.info(f"{email} manager changed to: {manager_email}!")
 
     except Exception as manager_update_error:
-        logging.info(f"Error encountered changing the manager for {email}!")
+        #logging.info(f"Error encountered changing the manager for {email}!")
         logging.error(f"Error encountered changing the manager for {email}!")
 
 
