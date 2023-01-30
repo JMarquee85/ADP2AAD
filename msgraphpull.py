@@ -125,11 +125,11 @@ def ms_graph_pull():
 def get_ms_id(email):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + email
-    requests.get(url=graph_url, headers=headers, timeout=15)
+    requests.get(url=graph_url, headers=headers, timeout=45)
 
     try:
         # Get a user's MSid.
-        get_ms_id = requests.get(url=graph_url, headers=headers, timeout=15)
+        get_ms_id = requests.get(url=graph_url, headers=headers, timeout=45)
         user_result = get_ms_id.json()
         user_id = user_result["id"]  # This gets the user's ID.
         # logging.info(user_id)
@@ -144,7 +144,7 @@ def get_ms_id(email):
 def get_ms_user(ms_id):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + ms_id
-    get_user_info = requests.get(url=graph_url, headers=headers, timeout=15)
+    get_user_info = requests.get(url=graph_url, headers=headers, timeout=45)
 
     # Get a user's information using their MSid.
     get_user_result = get_user_info.json()
@@ -157,7 +157,7 @@ def get_ms_user(ms_id):
 def does_user_exist(email):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + str(email)
-    get_user_status = requests.get(url=graph_url, headers=headers, timeout=15)
+    get_user_status = requests.get(url=graph_url, headers=headers, timeout=45)
 
     get_user_info_return = get_user_status.json()
 
@@ -177,7 +177,7 @@ def delete_user(email):
     delete_user_action = requests.delete(
         url=graph_del_url,
         headers=headers,
-        timeout=30
+        timeout=90
     )
 
     delete_user_actiion_status = delete_user_action.json()
@@ -247,10 +247,10 @@ def update_user(
             url=graph_url,
             data=user_json,
             headers=headers,
-            timeout=30
+            timeout=90
         )
         # Show the request
-        # print(f"Core information status: {update_user_action.status_code}")
+        print(f"Core information status: {update_user_action.status_code}")
         if update_user_action.status_code == 204:
             logging.info(f"{email} core information update successful!")
         else:
@@ -304,10 +304,10 @@ def update_manager(email, manager, manager_email):
             url=manager_url,
             data=mgr_json,
             headers=headers,
-            timeout=30
+            timeout=90
         )
         # Show the request
-        # print(f"Manager Update Status Code: {manager_update_action.status_code}")
+        print(f"Manager Update Status Code: {manager_update_action.status_code}")
         if manager_update_action.status_code == 204:
             logging.info(f"{email} manager update successful!")
         else:
@@ -332,9 +332,9 @@ def get_ms_user_info(email):
         + email
         + "?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
     )
-    get_user_info = requests.get(url=graph_url, headers=headers, timeout=30)
+    get_user_info = requests.get(url=graph_url, headers=headers, timeout=90)
     mgr_graph_url = "https://graph.microsoft.com/v1.0/users/" + email + "/manager"
-    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=30)
+    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=90)
 
     try:
         # Get a user's information using their MSid.
@@ -352,9 +352,9 @@ def get_ms_user_info(email):
 def get_ms_user_manager(email):
 
     graph_url = f"https://graph.microsoft.com/v1.0/users/{email}?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
-    get_user_info = requests.get(url=graph_url, headers=headers, timeout=30)
+    get_user_info = requests.get(url=graph_url, headers=headers, timeout=90)
     mgr_graph_url = f"https://graph.microsoft.com/v1.0/users/{email}/manager"
-    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=30)
+    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=90)
 
     try:
         # Get a user's information using their MSid.
@@ -420,48 +420,3 @@ def user_compare(
         return "update"
     else:
         return "do not update"
-
-
-#####################################################################################################
-#####################################################################################################
-####################################### TESTING GROUNDS #############################################
-#####################################################################################################
-#####################################################################################################
-
-# Run stuff
-# ms_auth_token()
-# ms_graph_pull()
-# logging.info(aad_users)
-# id_number = get_ms_id("test.user@talkiatry.com")
-# logging.info(id_number)
-# get_ms_user("41967c91-0239-45e2-b318-7625f6584633")
-
-# Test the above function with Test User data.
-# ms_auth_token()
-# does_user_exist("josh.marcus@talkiatry.com")
-# get_ms_user_info("josh.marcus@talkiatry.com")
-# update_user(
-# "12389612897653",
-# "Josh Marcus",
-# "Josh Marcus",
-# "Josh",
-# "Marcus",
-# "josh.marcus@talkiatry.com",
-# "Technology",
-# "Manager - IT Services",
-# "2021-07-20",
-# "None",
-# "0",
-# "Dharmendra Sant",
-# "dharmendra.sant@talkiatry.com",
-# "El Paso",
-# "Texas",
-# "79930",
-# )
-
-
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################
-#####################################################################################################

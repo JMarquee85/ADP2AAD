@@ -189,7 +189,7 @@ def snowflake_user_pull(ms_user_list):
                         employee_supervisor_email,
                         #employee_city,
                         employee_state,
-                        
+
                         #employee_zip,
                         return_dict,
                     )
@@ -246,7 +246,7 @@ def snowflake_user_pull(ms_user_list):
                 logging.info(f"ADP employee_status not found for {employee_email}!\n")
 
             # Run the joined processes stored in the processes list when they reach a certain number. 
-            if len(processes) >= 20:
+            if len(processes) >= 50:
                 logging.info(f"Running process group {process_group_counter}...")
                 for process in tqdm(processes, desc=(f'Running process group #{process_group_counter}')):
                     logging.info(f"Running process {process}..")
