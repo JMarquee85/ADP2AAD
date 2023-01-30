@@ -50,7 +50,7 @@ def snowflake_user_pull(ms_user_list):
     )
 
     logging.info("Getting Snowflake JWT token... ")
-    response = requests.post(TOKEN_URL, data=PAYLOAD)
+    response = requests.post(TOKEN_URL, data=PAYLOAD, timeout=90)
     json_data = json.loads(response.text)
     TOKEN = json_data["access_token"]
     logging.info("Token obtained!")

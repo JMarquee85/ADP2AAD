@@ -2,10 +2,9 @@
 # Created AAD Enterprise Application called ADP-AAD Graph
 # https://towardsdatascience.com/querying-microsoft-graph-api-with-python-269118e8180c
 
-# import libraries
 import msal
 import json
-import requests  # remove this once everything below is put into its own script.
+import requests  
 import pandas as pd
 import logging
 
@@ -70,7 +69,7 @@ def ms_graph_pull():
     # MS Graph API URL
     url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,givenName,surname,userPrincipalName,manager,mail,jobTitle,Department,usertype,accountEnabled,city,state,postalCode,employeeId"
 
-    graph_result = requests.get(url=url, headers=headers)
+    graph_result = requests.get(url=url, headers=headers, timeout=60)
 
     ms_dict = graph_result.json()  # dict
 
@@ -85,7 +84,7 @@ def ms_graph_pull():
             logging.info("No next link found.")
         else:
             url = ms_dict.get("@odata.nextLink")
-            graph_result = requests.get(url=url, headers=headers)
+            graph_result = requests.get(url=url, headers=headers, timeout=60)
             ms_dict = graph_result.json()
             # logging.info(ms_dict['@odata.nextLink']) #uncomment this to show the link to the next page of the returned Microsoft data.
             user_return = ms_dict["value"]
@@ -126,11 +125,11 @@ def ms_graph_pull():
 def get_ms_id(email):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + email
-    requests.get(url=graph_url, headers=headers)
+    requests.get(url=graph_url, headers=headers, timeout=15)
 
     try:
         # Get a user's MSid.
-        get_ms_id = requests.get(url=graph_url, headers=headers)
+        get_ms_id = requests.get(url=graph_url, headers=headers, timeout=15)
         user_result = get_ms_id.json()
         user_id = user_result["id"]  # This gets the user's ID.
         # logging.info(user_id)
@@ -145,7 +144,7 @@ def get_ms_id(email):
 def get_ms_user(ms_id):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + ms_id
-    get_user_info = requests.get(url=graph_url, headers=headers)
+    get_user_info = requests.get(url=graph_url, headers=headers, timeout=15)
 
     # Get a user's information using their MSid.
     get_user_result = get_user_info.json()
@@ -158,7 +157,7 @@ def get_ms_user(ms_id):
 def does_user_exist(email):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + str(email)
-    get_user_status = requests.get(url=graph_url, headers=headers)
+    get_user_status = requests.get(url=graph_url, headers=headers, timeout=15)
 
     get_user_info_return = get_user_status.json()
 
@@ -178,6 +177,7 @@ def delete_user(email):
     delete_user_action = requests.delete(
         url=graph_del_url,
         headers=headers,
+        timeout=30
     )
 
     delete_user_actiion_status = delete_user_action.json()
@@ -225,7 +225,7 @@ def update_user(
         # https://learn.microsoft.com/en-us/graph/api/user-update?view=graph-rest-1.0&tabs=http
         # Add additional information to ExtensionAttributes for later use
         # https://learn.microsoft.com/en-us/graph/extensibility-overview?tabs=http
-        logging.info(f"Sending HTTP request to change core information for {email}...")
+        logging.info(f"{email} HTTP request sent to change core information ...")
         update_user_body = {
             "displayName": preferred_name,
             "department": department,
@@ -247,6 +247,7 @@ def update_user(
             url=graph_url,
             data=user_json,
             headers=headers,
+            timeout=30
         )
         # Show the request
         change_result = update_user_action.text
@@ -303,6 +304,7 @@ def update_manager(email, manager, manager_email):
             url=manager_url,
             data=mgr_json,
             headers=headers,
+            timeout=30
         )
         # Show the request
         if manager_update_action.status_code == 204:
@@ -330,9 +332,9 @@ def get_ms_user_info(email):
         + email
         + "?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
     )
-    get_user_info = requests.get(url=graph_url, headers=headers)
+    get_user_info = requests.get(url=graph_url, headers=headers, timeout=30)
     mgr_graph_url = "https://graph.microsoft.com/v1.0/users/" + email + "/manager"
-    get_user_manager = requests.get(url=mgr_graph_url, headers=headers)
+    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=30)
 
     try:
         # Get a user's information using their MSid.
@@ -350,9 +352,9 @@ def get_ms_user_info(email):
 def get_ms_user_manager(email):
 
     graph_url = f"https://graph.microsoft.com/v1.0/users/{email}?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
-    get_user_info = requests.get(url=graph_url, headers=headers)
+    get_user_info = requests.get(url=graph_url, headers=headers, timeout=30)
     mgr_graph_url = f"https://graph.microsoft.com/v1.0/users/{email}/manager"
-    get_user_manager = requests.get(url=mgr_graph_url, headers=headers)
+    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=30)
 
     try:
         # Get a user's information using their MSid.
