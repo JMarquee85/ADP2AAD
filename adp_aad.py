@@ -48,7 +48,7 @@ def snowflake_user_pull(ms_user_list):
     )
 
     logging.info("Getting Snowflake JWT token... ")
-    response = requests.post(TOKEN_URL, data=PAYLOAD, timeout=90)
+    response = requests.post(TOKEN_URL, data=PAYLOAD, timeout=180)
     json_data = json.loads(response.text)
     TOKEN = json_data["access_token"]
     logging.info("Token obtained!")
@@ -246,7 +246,7 @@ def snowflake_user_pull(ms_user_list):
                 logging.info(f"ADP employee_status not found for {employee_email}!\n")
 
             # Run the joined processes stored in the processes list when they reach a certain number. 
-            if len(processes) >= 50:
+            if len(processes) >= 20:
                 logging.info(f"Running process group {process_group_counter}...")
                 for process in tqdm(processes, desc=(f'Running process group #{process_group_counter}')):
                     logging.info(f"Running process {process}..")
@@ -262,4 +262,4 @@ def snowflake_user_pull(ms_user_list):
             process.join()
         cs.close()
         logging.info(f"Snowflake session closed.")
-        logging.info(f"ADP>AAD Sync Complete!")
+        logging.info(f"ADP>AAD Sync Closed.")

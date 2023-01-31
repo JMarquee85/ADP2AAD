@@ -67,9 +67,9 @@ def ms_graph_pull():
     global aad_users
 
     # MS Graph API URL
-    url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,givenName,surname,userPrincipalName,manager,mail,jobTitle,Department,usertype,accountEnabled,city,state,postalCode,employeeId"
+    url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,givenName,surname,userPrincipalName,manager,jobTitle,Department,usertype,accountEnabled,state,employeeId"
 
-    graph_result = requests.get(url=url, headers=headers, timeout=60)
+    graph_result = requests.get(url=url, headers=headers, timeout=180)
 
     ms_dict = graph_result.json()  # dict
 
@@ -84,7 +84,7 @@ def ms_graph_pull():
             logging.info("No next link found.")
         else:
             url = ms_dict.get("@odata.nextLink")
-            graph_result = requests.get(url=url, headers=headers, timeout=60)
+            graph_result = requests.get(url=url, headers=headers, timeout=180)
             ms_dict = graph_result.json()
             # logging.info(ms_dict['@odata.nextLink']) #uncomment this to show the link to the next page of the returned Microsoft data.
             user_return = ms_dict["value"]
@@ -115,7 +115,6 @@ def ms_graph_pull():
                         not in item["department"]
                     ):
                         aad_users.append(item)
-    # logging.info(aad_users)
     return aad_users
 
 
@@ -125,17 +124,17 @@ def ms_graph_pull():
 def get_ms_id(email):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + email
-    requests.get(url=graph_url, headers=headers, timeout=45)
+    requests.get(url=graph_url, headers=headers, timeout=180)
 
     try:
         # Get a user's MSid.
-        get_ms_id = requests.get(url=graph_url, headers=headers, timeout=45)
+        get_ms_id = requests.get(url=graph_url, headers=headers, timeout=180)
         user_result = get_ms_id.json()
         user_id = user_result["id"]  # This gets the user's ID.
-        # logging.info(user_id)
+        # print(user_id)
         return user_id
     except:
-        logging.info(f"User email {email} not found in Azure AD!")
+        logging.info(f"{email} - User email not found in Azure AD!")
 
 
 #####################################################################################################
@@ -144,7 +143,7 @@ def get_ms_id(email):
 def get_ms_user(ms_id):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + ms_id
-    get_user_info = requests.get(url=graph_url, headers=headers, timeout=45)
+    get_user_info = requests.get(url=graph_url, headers=headers, timeout=180)
 
     # Get a user's information using their MSid.
     get_user_result = get_user_info.json()
@@ -157,7 +156,7 @@ def get_ms_user(ms_id):
 def does_user_exist(email):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + str(email)
-    get_user_status = requests.get(url=graph_url, headers=headers, timeout=45)
+    get_user_status = requests.get(url=graph_url, headers=headers, timeout=180)
 
     get_user_info_return = get_user_status.json()
 
@@ -177,15 +176,15 @@ def delete_user(email):
     delete_user_action = requests.delete(
         url=graph_del_url,
         headers=headers,
-        timeout=90
+        timeout=180
     )
 
     delete_user_actiion_status = delete_user_action.json()
 
-    logging.info(f"User {email} has been deleted from AAD!")
+    logging.info(f"{email} - User has been deleted from AAD!")
 
     if "error" in delete_user_actiion_status:
-        logging.info(f"Error deleting user {email}!")
+        logging.error(f"{email} - Error deleting user!")
 
 #####################################################################################################
 
@@ -245,7 +244,7 @@ def update_user(
             url=graph_url,
             data=user_json,
             headers=headers,
-            timeout=90
+            timeout=180
         )
         # Show the request
         #print(f"Core information status: {update_user_action.status_code}")
@@ -261,10 +260,10 @@ def update_user(
 
     # Error updating core information.
     except:
-        logging.info(f"Error updating core information for {email}!")
-        logging.info(f"User {email} likely not in Azure AD... ")
+        logging.error(f"{email} - Error updating core information!")
+        logging.error(f"{email} - Email does not appear to exist in Azure AD... ")
         # Add error to logs.
-        logging.info(f"Error updating information for {email} in Azure AD!\n")
+        logging.error(f"{email} - Error updating information in Azure AD!")
 
 
 #####################################################################################################
@@ -302,22 +301,22 @@ def update_manager(email, manager, manager_email):
             url=manager_url,
             data=mgr_json,
             headers=headers,
-            timeout=90
+            timeout=180
         )
         # Show the request
         #print(f"Manager Update Status Code: {manager_update_action.status_code}")
         if manager_update_action.status_code == 204:
-            logging.info(f"{email} manager update successful!")
+            logging.info(f"{email} - manager update successful!")
         else:
-            logging.info(
-                f"Error updating manager! Status Code: {manager_update_action.status_code}"
+            logging.error(
+                f"{email} - error updating manager! Status Code: {manager_update_action.status_code}"
             )
 
         # Add the change to the log file
-        logging.info(f"{email} manager changed to: {manager_email}!")
+        logging.info(f"{email} - manager changed to: {manager_email}!")
 
     except Exception as manager_update_error:
-        logging.error(f"Error encountered changing the manager for {email}!")
+        logging.error(f"{email} - error encountered changing user manager!")
 
 
 #####################################################################################################
@@ -330,18 +329,18 @@ def get_ms_user_info(email):
         + email
         + "?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
     )
-    get_user_info = requests.get(url=graph_url, headers=headers, timeout=90)
+    get_user_info = requests.get(url=graph_url, headers=headers, timeout=180)
     mgr_graph_url = "https://graph.microsoft.com/v1.0/users/" + email + "/manager"
-    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=90)
+    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=180)
 
     try:
         # Get a user's information using their MSid.
         get_user_result = get_user_info.json()
         get_manager_result = get_user_manager.json()
-        logging.info(get_user_result)
-        logging.info(f"Manager: {get_manager_result['userPrincipalName']}")
+        print(get_user_result)
+        print(f"Manager: {get_manager_result['userPrincipalName']}")
     except:
-        logging.info(f"User {email} has no manager!\n")
+        print(f"User {email} has no manager!\n")
 
 
 #####################################################################################################
@@ -350,9 +349,9 @@ def get_ms_user_info(email):
 def get_ms_user_manager(email):
 
     graph_url = f"https://graph.microsoft.com/v1.0/users/{email}?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
-    get_user_info = requests.get(url=graph_url, headers=headers, timeout=90)
+    get_user_info = requests.get(url=graph_url, headers=headers, timeout=180)
     mgr_graph_url = f"https://graph.microsoft.com/v1.0/users/{email}/manager"
-    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=90)
+    get_user_manager = requests.get(url=mgr_graph_url, headers=headers, timeout=180)
 
     try:
         # Get a user's information using their MSid.
@@ -360,7 +359,7 @@ def get_ms_user_manager(email):
         get_manager_result = get_user_manager.json()
         return get_manager_result["userPrincipalName"]
     except:
-        logging.info(f"User {email} has no manager!")
+        logging.info(f"{email} - user has no manager!")
 
 
 #####################################################################################################
