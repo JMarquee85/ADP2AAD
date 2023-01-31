@@ -48,7 +48,7 @@ def snowflake_user_pull(ms_user_list):
     )
 
     logging.info("Getting Snowflake JWT token... ")
-    response = requests.post(TOKEN_URL, data=PAYLOAD, timeout=180)
+    response = requests.post(TOKEN_URL, data=PAYLOAD)
     json_data = json.loads(response.text)
     TOKEN = json_data["access_token"]
     logging.info("Token obtained!")
@@ -232,7 +232,7 @@ def snowflake_user_pull(ms_user_list):
 
                     else:
                         logging.info(
-                            f"All fields stored in ADP match AAD for {employee_email}! Not making any changes..."
+                            f"{employee_email} - ADP>AAD match! Not making any changes..."
                         )
                 else:
                     logging.info(
@@ -243,10 +243,10 @@ def snowflake_user_pull(ms_user_list):
 
             # Action if neither is true.
             else:
-                logging.info(f"ADP employee_status not found for {employee_email}!\n")
+                logging.info(f"{employee_email} - ADP employee_status not found!\n")
 
             # Run the joined processes stored in the processes list when they reach a certain number. 
-            if len(processes) >= 20:
+            if len(processes) >= 40:
                 logging.info(f"Running process group {process_group_counter}...")
                 for process in tqdm(processes, desc=(f'Running process group #{process_group_counter}')):
                     logging.info(f"Running process {process}..")
