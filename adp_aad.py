@@ -1,5 +1,7 @@
 import snowflake.connector
 import requests
+from requests.sessions import HTTPAdapter
+from requests.adapters import Retry
 import pandas as pd
 import json
 import threading
@@ -13,6 +15,24 @@ from tqdm import tqdm
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="adp2aad.log", level=logging.INFO)
 # logging.basicConfig(filename="info.log", level=logging.INFO)
 # logging.basicConfig(filename="error.log", level=logging.ERROR)
+
+# Requests retry settings
+# https://python.plainenglish.io/requests-module-in-python-advanced-usage-4cd8102183fc
+def create_http_session():
+    """
+    A requests session configured with retries.
+    """
+
+    http_ = requests.Session()
+    
+    # Retry has been set for all server related errors
+    retry_ = Retry(total=15, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
+    adaptor = HTTPAdapter(max_retries=retry_)
+    http_.mount('https://', adaptor)
+
+    return http_
+
+http_session = create_http_session()
 
 def snowflake_user_pull(ms_user_list):
 
@@ -48,7 +68,7 @@ def snowflake_user_pull(ms_user_list):
     )
 
     logging.info("Getting Snowflake JWT token... ")
-    response = requests.post(TOKEN_URL, data=PAYLOAD)
+    response = http_session.post(TOKEN_URL, data=PAYLOAD)
     json_data = json.loads(response.text)
     TOKEN = json_data["access_token"]
     logging.info("Token obtained!")
@@ -246,7 +266,7 @@ def snowflake_user_pull(ms_user_list):
                 logging.info(f"{employee_email} - ADP employee_status not found!\n")
 
             # Run the joined processes stored in the processes list when they reach a certain number. 
-            if len(processes) >= 40:
+            if len(processes) >= 20:
                 logging.info(f"Running process group {process_group_counter}...")
                 for process in tqdm(processes, desc=(f'Running process group #{process_group_counter}')):
                     logging.info(f"Running process {process}..")

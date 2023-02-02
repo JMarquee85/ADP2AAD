@@ -5,11 +5,34 @@
 import msal
 import json
 import requests  
+import requests
+from requests.sessions import HTTPAdapter
+from requests.adapters import Retry
 import pandas as pd
 import logging
+import adp_aad
+from adp_aad import *
 
 # Logging.
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="adp2aad.log", level=logging.INFO)
+
+# Requests retry settings
+# https://python.plainenglish.io/requests-module-in-python-advanced-usage-4cd8102183fc
+def create_http_session():
+    """
+    A requests session configured with retries.
+    """
+
+    http_ = requests.Session()
+    
+    # Retry has been set for all server related errors
+    retry_ = Retry(total=15, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
+    adaptor = HTTPAdapter(max_retries=retry_)
+    http_.mount('https://', adaptor)
+
+    return http_
+
+http_session = create_http_session()
 
 #####################################################################################################
 ######## Find a way to append all ms managers to the dictionary for each user. #############
@@ -69,7 +92,7 @@ def ms_graph_pull():
     # MS Graph API URL
     url = "https://graph.microsoft.com/v1.0/users?$select=id,displayName,givenName,surname,userPrincipalName,manager,jobTitle,Department,usertype,accountEnabled,state,employeeId"
 
-    graph_result = requests.get(url=url, headers=headers)
+    graph_result = http_session.get(url=url, headers=headers, timeout=30)
 
     ms_dict = graph_result.json()  # dict
 
@@ -84,7 +107,7 @@ def ms_graph_pull():
             logging.info("No next link found.")
         else:
             url = ms_dict.get("@odata.nextLink")
-            graph_result = requests.get(url=url, headers=headers)
+            graph_result = http_session.get(url=url, headers=headers, timeout=30)
             ms_dict = graph_result.json()
             # logging.info(ms_dict['@odata.nextLink']) #uncomment this to show the link to the next page of the returned Microsoft data.
             user_return = ms_dict["value"]
@@ -124,11 +147,11 @@ def ms_graph_pull():
 def get_ms_id(email):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + email
-    requests.get(url=graph_url, headers=headers)
+    http_session.get(url=graph_url, headers=headers)
 
     try:
         # Get a user's MSid.
-        get_ms_id = requests.get(url=graph_url, headers=headers)
+        get_ms_id = http_session.get(url=graph_url, headers=headers, timeout=30)
         user_result = get_ms_id.json()
         user_id = user_result["id"]  # This gets the user's ID.
         # print(user_id)
@@ -143,7 +166,7 @@ def get_ms_id(email):
 def get_ms_user(ms_id):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + ms_id
-    get_user_info = requests.get(url=graph_url, headers=headers)
+    get_user_info = http_session.get(url=graph_url, headers=headers, timeout=30)
 
     # Get a user's information using their MSid.
     get_user_result = get_user_info.json()
@@ -156,7 +179,7 @@ def get_ms_user(ms_id):
 def does_user_exist(email):
 
     graph_url = "https://graph.microsoft.com/v1.0/users/" + str(email)
-    get_user_status = requests.get(url=graph_url, headers=headers)
+    get_user_status = http_session.get(url=graph_url, headers=headers, timeout=30)
 
     get_user_info_return = get_user_status.json()
 
@@ -173,9 +196,10 @@ def delete_user(email):
     ms_id = get_ms_id(email)
     graph_del_url = "https://graph.microsoft.com/v1.0/users/" + str(ms_id)
 
-    delete_user_action = requests.delete(
+    delete_user_action = http_session.delete(
         url=graph_del_url,
-        headers=headers
+        headers=headers, 
+        timeout=30
     )
 
     delete_user_actiion_status = delete_user_action.json()
@@ -239,10 +263,11 @@ def update_user(
         user_json = json.dumps(update_user_body)
 
         # PATCH request to update user goes here:
-        update_user_action = requests.patch(
+        update_user_action = http_session.patch(
             url=graph_url,
             data=user_json,
             headers=headers,
+            timeout=30
         )
         # Show the request
         #print(f"Core information status: {update_user_action.status_code}")
@@ -295,10 +320,11 @@ def update_manager(email, manager, manager_email):
         mgr_json = json.dumps(manager_update_body)
         logging.info(f"{email} changing manager to {manager_email} - sending HTTP request...")
         # PUT request to take the action
-        manager_update_action = requests.put(
+        manager_update_action = http_session.put(
             url=manager_url,
             data=mgr_json,
             headers=headers,
+            timeout=30
         )
         # Show the request
         #print(f"Manager Update Status Code: {manager_update_action.status_code}")
@@ -326,9 +352,9 @@ def get_ms_user_info(email):
         + email
         + "?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
     )
-    get_user_info = requests.get(url=graph_url, headers=headers)
+    get_user_info = http_session.get(url=graph_url, headers=headers, timeout=30)
     mgr_graph_url = "https://graph.microsoft.com/v1.0/users/" + email + "/manager"
-    get_user_manager = requests.get(url=mgr_graph_url, headers=headers)
+    get_user_manager = http_session.get(url=mgr_graph_url, headers=headers, timeout=30)
 
     try:
         # Get a user's information using their MSid.
@@ -346,9 +372,9 @@ def get_ms_user_info(email):
 def get_ms_user_manager(email):
 
     graph_url = f"https://graph.microsoft.com/v1.0/users/{email}?$select=employeeId,displayName,givenName,surname,userPrincipalName,jobTitle,Department,manager,city,state,postalCode"
-    get_user_info = requests.get(url=graph_url, headers=headers)
+    get_user_info = http_session.get(url=graph_url, headers=headers, timeout=30)
     mgr_graph_url = f"https://graph.microsoft.com/v1.0/users/{email}/manager"
-    get_user_manager = requests.get(url=mgr_graph_url, headers=headers)
+    get_user_manager = http_session.get(url=mgr_graph_url, headers=headers, timeout=30)
 
     try:
         # Get a user's information using their MSid.
