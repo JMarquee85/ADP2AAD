@@ -13,6 +13,9 @@ import logging
 import adp_aad
 from adp_aad import *
 
+# Too many concurrent requests if run back to back. JSON batching.
+# https://learn.microsoft.com/en-us/graph/json-batching     
+
 # Logging.
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="adp2aad.log", level=logging.INFO)
 
@@ -26,7 +29,7 @@ def create_http_session():
     http_ = requests.Session()
     
     # Retry has been set for all server related errors
-    retry_ = Retry(total=15, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
+    retry_ = Retry(total=15, backoff_factor=5, status_forcelist=[500, 502, 503, 504])
     adaptor = HTTPAdapter(max_retries=retry_)
     http_.mount('https://', adaptor)
 
