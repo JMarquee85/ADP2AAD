@@ -16,6 +16,9 @@ logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',datefmt='%Y
 # logging.basicConfig(filename="info.log", level=logging.INFO)
 # logging.basicConfig(filename="error.log", level=logging.ERROR)
 
+# Change the logging above or add logging to go to an Azure Blob Storage. Relevant docs:
+# https://learn.microsoft.com/en-us/python/api/overview/azure/storage-blob-readme?view=azure-python
+
 # Requests retry settings
 # https://python.plainenglish.io/requests-module-in-python-advanced-usage-4cd8102183fc
 def create_http_session():
