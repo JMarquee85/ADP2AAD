@@ -7,7 +7,6 @@ from adp_aad import *
 from msgraphpull import *
 import logging
 import time
-import azure-storage-blob
 
 if __name__ == "__main__":
 	# Logging.

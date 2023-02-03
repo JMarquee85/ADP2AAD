@@ -4,5 +4,5 @@ pandas
 msal
 requests
 tqdm
-
+azure-storage-blob
 
