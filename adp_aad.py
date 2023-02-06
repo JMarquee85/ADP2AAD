@@ -4,38 +4,13 @@ from requests.sessions import HTTPAdapter
 from requests.adapters import Retry
 import pandas as pd
 import json
-import threading
+import datetime
 import multiprocessing as mp
 import msgraphpull
 from msgraphpull import *
 import logging
+import logging.config
 from tqdm import tqdm
-
-# Logging.
-logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="adp2aad.log", level=logging.INFO)
-# logging.basicConfig(filename="info.log", level=logging.INFO)
-# logging.basicConfig(filename="error.log", level=logging.ERROR)
-
-# Change the logging above or add logging to go to an Azure Blob Storage. Relevant docs:
-# https://learn.microsoft.com/en-us/python/api/overview/azure/storage-blob-readme?view=azure-python
-
-# Requests retry settings
-# https://python.plainenglish.io/requests-module-in-python-advanced-usage-4cd8102183fc
-def create_http_session():
-    """
-    A requests session configured with retries.
-    """
-
-    http_ = requests.Session()
-    
-    # Retry has been set for all server related errors
-    retry_ = Retry(total=15, backoff_factor=5, status_forcelist=[500, 502, 503, 504])
-    adaptor = HTTPAdapter(max_retries=retry_)
-    http_.mount('https://', adaptor)
-
-    return http_
-
-http_session = create_http_session()
 
 def snowflake_user_pull(ms_user_list):
 
@@ -70,14 +45,14 @@ def snowflake_user_pull(ms_user_list):
         )
     )
 
-    logging.info("Getting Snowflake JWT token... ")
+    msgraphpull.logger.info("Getting Snowflake JWT token... ")
     response = http_session.post(TOKEN_URL, data=PAYLOAD)
     json_data = json.loads(response.text)
     TOKEN = json_data["access_token"]
-    logging.info("Token obtained!")
+    msgraphpull.logger.info("Token obtained!")
 
     # Snowflake connection
-    logging.info("Connecting to Snowflake... ")
+    msgraphpull.logger.info("Connecting to Snowflake... ")
     ctx = snowflake.connector.connect(
         user=USER,
         account=ACCOUNT,
@@ -92,7 +67,7 @@ def snowflake_user_pull(ms_user_list):
 
     # Set up a cursor object.
     cs = ctx.cursor()
-    logging.info("Snowflake cursor object created.")
+    msgraphpull.logger.info("Snowflake cursor object created.")
 
     # Query snowflake for the current employee data and sort by last name.
     sql_query = """
@@ -254,25 +229,25 @@ def snowflake_user_pull(ms_user_list):
                         processes.append(manager_process)
 
                     else:
-                        logging.info(
+                        msgraphpull.logger.info(
                             f"{employee_email} - ADP>AAD match! Not making any changes..."
                         )
                 else:
-                    logging.info(
+                    msgraphpull.logger.info(
                         f"\nNo MS graph dictionary found for {employee_email}!\nStart Date: {employee_start_date}\n(Have they been created in AAD yet? Have we sent the right information to compare?)\n"
                     )
                     no_graph_output = f"Email: {employee_email}\nName: {employee_full_name}\nPreferred Name: {employee_preferred_name}\nFirst Name: {employee_first_name}\nLast Name: {employee_last_name}\nDepartment: {employee_department}\nTitle: {employee_current_role}\nManager: {employee_supervisor_name}\nState: {employee_state}\nHire Date: {employee_start_date}\nADP Employment Status: {employee_status}\n\n"
-                    logging.info(no_graph_output)
+                    msgraphpull.logger.info(no_graph_output)
 
             # Action if neither is true.
             else:
-                logging.info(f"{employee_email} - ADP employee_status not found!\n")
+                msgraphpull.logger.info(f"{employee_email} - ADP employee_status not found!\n")
 
             # Run the joined processes stored in the processes list when they reach a certain number. 
             if len(processes) >= 20:
-                logging.info(f"Running process group {process_group_counter}...")
+                msgraphpull.logger.info(f"Running process group {process_group_counter}...")
                 for process in tqdm(processes, desc=(f'Running process group #{process_group_counter}')):
-                    logging.info(f"Running process {process}..")
+                    msgraphpull.logger.info(f"Running process {process}..")
                     process.join()
                 processes = []
                 process_group_counter += 1
@@ -281,8 +256,8 @@ def snowflake_user_pull(ms_user_list):
 
     finally:
         for process in tqdm(processes, desc=(f'Running process group #{process_group_counter}')):
-            logging.info(f"Running process {process}..")
+            msgraphpull.logger.info(f"Running process {process}..")
             process.join()
         cs.close()
-        logging.info(f"Snowflake session closed.")
-        logging.info(f"ADP>AAD Sync Closed.")
+        msgraphpull.logger.info(f"Snowflake session closed.")
+        msgraphpull.logger.info(f"ADP>AAD Sync Closed.")

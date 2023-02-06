@@ -5,26 +5,35 @@
 import msal
 import json
 import requests  
-import requests
+import datetime
 from requests.sessions import HTTPAdapter
 from requests.adapters import Retry
 import pandas as pd
+#import adp_aad
+#from adp_aad import *
+#from adp_aad import adp2aad_logs
 import logging
-import adp_aad
-from adp_aad import *
+import logging.config
 
 # Too many concurrent requests if run back to back. JSON batching.
 # https://learn.microsoft.com/en-us/graph/json-batching     
 
-# Logging.
-logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s',datefmt='%Y-%m-%d %H:%M:%S',filename="adp2aad.log", level=logging.INFO)
+#################################################################################################
+# Logging
 
-# Requests retry settings
-# https://python.plainenglish.io/requests-module-in-python-advanced-usage-4cd8102183fc
+logging.config.fileConfig('log_config.conf')
+logger = logging.getLogger('MainLogger')
+fh = logging.FileHandler('logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now()))
+formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(lineno)04d | %(message)s')
+fh.setFormatter(formatter)
+logger.addHandler(fh)
+#logger.debug("TEST debug")
+#logger.info("TEST info")
+
+##################################################################################################
+# A requests session configured with retries.
+
 def create_http_session():
-    """
-    A requests session configured with retries.
-    """
 
     http_ = requests.Session()
     
@@ -66,15 +75,15 @@ def ms_auth_token():
     # If the token is available in cache, save it to a variable
     if token_result:
         access_token = "Bearer " + token_result["access_token"]
-        logging.info("Access token was loaded from cache")
+        logger.info("Access token was loaded from cache")
 
     # If the token is not available in cache, acquire a new one from Azure AD and save it to a variable
     if not token_result:
         token_result = client.acquire_token_for_client(scopes=scope)
         access_token = "Bearer " + token_result["access_token"]
-        logging.info("New access token acquired from Azure AD!")
+        logger.info("New access token acquired from Azure AD!")
 
-    # logging.info(access_token)
+    # logger.info(access_token)
     token = access_token
 
     # Headers variable creation
@@ -103,16 +112,16 @@ def ms_graph_pull():
         "value"
     ]  # list of just the user information. A list of dictionaries.
 
-    logging.info(f"Paginating Microsoft Graph output...")
+    logger.info(f"Paginating Microsoft Graph output...")
 
     while "@odata.nextLink" in ms_dict:
         if url is None:
-            logging.info("No next link found.")
+            logger.info("No next link found.")
         else:
             url = ms_dict.get("@odata.nextLink")
             graph_result = http_session.get(url=url, headers=headers, timeout=30)
             ms_dict = graph_result.json()
-            # logging.info(ms_dict['@odata.nextLink']) #uncomment this to show the link to the next page of the returned Microsoft data.
+            #logger.info(ms_dict['@odata.nextLink']) #uncomment this to show the link to the next page of the returned Microsoft data.
             user_return = ms_dict["value"]
             for item in user_return:
                 if type(item) is dict:
@@ -160,7 +169,7 @@ def get_ms_id(email):
         # print(user_id)
         return user_id
     except:
-        logging.info(f"{email} - User email not found in Azure AD!")
+        logger.info(f"{email} - User email not found in Azure AD!")
 
 
 #####################################################################################################
@@ -207,10 +216,10 @@ def delete_user(email):
 
     delete_user_actiion_status = delete_user_action.json()
 
-    logging.info(f"{email} - User has been deleted from AAD!")
+    logger.info(f"{email} - User has been deleted from AAD!")
 
     if "error" in delete_user_actiion_status:
-        logging.error(f"{email} - Error deleting user!")
+        logger.error(f"{email} - Error deleting user!")
 
 #####################################################################################################
 
@@ -237,10 +246,10 @@ def update_user(
     try:
 
         user_ms_id = get_ms_id(email)  # returns user_id
-        # logging.info(user_ms_id)
+        # logger.info(user_ms_id)
 
         graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
-        # logging.info(graph_url)
+        # logger.info(graph_url)
 
         headers = {"Authorization": token, "Content-type": "application/json"}
 
@@ -248,7 +257,7 @@ def update_user(
         # https://learn.microsoft.com/en-us/graph/api/user-update?view=graph-rest-1.0&tabs=http
         # Add additional information to ExtensionAttributes for later use
         # https://learn.microsoft.com/en-us/graph/extensibility-overview?tabs=http
-        logging.info(f"{email} HTTP request sent to change core information ...")
+        logger.info(f"{email} HTTP request sent to change core information ...")
         update_user_body = {
             "displayName": preferred_name,
             "department": department,
@@ -275,21 +284,21 @@ def update_user(
         # Show the request
         #print(f"Core information status: {update_user_action.status_code}")
         if update_user_action.status_code == 204:
-            logging.info(f"{email} core information update successful!")
+            logger.info(f"{email} core information update successful!")
         else:
-            logging.info(
+            logger.info(
                 f"{email} core information not updated! Status Code: {update_user_action.status_code}"
             )
 
         # Log successful core information update.
-        logging.info(f"{email} core information updated in Azure AD!")
+        logger.info(f"{email} core information updated in Azure AD!")
 
     # Error updating core information.
     except:
-        logging.error(f"{email} - Error updating core information!")
-        logging.error(f"{email} - Email does not appear to exist in Azure AD... ")
+        logger.error(f"{email} - Error updating core information!")
+        logger.error(f"{email} - Email does not appear to exist in Azure AD... ")
         # Add error to logs.
-        logging.error(f"{email} - Error updating information in Azure AD!")
+        logger.error(f"{email} - Error updating information in Azure AD!")
 
 
 #####################################################################################################
@@ -301,10 +310,10 @@ def update_manager(email, manager, manager_email):
 
     try:
         user_ms_id = get_ms_id(email)  # returns user_id
-        # logging.info(user_ms_id)
+        # logger.info(user_ms_id)
 
         graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
-        # logging.info(graph_url)
+        # logger.info(graph_url)
 
         headers = {"Authorization": token, "Content-type": "application/json"}
 
@@ -321,7 +330,7 @@ def update_manager(email, manager, manager_email):
         }
         # put this information into a JSON format
         mgr_json = json.dumps(manager_update_body)
-        logging.info(f"{email} changing manager to {manager_email} - sending HTTP request...")
+        logger.info(f"{email} changing manager to {manager_email} - sending HTTP request...")
         # PUT request to take the action
         manager_update_action = http_session.put(
             url=manager_url,
@@ -332,17 +341,17 @@ def update_manager(email, manager, manager_email):
         # Show the request
         #print(f"Manager Update Status Code: {manager_update_action.status_code}")
         if manager_update_action.status_code == 204:
-            logging.info(f"{email} - manager update successful!")
+            logger.info(f"{email} - manager update successful!")
         else:
-            logging.error(
+            logger.error(
                 f"{email} - error updating manager! Status Code: {manager_update_action.status_code}"
             )
 
         # Add the change to the log file
-        logging.info(f"{email} - manager changed to: {manager_email}!")
+        logger.info(f"{email} - manager changed to: {manager_email}!")
 
     except Exception as manager_update_error:
-        logging.error(f"{email} - error encountered changing user manager!")
+        logger.error(f"{email} - error encountered changing user manager!")
 
 
 #####################################################################################################
@@ -385,7 +394,7 @@ def get_ms_user_manager(email):
         get_manager_result = get_user_manager.json()
         return get_manager_result["userPrincipalName"]
     except:
-        logging.info(f"{email} - user has no manager!")
+        logger.info(f"{email} - user has no manager!")
 
 
 #####################################################################################################
