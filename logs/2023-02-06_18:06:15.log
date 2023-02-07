@@ -1,0 +1,6 @@
+2023-02-06 18:06:15,540 | INFO     | 0084 | New access token acquired from Azure AD!
+2023-02-06 18:06:16,330 | INFO     | 0316 | User ID: 69e5259c-c2ba-4a9c-bd2c-4b476fac8b7e
+2023-02-06 18:06:16,945 | INFO     | 0327 | Manager ID: 90c54719-d5b2-4501-b72a-fe5bb86aff12
+2023-02-06 18:06:16,945 | INFO     | 0337 | josh.marcus@talkiatry.com changing manager to dharmendra.sant@talkiatry.com - sending HTTP request...
+2023-02-06 18:06:17,355 | INFO     | 0348 | josh.marcus@talkiatry.com - manager update successful!
+2023-02-06 18:06:17,355 | INFO     | 0355 | josh.marcus@talkiatry.com - manager changed to: dharmendra.sant@talkiatry.com!

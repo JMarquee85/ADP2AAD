@@ -309,11 +309,14 @@ def update_manager(email, manager, manager_email):
     # Must be authenticated with ms_auth_token() before using this function.
 
     try:
+
+        # Not getting manager ID. Seems to be returning as Nonetype. 
+
         user_ms_id = get_ms_id(email)  # returns user_id
-        # logger.info(user_ms_id)
+        logger.info(f"User ID: {user_ms_id}")
 
         graph_url = "https://graph.microsoft.com/v1.0/users/" + user_ms_id
-        # logger.info(graph_url)
+        logger.info(graph_url)
 
         headers = {"Authorization": token, "Content-type": "application/json"}
 
@@ -321,6 +324,7 @@ def update_manager(email, manager, manager_email):
         # https://learn.microsoft.com/en-us/graph/api/user-post-manager?view=graph-rest-1.0&tabs=http
         # get manager's object id
         manager_id = get_ms_id(manager_email)
+        logger.info(f"Manager ID: {manager_id}")
         # Assign manager url
         manager_url = (
             "https://graph.microsoft.com/v1.0/users/" + user_ms_id + "/manager/$ref"
@@ -350,8 +354,8 @@ def update_manager(email, manager, manager_email):
         # Add the change to the log file
         logger.info(f"{email} - manager changed to: {manager_email}!")
 
-    except Exception as manager_update_error:
-        logger.error(f"{email} - error encountered changing user manager!")
+    except Exception as e:
+        logger.error(f"{email} - error encountered changing user manager: {str(e)}")
 
 
 #####################################################################################################
@@ -452,3 +456,9 @@ def user_compare(
         return "update"
     else:
         return "do not update"
+
+########################################################
+# Tests
+#ms_auth_token()
+#update_user()
+#update_manager('josh.marcus@talkiatry.com', 'Dharmendra Sant', 'dharmendra.sant@talkiatry.com')

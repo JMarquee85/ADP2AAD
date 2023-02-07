@@ -1,0 +1,165 @@
+2023-02-06 18:12:21,713 | INFO     | 0070 | Starting script timer.
+2023-02-06 18:12:21,713 | INFO     | 0074 | ADP>AAD Sync process started!
+2023-02-06 18:12:21,713 | INFO     | 0077 | Authenticating into MS Graph...
+2023-02-06 18:12:22,378 | INFO     | 0084 | New access token acquired from Azure AD!
+2023-02-06 18:12:22,673 | INFO     | 0115 | Paginating Microsoft Graph output...
+2023-02-06 18:12:25,059 | INFO     | 0048 | Getting Snowflake JWT token... 
+2023-02-06 18:12:25,453 | INFO     | 0052 | Token obtained!
+2023-02-06 18:12:25,453 | INFO     | 0055 | Connecting to Snowflake... 
+2023-02-06 18:12:26,372 | INFO     | 0070 | Snowflake cursor object created.
+2023-02-06 18:12:27,340 | INFO     | 0260 | syed.abbasi@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:27,355 | INFO     | 0316 | User ID: cedb06af-f242-4fb1-86c4-f78ef618d315
+2023-02-06 18:12:27,356 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/cedb06af-f242-4fb1-86c4-f78ef618d315
+2023-02-06 18:12:27,356 | ERROR    | 0358 | syed.abbasi@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:27,468 | INFO     | 0287 | syed.abbasi@talkiatry.com core information update successful!
+2023-02-06 18:12:27,469 | INFO     | 0294 | syed.abbasi@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:27,688 | INFO     | 0316 | User ID: c608a02a-5f03-4ee5-9cf1-76af6d5ebd5b
+2023-02-06 18:12:27,688 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/c608a02a-5f03-4ee5-9cf1-76af6d5ebd5b
+2023-02-06 18:12:27,688 | ERROR    | 0358 | brett.abernethy@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:27,870 | INFO     | 0260 | brett.abernethy@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:27,948 | INFO     | 0287 | brett.abernethy@talkiatry.com core information update successful!
+2023-02-06 18:12:27,948 | INFO     | 0294 | brett.abernethy@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:28,064 | INFO     | 0260 | zebib.abraham@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:28,153 | INFO     | 0287 | zebib.abraham@talkiatry.com core information update successful!
+2023-02-06 18:12:28,153 | INFO     | 0294 | zebib.abraham@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:28,419 | INFO     | 0316 | User ID: dcba15e2-2cae-486f-84ab-9307f00e0ef5
+2023-02-06 18:12:28,419 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/dcba15e2-2cae-486f-84ab-9307f00e0ef5
+2023-02-06 18:12:28,419 | ERROR    | 0358 | zebib.abraham@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:28,435 | INFO     | 0260 | vallene.abram@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:28,512 | INFO     | 0287 | vallene.abram@talkiatry.com core information update successful!
+2023-02-06 18:12:28,512 | INFO     | 0294 | vallene.abram@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:28,586 | INFO     | 0316 | User ID: e7598b49-abdf-4c0c-af93-4a0b9d3b6eef
+2023-02-06 18:12:28,587 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/e7598b49-abdf-4c0c-af93-4a0b9d3b6eef
+2023-02-06 18:12:28,587 | ERROR    | 0358 | vallene.abram@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:28,787 | INFO     | 0260 | tiffany.abtahi@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:28,788 | INFO     | 0316 | User ID: 2b5e3882-67f2-480c-9514-7fd05f5c519b
+2023-02-06 18:12:28,789 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/2b5e3882-67f2-480c-9514-7fd05f5c519b
+2023-02-06 18:12:28,789 | ERROR    | 0358 | tiffany.abtahi@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:28,868 | INFO     | 0287 | tiffany.abtahi@talkiatry.com core information update successful!
+2023-02-06 18:12:28,869 | INFO     | 0294 | tiffany.abtahi@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:29,154 | INFO     | 0260 | melissa.acevedo@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:29,163 | INFO     | 0316 | User ID: 17b29f08-6df3-4916-92e3-870132edb685
+2023-02-06 18:12:29,163 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/17b29f08-6df3-4916-92e3-870132edb685
+2023-02-06 18:12:29,163 | ERROR    | 0358 | melissa.acevedo@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:29,232 | INFO     | 0287 | melissa.acevedo@talkiatry.com core information update successful!
+2023-02-06 18:12:29,232 | INFO     | 0294 | melissa.acevedo@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:29,501 | INFO     | 0260 | jonathan.aciego@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:29,527 | INFO     | 0316 | User ID: 24ec49af-aabd-4647-ae88-40585ddfb2ea
+2023-02-06 18:12:29,528 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/24ec49af-aabd-4647-ae88-40585ddfb2ea
+2023-02-06 18:12:29,528 | ERROR    | 0358 | jonathan.aciego@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:29,578 | INFO     | 0287 | jonathan.aciego@talkiatry.com core information update successful!
+2023-02-06 18:12:29,579 | INFO     | 0294 | jonathan.aciego@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:29,973 | INFO     | 0316 | User ID: d40b2c17-0695-4945-bde5-50b91349b4db
+2023-02-06 18:12:29,973 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/d40b2c17-0695-4945-bde5-50b91349b4db
+2023-02-06 18:12:29,974 | ERROR    | 0358 | joseph.adams@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:30,017 | INFO     | 0260 | joseph.adams@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:30,105 | INFO     | 0287 | joseph.adams@talkiatry.com core information update successful!
+2023-02-06 18:12:30,105 | INFO     | 0294 | joseph.adams@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:30,197 | INFO     | 0316 | User ID: 15cbbf5b-108a-46c1-9b01-13a0772b696f
+2023-02-06 18:12:30,197 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/15cbbf5b-108a-46c1-9b01-13a0772b696f
+2023-02-06 18:12:30,197 | ERROR    | 0358 | briana.adams@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:30,212 | INFO     | 0260 | briana.adams@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:30,292 | INFO     | 0287 | briana.adams@talkiatry.com core information update successful!
+2023-02-06 18:12:30,292 | INFO     | 0294 | briana.adams@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:30,684 | INFO     | 0248 | Running process group 1...
+2023-02-06 18:12:30,686 | INFO     | 0250 | Running process <Process name='Process-1' pid=86191 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,687 | INFO     | 0250 | Running process <Process name='Process-2' pid=86192 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,687 | INFO     | 0250 | Running process <Process name='Process-3' pid=86194 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,687 | INFO     | 0250 | Running process <Process name='Process-4' pid=86195 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,687 | INFO     | 0250 | Running process <Process name='Process-5' pid=86197 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,687 | INFO     | 0250 | Running process <Process name='Process-6' pid=86198 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,687 | INFO     | 0250 | Running process <Process name='Process-7' pid=86199 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,687 | INFO     | 0250 | Running process <Process name='Process-8' pid=86200 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,688 | INFO     | 0250 | Running process <Process name='Process-9' pid=86202 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,688 | INFO     | 0250 | Running process <Process name='Process-10' pid=86203 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,688 | INFO     | 0250 | Running process <Process name='Process-11' pid=86204 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,688 | INFO     | 0250 | Running process <Process name='Process-12' pid=86205 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,688 | INFO     | 0250 | Running process <Process name='Process-13' pid=86207 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,688 | INFO     | 0250 | Running process <Process name='Process-14' pid=86208 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,688 | INFO     | 0250 | Running process <Process name='Process-15' pid=86209 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,688 | INFO     | 0250 | Running process <Process name='Process-16' pid=86210 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,689 | INFO     | 0250 | Running process <Process name='Process-17' pid=86211 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,689 | INFO     | 0250 | Running process <Process name='Process-18' pid=86212 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:30,689 | INFO     | 0250 | Running process <Process name='Process-19' pid=86214 parent=86170 started>..
+2023-02-06 18:12:31,030 | INFO     | 0260 | edward.adams@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:31,075 | INFO     | 0316 | User ID: 93bc40f6-839e-4f82-8ab1-e2554f573957
+2023-02-06 18:12:31,075 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/93bc40f6-839e-4f82-8ab1-e2554f573957
+2023-02-06 18:12:31,075 | ERROR    | 0358 | edward.adams@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:31,117 | INFO     | 0287 | edward.adams@talkiatry.com core information update successful!
+2023-02-06 18:12:31,117 | INFO     | 0294 | edward.adams@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:31,124 | INFO     | 0250 | Running process <Process name='Process-20' pid=86215 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:31,784 | INFO     | 0316 | User ID: de103f31-9239-4fa3-9f3a-cb2e7cf57f54
+2023-02-06 18:12:31,785 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/de103f31-9239-4fa3-9f3a-cb2e7cf57f54
+2023-02-06 18:12:31,785 | ERROR    | 0358 | gaurav.agarwal@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:31,797 | INFO     | 0260 | gaurav.agarwal@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:31,882 | INFO     | 0287 | gaurav.agarwal@talkiatry.com core information update successful!
+2023-02-06 18:12:31,882 | INFO     | 0294 | gaurav.agarwal@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:32,208 | INFO     | 0260 | caitlin.aguiar@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:32,294 | INFO     | 0287 | caitlin.aguiar@talkiatry.com core information update successful!
+2023-02-06 18:12:32,295 | INFO     | 0294 | caitlin.aguiar@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:32,541 | INFO     | 0316 | User ID: 70608103-71a8-493d-85dc-666356cfc166
+2023-02-06 18:12:32,541 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/70608103-71a8-493d-85dc-666356cfc166
+2023-02-06 18:12:32,542 | ERROR    | 0358 | caitlin.aguiar@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:32,645 | INFO     | 0316 | User ID: a8509589-a3ec-4a97-aa1c-084f07137eb2
+2023-02-06 18:12:32,646 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/a8509589-a3ec-4a97-aa1c-084f07137eb2
+2023-02-06 18:12:32,646 | ERROR    | 0358 | jessenia.aguirre@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:32,651 | INFO     | 0260 | jessenia.aguirre@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:32,730 | INFO     | 0287 | jessenia.aguirre@talkiatry.com core information update successful!
+2023-02-06 18:12:32,730 | INFO     | 0294 | jessenia.aguirre@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:33,010 | INFO     | 0316 | User ID: efe798f7-b280-4382-a443-6640947faae0
+2023-02-06 18:12:33,010 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/efe798f7-b280-4382-a443-6640947faae0
+2023-02-06 18:12:33,011 | ERROR    | 0358 | ruby.ahn@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:33,029 | INFO     | 0260 | ruby.ahn@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:33,108 | INFO     | 0287 | ruby.ahn@talkiatry.com core information update successful!
+2023-02-06 18:12:33,108 | INFO     | 0294 | ruby.ahn@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:33,365 | INFO     | 0316 | User ID: 9c6b8995-c704-44c8-ba87-ed75943ef5ed
+2023-02-06 18:12:33,365 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/9c6b8995-c704-44c8-ba87-ed75943ef5ed
+2023-02-06 18:12:33,365 | ERROR    | 0358 | oluwakemi.aje@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:33,367 | INFO     | 0260 | oluwakemi.aje@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:33,449 | INFO     | 0287 | oluwakemi.aje@talkiatry.com core information update successful!
+2023-02-06 18:12:33,450 | INFO     | 0294 | oluwakemi.aje@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:33,727 | INFO     | 0260 | eliana.albornoz@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:33,752 | INFO     | 0316 | User ID: 1ec6df50-1fcc-44af-96d1-71f8ad6bd8ac
+2023-02-06 18:12:33,752 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/1ec6df50-1fcc-44af-96d1-71f8ad6bd8ac
+2023-02-06 18:12:33,752 | ERROR    | 0358 | eliana.albornoz@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:33,815 | INFO     | 0287 | eliana.albornoz@talkiatry.com core information update successful!
+2023-02-06 18:12:33,815 | INFO     | 0294 | eliana.albornoz@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:34,071 | INFO     | 0316 | User ID: 8807971b-a839-454c-a4af-c33ac386433c
+2023-02-06 18:12:34,072 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/8807971b-a839-454c-a4af-c33ac386433c
+2023-02-06 18:12:34,072 | ERROR    | 0358 | ryan.albright@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:34,419 | INFO     | 0260 | ryan.albright@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:34,440 | INFO     | 0260 | jennifer.alcaraz@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:34,450 | INFO     | 0316 | User ID: b5ede2b7-baab-4673-a074-277bbf9847c3
+2023-02-06 18:12:34,450 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/b5ede2b7-baab-4673-a074-277bbf9847c3
+2023-02-06 18:12:34,450 | ERROR    | 0358 | jennifer.alcaraz@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:34,479 | INFO     | 0259 | Running process <Process name='Process-21' pid=86217 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,479 | INFO     | 0259 | Running process <Process name='Process-22' pid=86218 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,479 | INFO     | 0259 | Running process <Process name='Process-23' pid=86219 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,479 | INFO     | 0259 | Running process <Process name='Process-24' pid=86220 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,480 | INFO     | 0259 | Running process <Process name='Process-25' pid=86222 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,480 | INFO     | 0259 | Running process <Process name='Process-26' pid=86223 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,480 | INFO     | 0259 | Running process <Process name='Process-27' pid=86224 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,480 | INFO     | 0259 | Running process <Process name='Process-28' pid=86225 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,480 | INFO     | 0259 | Running process <Process name='Process-29' pid=86226 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,480 | INFO     | 0259 | Running process <Process name='Process-30' pid=86227 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,480 | INFO     | 0259 | Running process <Process name='Process-31' pid=86229 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,480 | INFO     | 0259 | Running process <Process name='Process-32' pid=86230 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,481 | INFO     | 0259 | Running process <Process name='Process-33' pid=86231 parent=86170 started>..
+2023-02-06 18:12:34,494 | INFO     | 0287 | ryan.albright@talkiatry.com core information update successful!
+2023-02-06 18:12:34,494 | INFO     | 0294 | ryan.albright@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:34,501 | INFO     | 0259 | Running process <Process name='Process-34' pid=86232 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,502 | INFO     | 0259 | Running process <Process name='Process-35' pid=86234 parent=86170 started>..
+2023-02-06 18:12:34,524 | INFO     | 0287 | jennifer.alcaraz@talkiatry.com core information update successful!
+2023-02-06 18:12:34,524 | INFO     | 0294 | jennifer.alcaraz@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:34,530 | INFO     | 0259 | Running process <Process name='Process-36' pid=86235 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,531 | INFO     | 0259 | Running process <Process name='Process-37' pid=86237 parent=86170 started>..
+2023-02-06 18:12:34,801 | INFO     | 0316 | User ID: c5a05cfb-8ef8-43ae-a263-9b55d1f2bbbf
+2023-02-06 18:12:34,801 | INFO     | 0319 | https://graph.microsoft.com/v1.0/users/c5a05cfb-8ef8-43ae-a263-9b55d1f2bbbf
+2023-02-06 18:12:34,801 | ERROR    | 0358 | gregory.alexander@talkiatry.com - error encountered changing user manager: can only concatenate str (not "NoneType") to str
+2023-02-06 18:12:34,804 | INFO     | 0260 | gregory.alexander@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 18:12:34,883 | INFO     | 0287 | gregory.alexander@talkiatry.com core information update successful!
+2023-02-06 18:12:34,883 | INFO     | 0294 | gregory.alexander@talkiatry.com core information updated in Azure AD!
+2023-02-06 18:12:34,891 | INFO     | 0259 | Running process <Process name='Process-38' pid=86238 parent=86170 stopped exitcode=0>..
+2023-02-06 18:12:34,892 | INFO     | 0262 | Snowflake session closed.
+2023-02-06 18:12:34,892 | INFO     | 0263 | ADP>AAD Sync Closed.
+2023-02-06 18:12:34,892 | INFO     | 0088 | Execution time in seconds: 13.179346799850464

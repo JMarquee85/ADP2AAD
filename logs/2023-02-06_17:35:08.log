@@ -1,0 +1,127 @@
+2023-02-06 17:35:08,499 | INFO     | 0070 | Starting script timer.
+2023-02-06 17:35:08,499 | INFO     | 0074 | ADP>AAD Sync process started!
+2023-02-06 17:35:08,499 | INFO     | 0077 | Authenticating into MS Graph...
+2023-02-06 17:35:08,958 | INFO     | 0084 | New access token acquired from Azure AD!
+2023-02-06 17:35:09,586 | INFO     | 0115 | Paginating Microsoft Graph output...
+2023-02-06 17:35:12,147 | INFO     | 0048 | Getting Snowflake JWT token... 
+2023-02-06 17:35:12,393 | INFO     | 0052 | Token obtained!
+2023-02-06 17:35:12,393 | INFO     | 0055 | Connecting to Snowflake... 
+2023-02-06 17:35:13,157 | INFO     | 0070 | Snowflake cursor object created.
+2023-02-06 17:35:14,090 | ERROR    | 0354 | syed.abbasi@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:14,420 | INFO     | 0260 | syed.abbasi@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:14,690 | INFO     | 0287 | syed.abbasi@talkiatry.com core information update successful!
+2023-02-06 17:35:14,690 | INFO     | 0294 | syed.abbasi@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:14,690 | INFO     | 0260 | brett.abernethy@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:14,766 | INFO     | 0287 | brett.abernethy@talkiatry.com core information update successful!
+2023-02-06 17:35:14,767 | INFO     | 0294 | brett.abernethy@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:14,895 | ERROR    | 0354 | brett.abernethy@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:15,290 | ERROR    | 0354 | zebib.abraham@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:15,296 | INFO     | 0260 | zebib.abraham@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:15,377 | INFO     | 0287 | zebib.abraham@talkiatry.com core information update successful!
+2023-02-06 17:35:15,377 | INFO     | 0294 | zebib.abraham@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:16,037 | ERROR    | 0354 | vallene.abram@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:16,055 | INFO     | 0260 | vallene.abram@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:16,134 | INFO     | 0287 | vallene.abram@talkiatry.com core information update successful!
+2023-02-06 17:35:16,134 | INFO     | 0294 | vallene.abram@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:16,394 | ERROR    | 0354 | tiffany.abtahi@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:16,405 | INFO     | 0260 | tiffany.abtahi@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:16,497 | INFO     | 0287 | tiffany.abtahi@talkiatry.com core information update successful!
+2023-02-06 17:35:16,497 | INFO     | 0294 | tiffany.abtahi@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:17,334 | ERROR    | 0354 | melissa.acevedo@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:17,685 | INFO     | 0260 | melissa.acevedo@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:17,934 | INFO     | 0287 | melissa.acevedo@talkiatry.com core information update successful!
+2023-02-06 17:35:17,934 | INFO     | 0294 | melissa.acevedo@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:18,173 | ERROR    | 0354 | jonathan.aciego@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:18,275 | INFO     | 0260 | jonathan.aciego@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:18,537 | INFO     | 0287 | jonathan.aciego@talkiatry.com core information update successful!
+2023-02-06 17:35:18,537 | INFO     | 0294 | jonathan.aciego@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:18,616 | INFO     | 0260 | joseph.adams@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:18,703 | INFO     | 0287 | joseph.adams@talkiatry.com core information update successful!
+2023-02-06 17:35:18,703 | INFO     | 0294 | joseph.adams@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:18,967 | ERROR    | 0354 | joseph.adams@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:19,317 | INFO     | 0260 | briana.adams@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:19,399 | INFO     | 0287 | briana.adams@talkiatry.com core information update successful!
+2023-02-06 17:35:19,399 | INFO     | 0294 | briana.adams@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:19,719 | INFO     | 0248 | Running process group 1...
+2023-02-06 17:35:19,722 | INFO     | 0250 | Running process <Process name='Process-1' pid=83036 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,722 | INFO     | 0250 | Running process <Process name='Process-2' pid=83037 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,722 | INFO     | 0250 | Running process <Process name='Process-3' pid=83045 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,722 | INFO     | 0250 | Running process <Process name='Process-4' pid=83046 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,722 | INFO     | 0250 | Running process <Process name='Process-5' pid=83047 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,723 | INFO     | 0250 | Running process <Process name='Process-6' pid=83048 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,723 | INFO     | 0250 | Running process <Process name='Process-7' pid=83050 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,723 | INFO     | 0250 | Running process <Process name='Process-8' pid=83051 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,723 | INFO     | 0250 | Running process <Process name='Process-9' pid=83052 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,723 | INFO     | 0250 | Running process <Process name='Process-10' pid=83053 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,723 | INFO     | 0250 | Running process <Process name='Process-11' pid=83055 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,723 | INFO     | 0250 | Running process <Process name='Process-12' pid=83056 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,724 | INFO     | 0250 | Running process <Process name='Process-13' pid=83058 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,724 | INFO     | 0250 | Running process <Process name='Process-14' pid=83059 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,724 | INFO     | 0250 | Running process <Process name='Process-15' pid=83061 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,724 | INFO     | 0250 | Running process <Process name='Process-16' pid=83062 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,724 | INFO     | 0250 | Running process <Process name='Process-17' pid=83063 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:19,724 | INFO     | 0250 | Running process <Process name='Process-18' pid=83064 parent=83010 started>..
+2023-02-06 17:35:19,752 | ERROR    | 0354 | briana.adams@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:19,762 | INFO     | 0250 | Running process <Process name='Process-19' pid=83067 parent=83010 started>..
+2023-02-06 17:35:20,050 | ERROR    | 0354 | edward.adams@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:20,051 | INFO     | 0260 | edward.adams@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:20,128 | INFO     | 0287 | edward.adams@talkiatry.com core information update successful!
+2023-02-06 17:35:20,129 | INFO     | 0294 | edward.adams@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:20,135 | INFO     | 0250 | Running process <Process name='Process-20' pid=83068 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:21,187 | ERROR    | 0354 | gaurav.agarwal@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:21,547 | INFO     | 0260 | gaurav.agarwal@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:21,745 | ERROR    | 0354 | caitlin.aguiar@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:21,826 | INFO     | 0287 | gaurav.agarwal@talkiatry.com core information update successful!
+2023-02-06 17:35:21,826 | INFO     | 0294 | gaurav.agarwal@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:21,904 | INFO     | 0260 | caitlin.aguiar@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:21,983 | ERROR    | 0354 | jessenia.aguirre@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:22,201 | INFO     | 0287 | caitlin.aguiar@talkiatry.com core information update successful!
+2023-02-06 17:35:22,201 | INFO     | 0294 | caitlin.aguiar@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:22,231 | INFO     | 0260 | jessenia.aguirre@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:22,301 | INFO     | 0260 | ruby.ahn@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:22,376 | INFO     | 0287 | ruby.ahn@talkiatry.com core information update successful!
+2023-02-06 17:35:22,376 | INFO     | 0294 | ruby.ahn@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:22,589 | INFO     | 0287 | jessenia.aguirre@talkiatry.com core information update successful!
+2023-02-06 17:35:22,589 | INFO     | 0294 | jessenia.aguirre@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:22,605 | INFO     | 0260 | oluwakemi.aje@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:22,613 | ERROR    | 0354 | ruby.ahn@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:22,689 | INFO     | 0287 | oluwakemi.aje@talkiatry.com core information update successful!
+2023-02-06 17:35:22,689 | INFO     | 0294 | oluwakemi.aje@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:22,946 | ERROR    | 0354 | oluwakemi.aje@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:23,017 | ERROR    | 0354 | eliana.albornoz@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:23,307 | INFO     | 0260 | ryan.albright@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:23,316 | INFO     | 0260 | eliana.albornoz@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:23,385 | INFO     | 0287 | ryan.albright@talkiatry.com core information update successful!
+2023-02-06 17:35:23,385 | INFO     | 0294 | ryan.albright@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:23,575 | INFO     | 0287 | eliana.albornoz@talkiatry.com core information update successful!
+2023-02-06 17:35:23,575 | INFO     | 0294 | eliana.albornoz@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:23,658 | ERROR    | 0354 | ryan.albright@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:23,688 | INFO     | 0259 | Running process <Process name='Process-21' pid=83070 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,689 | INFO     | 0259 | Running process <Process name='Process-22' pid=83071 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,689 | INFO     | 0259 | Running process <Process name='Process-23' pid=83073 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,689 | INFO     | 0259 | Running process <Process name='Process-24' pid=83074 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,689 | INFO     | 0259 | Running process <Process name='Process-25' pid=83076 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,689 | INFO     | 0259 | Running process <Process name='Process-26' pid=83077 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,689 | INFO     | 0259 | Running process <Process name='Process-27' pid=83078 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,689 | INFO     | 0259 | Running process <Process name='Process-28' pid=83079 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,689 | INFO     | 0259 | Running process <Process name='Process-29' pid=83080 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,690 | INFO     | 0259 | Running process <Process name='Process-30' pid=83081 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,690 | INFO     | 0259 | Running process <Process name='Process-31' pid=83084 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,690 | INFO     | 0260 | jennifer.alcaraz@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:23,690 | INFO     | 0259 | Running process <Process name='Process-32' pid=83085 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,690 | INFO     | 0259 | Running process <Process name='Process-33' pid=83086 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,690 | INFO     | 0259 | Running process <Process name='Process-34' pid=83087 parent=83010 stopped exitcode=0>..
+2023-02-06 17:35:23,690 | INFO     | 0259 | Running process <Process name='Process-35' pid=83089 parent=83010 started>..
+2023-02-06 17:35:23,768 | INFO     | 0287 | jennifer.alcaraz@talkiatry.com core information update successful!
+2023-02-06 17:35:23,768 | INFO     | 0294 | jennifer.alcaraz@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:23,777 | INFO     | 0259 | Running process <Process name='Process-36' pid=83090 parent=83010 started>..
+2023-02-06 17:35:24,004 | ERROR    | 0354 | jennifer.alcaraz@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:24,009 | INFO     | 0260 | gregory.alexander@talkiatry.com HTTP request sent to change core information ...
+2023-02-06 17:35:24,012 | INFO     | 0259 | Running process <Process name='Process-37' pid=83091 parent=83010 started>..
+2023-02-06 17:35:24,087 | INFO     | 0287 | gregory.alexander@talkiatry.com core information update successful!
+2023-02-06 17:35:24,087 | INFO     | 0294 | gregory.alexander@talkiatry.com core information updated in Azure AD!
+2023-02-06 17:35:24,093 | INFO     | 0259 | Running process <Process name='Process-38' pid=83092 parent=83010 started>..
+2023-02-06 17:35:24,181 | ERROR    | 0354 | gregory.alexander@talkiatry.com - error encountered changing user manager!
+2023-02-06 17:35:24,188 | INFO     | 0262 | Snowflake session closed.
+2023-02-06 17:35:24,188 | INFO     | 0263 | ADP>AAD Sync Closed.
+2023-02-06 17:35:24,189 | INFO     | 0088 | Execution time in seconds: 15.689260959625244
