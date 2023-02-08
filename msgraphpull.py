@@ -14,6 +14,7 @@ import pandas as pd
 #from adp_aad import adp2aad_logs
 import logging
 import logging.config
+from os import path
 
 # Too many concurrent requests if run back to back. JSON batching.
 # https://learn.microsoft.com/en-us/graph/json-batching     
@@ -21,9 +22,10 @@ import logging.config
 #################################################################################################
 # Logging
 
-logging.config.fileConfig('log_config.conf')
+log_file_path = path.join(path.dirname(path.abspath(__file__)), 'log_config.conf')
+logging.config.fileConfig(log_file_path)
 logger = logging.getLogger('MainLogger')
-fh = logging.FileHandler('logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now()))
+fh = logging.FileHandler(path.join(path.dirname(path.abspath(__file__)), 'logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now())))
 formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(lineno)04d | %(message)s')
 fh.setFormatter(formatter)
 logger.addHandler(fh)
@@ -458,7 +460,3 @@ def user_compare(
         return "do not update"
 
 ########################################################
-# Tests
-#ms_auth_token()
-#update_user()
-#update_manager('josh.marcus@talkiatry.com', 'Dharmendra Sant', 'dharmendra.sant@talkiatry.com')
