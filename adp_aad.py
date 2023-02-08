@@ -198,6 +198,7 @@ def snowflake_user_pull(ms_user_list):
                         update_process = mp.Process(
                             target=update_user,
                             args=(
+                                msgraphpull.token,
                                 employee_id,
                                 employee_full_name,
                                 employee_preferred_name,
@@ -233,11 +234,11 @@ def snowflake_user_pull(ms_user_list):
                             f"{employee_email} - ADP>AAD match! Not making any changes..."
                         )
                 else:
-                    msgraphpull.logger.info(
-                        f"\nNo MS graph dictionary found for {employee_email}!\nStart Date: {employee_start_date}\n(Have they been created in AAD yet? Have we sent the right information to compare?)\n"
+                    msgraphpull.logger.error(
+                        f"\n\nNo MS graph dictionary found for {employee_email}!\nStart Date: {employee_start_date}\n(Have they been created in AAD yet? Have we sent the right information to compare?)\n"
                     )
-                    no_graph_output = f"Email: {employee_email}\nName: {employee_full_name}\nPreferred Name: {employee_preferred_name}\nFirst Name: {employee_first_name}\nLast Name: {employee_last_name}\nDepartment: {employee_department}\nTitle: {employee_current_role}\nManager: {employee_supervisor_name}\nState: {employee_state}\nHire Date: {employee_start_date}\nADP Employment Status: {employee_status}\n\n"
-                    msgraphpull.logger.info(no_graph_output)
+                    no_graph_output = f"\nEmail: {employee_email}\nName: {employee_full_name}\nPreferred Name: {employee_preferred_name}\nFirst Name: {employee_first_name}\nLast Name: {employee_last_name}\nDepartment: {employee_department}\nTitle: {employee_current_role}\nManager: {employee_supervisor_name}\nState: {employee_state}\nHire Date: {employee_start_date}\nADP Employment Status: {employee_status}\n\n"
+                    msgraphpull.logger.error(no_graph_output)
 
             # Action if neither is true.
             else:

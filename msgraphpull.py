@@ -15,22 +15,42 @@ import pandas as pd
 import logging
 import logging.config
 from os import path
+import os
+import glob
+from azure.storage.blob import BlobServiceClient
 
 # Too many concurrent requests if run back to back. JSON batching.
 # https://learn.microsoft.com/en-us/graph/json-batching     
 
 #################################################################################################
 # Logging
+def logging_setup():
+    logging.config.fileConfig('log_config.conf')
+    logger = logging.getLogger('MainLogger')
+    fh = logging.FileHandler('logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now()))
+    print(log_filename)
+    print("Some test text!")
+    formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(lineno)04d | %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
 
-log_file_path = path.join(path.dirname(path.abspath(__file__)), 'log_config.conf')
-logging.config.fileConfig(log_file_path)
-logger = logging.getLogger('MainLogger')
-fh = logging.FileHandler(path.join(path.dirname(path.abspath(__file__)), 'logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now())))
-formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(lineno)04d | %(message)s')
-fh.setFormatter(formatter)
-logger.addHandler(fh)
-#logger.debug("TEST debug")
-#logger.info("TEST info")
+##################################################################################################
+# Azure Storage Account Variables for Log Storage
+storage_account_key = 'tI6xgGrwl8eMjwnkUa/LunhcSULmEaZ/Do2JuNz2nu1lFNdNahfBWxCcJ5iJdtQBeIJI5IlPFyw7+AStQ1aTuw=='
+storage_account_name = 'adpaadlogs'
+container_name = 'adp2aadlogs'
+connection_string = "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=adpaadlogs;AccountKey=tI6xgGrwl8eMjwnkUa/LunhcSULmEaZ/Do2JuNz2nu1lFNdNahfBWxCcJ5iJdtQBeIJI5IlPFyw7+AStQ1aTuw==;BlobEndpoint=https://adpaadlogs.blob.core.windows.net/;FileEndpoint=https://adpaadlogs.file.core.windows.net/;QueueEndpoint=https://adpaadlogs.queue.core.windows.net/;TableEndpoint=https://adpaadlogs.table.core.windows.net/"
+
+def send_logs():
+    # locates latest log file and sends to Azure Storage account. 
+    log_files = glob.glob('logs/*')
+    new_log = max(log_files, key=os.path.getctime)
+    blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+    blob_client = blob_service_client.get_blob_client(container=container_name, blob=new_log)
+
+    with open(new_log,"rb") as data:
+        blob_client.upload_blob(data)
+    logger.info(f"Uploaded {new_log} to Azure Storage Account.")
 
 ##################################################################################################
 # A requests session configured with retries.
@@ -91,12 +111,16 @@ def ms_auth_token():
     # Headers variable creation
     headers = {"Authorization": token}
 
+    #print(token)
+    #print(headers)
     return token, headers
 
 
 #####################################################################################################
 
 # The function to auth in to MS Graph and pull the user information.
+
+
 def ms_graph_pull():
 
     # ms_auth_token() function has to be run to authenticate.
@@ -227,6 +251,7 @@ def delete_user(email):
 
 ## A function to update the users with Graph API calls.
 def update_user(
+    token,
     emp_id,
     full_name,
     preferred_name,
