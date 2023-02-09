@@ -12,7 +12,7 @@ import time
 
 if __name__ == "__main__":
 	# Start loggingn processes.
-	ms_graph_pull.logging_setup()
+	msgraphpull.logging_setup()
 
 	# Start execution timer. 
 	msgraphpull.logger.info(f"Starting script timer.")

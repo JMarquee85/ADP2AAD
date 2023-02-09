@@ -29,7 +29,6 @@ def logging_setup():
     logger = logging.getLogger('MainLogger')
     fh = logging.FileHandler('logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now()))
     print(log_filename)
-    print("Some test text!")
     formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(lineno)04d | %(message)s')
     fh.setFormatter(formatter)
     logger.addHandler(fh)
