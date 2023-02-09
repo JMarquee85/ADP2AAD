@@ -27,7 +27,7 @@ from azure.storage.blob import BlobServiceClient
 def logging_setup():
     logging.config.fileConfig('log_config.conf')
     logger = logging.getLogger('MainLogger')
-    fh = logging.FileHandler('logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now()))
+    fh = logging.FileHandler(path.join(path.dirname(path.abspath(__file__)), 'logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now())))
     print(log_filename)
     formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(lineno)04d | %(message)s')
     fh.setFormatter(formatter)
