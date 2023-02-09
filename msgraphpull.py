@@ -25,10 +25,10 @@ from azure.storage.blob import BlobServiceClient
 #################################################################################################
 # Logging
 def logging_setup():
-    logging.config.fileConfig('log_config.conf')
+    log_file_path = path.join(path.dirname(path.abspath(__file__)), 'log_config.conf')
+    logging.config.fileConfig(log_file_path)
     logger = logging.getLogger('MainLogger')
     fh = logging.FileHandler(path.join(path.dirname(path.abspath(__file__)), 'logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now())))
-    print(log_filename)
     formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(lineno)04d | %(message)s')
     fh.setFormatter(formatter)
     logger.addHandler(fh)
