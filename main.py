@@ -11,7 +11,7 @@ import logging.config
 import time
 
 if __name__ == "__main__":
-	# Start loggingn processes.
+	# Start logging processes.
 	msgraphpull.logging_setup()
 
 	# Start execution timer. 

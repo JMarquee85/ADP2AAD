@@ -1,0 +1,45 @@
+2023-02-09 00:55:58,318 | INFO     | 0018 | Starting script timer.
+2023-02-09 00:55:58,320 | INFO     | 0022 | ADP>AAD Sync process started!
+2023-02-09 00:55:58,320 | INFO     | 0025 | Authenticating into MS Graph...
+2023-02-09 00:55:58,976 | INFO     | 0107 | New access token acquired from Azure AD!
+2023-02-09 00:55:59,463 | INFO     | 0142 | Paginating Microsoft Graph output...
+2023-02-09 00:56:02,353 | INFO     | 0048 | Getting Snowflake JWT token... 
+2023-02-09 00:56:02,726 | INFO     | 0052 | Token obtained!
+2023-02-09 00:56:02,729 | INFO     | 0055 | Connecting to Snowflake... 
+2023-02-09 00:56:05,183 | INFO     | 0070 | Snowflake cursor object created.
+2023-02-09 00:56:08,127 | INFO     | 0288 | syed.abbasi@talkiatry.com HTTP request sent to change core information ...
+2023-02-09 00:56:08,167 | INFO     | 0344 | User ID: cedb06af-f242-4fb1-86c4-f78ef618d315
+2023-02-09 00:56:08,170 | INFO     | 0347 | https://graph.microsoft.com/v1.0/users/cedb06af-f242-4fb1-86c4-f78ef618d315
+2023-02-09 00:56:08,271 | INFO     | 0315 | syed.abbasi@talkiatry.com core information update successful!
+2023-02-09 00:56:08,272 | INFO     | 0322 | syed.abbasi@talkiatry.com core information updated in Azure AD!
+2023-02-09 00:56:08,438 | INFO     | 0355 | Manager ID: c0e453f9-f7ad-4e7a-9efc-b71945dee883
+2023-02-09 00:56:08,439 | INFO     | 0365 | syed.abbasi@talkiatry.com changing manager to avreliya.shapiro@talkiatry.com - sending HTTP request...
+2023-02-09 00:56:08,644 | INFO     | 0376 | syed.abbasi@talkiatry.com - manager update successful!
+2023-02-09 00:56:08,645 | INFO     | 0383 | syed.abbasi@talkiatry.com - manager changed to: avreliya.shapiro@talkiatry.com!
+2023-02-09 00:56:08,726 | INFO     | 0344 | User ID: c608a02a-5f03-4ee5-9cf1-76af6d5ebd5b
+2023-02-09 00:56:08,728 | INFO     | 0347 | https://graph.microsoft.com/v1.0/users/c608a02a-5f03-4ee5-9cf1-76af6d5ebd5b
+2023-02-09 00:56:08,748 | INFO     | 0288 | brett.abernethy@talkiatry.com HTTP request sent to change core information ...
+2023-02-09 00:56:08,884 | INFO     | 0315 | brett.abernethy@talkiatry.com core information update successful!
+2023-02-09 00:56:08,886 | INFO     | 0322 | brett.abernethy@talkiatry.com core information updated in Azure AD!
+2023-02-09 00:56:08,985 | INFO     | 0355 | Manager ID: 748f7d95-39b0-4a2c-9f60-de99a76346a5
+2023-02-09 00:56:08,986 | INFO     | 0365 | brett.abernethy@talkiatry.com changing manager to cesar.depaz@talkiatry.com - sending HTTP request...
+2023-02-09 00:56:09,185 | INFO     | 0344 | User ID: dcba15e2-2cae-486f-84ab-9307f00e0ef5
+2023-02-09 00:56:09,187 | INFO     | 0347 | https://graph.microsoft.com/v1.0/users/dcba15e2-2cae-486f-84ab-9307f00e0ef5
+2023-02-09 00:56:09,194 | INFO     | 0288 | zebib.abraham@talkiatry.com HTTP request sent to change core information ...
+2023-02-09 00:56:09,232 | INFO     | 0376 | brett.abernethy@talkiatry.com - manager update successful!
+2023-02-09 00:56:09,234 | INFO     | 0383 | brett.abernethy@talkiatry.com - manager changed to: cesar.depaz@talkiatry.com!
+2023-02-09 00:56:09,338 | INFO     | 0315 | zebib.abraham@talkiatry.com core information update successful!
+2023-02-09 00:56:09,340 | INFO     | 0322 | zebib.abraham@talkiatry.com core information updated in Azure AD!
+2023-02-09 00:56:09,567 | INFO     | 0355 | Manager ID: 7ba2487f-adc6-430e-9668-75938350692f
+2023-02-09 00:56:09,573 | INFO     | 0365 | zebib.abraham@talkiatry.com changing manager to daniel.weiss@talkiatry.com - sending HTTP request...
+2023-02-09 00:56:09,583 | INFO     | 0233 | vallene.abram@talkiatry.com - ADP>AAD match! Not making any changes...
+2023-02-09 00:56:09,603 | INFO     | 0260 | Running process <Process name='Process-1' pid=31 parent=1 stopped exitcode=0>..
+2023-02-09 00:56:09,604 | INFO     | 0260 | Running process <Process name='Process-2' pid=33 parent=1 stopped exitcode=0>..
+2023-02-09 00:56:09,606 | INFO     | 0260 | Running process <Process name='Process-3' pid=35 parent=1 stopped exitcode=0>..
+2023-02-09 00:56:09,607 | INFO     | 0260 | Running process <Process name='Process-4' pid=37 parent=1 stopped exitcode=0>..
+2023-02-09 00:56:09,609 | INFO     | 0260 | Running process <Process name='Process-5' pid=39 parent=1 stopped exitcode=0>..
+2023-02-09 00:56:09,611 | INFO     | 0260 | Running process <Process name='Process-6' pid=41 parent=1 started>..
+2023-02-09 00:56:09,811 | INFO     | 0376 | zebib.abraham@talkiatry.com - manager update successful!
+2023-02-09 00:56:09,815 | INFO     | 0383 | zebib.abraham@talkiatry.com - manager changed to: daniel.weiss@talkiatry.com!
+2023-02-09 00:56:09,842 | INFO     | 0263 | Snowflake session closed.
+2023-02-09 00:56:09,844 | INFO     | 0264 | ADP>AAD Sync Closed.

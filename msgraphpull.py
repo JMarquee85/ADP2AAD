@@ -25,10 +25,12 @@ from azure.storage.blob import BlobServiceClient
 #################################################################################################
 # Logging
 def logging_setup():
+    global logger
     log_file_path = path.join(path.dirname(path.abspath(__file__)), 'log_config.conf')
     logging.config.fileConfig(log_file_path)
     logger = logging.getLogger('MainLogger')
     fh = logging.FileHandler(path.join(path.dirname(path.abspath(__file__)), 'logs/{:%Y-%m-%d_%H:%M:%S}.log'.format(datetime.datetime.now())))
+    print(fh)
     formatter = logging.Formatter('%(asctime)s | %(levelname)-8s | %(lineno)04d | %(message)s')
     fh.setFormatter(formatter)
     logger.addHandler(fh)
@@ -42,7 +44,8 @@ connection_string = "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.
 
 def send_logs():
     # locates latest log file and sends to Azure Storage account. 
-    log_files = glob.glob('logs/*')
+    log_files = glob.glob((path.join(path.dirname(path.abspath(__file__)), 'logs/*')))
+    #print(log_files)
     new_log = max(log_files, key=os.path.getctime)
     blob_service_client = BlobServiceClient.from_connection_string(connection_string)
     blob_client = blob_service_client.get_blob_client(container=container_name, blob=new_log)

@@ -31,6 +31,14 @@ If they do exist, a function is run to check if all fields match between the ADP
 - Checks on existing information matches don't appear to be fully functional. Look into this when possible. 
 - Possibly batch multiple jobs into one JSON with batching - https://learn.microsoft.com/en-us/graph/json-batching
 
+## Running Manually
+
+Running via Docker image is suggested. An image that should assist in running this script is available on Docker Hub at joshmarcus85/adp2aad.
+
+## Logs
+
+Logs are stored locally in the logs directory and are sent to the Azure Storage Account adpaadlogs.
+
 ## Resources
 
 https://docs.snowflake.com/en/user-guide/python-connector-example.html
