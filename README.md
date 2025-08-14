@@ -8,6 +8,8 @@ There is currently no mechanism that exists to automatically update the informat
 
 This integration intends to solve that issue. 
 
+This is set up to be specific to the test environment it was written in. It probably won't work for you unless you are pulling the same infomration from the ADP API about your employees into a database table. So this repo may just serve as an example of how to accomplish something like this. Regardless, here it is! 
+
 ## How it Works
 
 The Python Snowflake connector authenticates into Snowflake to pull the current user information into a pandas dataframe for reference. 
@@ -17,6 +19,25 @@ Separately, MS Graph API calls pull the current information that is stored in Mi
 The program then loops through the rows in the ADP dataframe that is pulled from Snowflake and assigns each relevant piece of user information into a variable. That information is then used to determine if the user exists in the Microsoft information pulled from Graph. A few checks take place here, namely if the user is marked Terminated on the ADP side, the program checks to see if the user exists on the MS side. If they do, the program deletes the user. 
 
 If they do exist, a function is run to check if all fields match between the ADP and MS information. If they do, the script moves on. If not, the fields from ADP are stored in an API request and sent to the Microsoft Graph API for update. 
+
+## .env
+
+You will need to set up a .env file with the following variables:
+
+SNOWFLAKE_USER
+SNOWFLAKE_ACCOUNT
+SNOWFLAKE_REGION
+SNOWFLAKE_ROLE
+SNOWFLAKE_DB
+SNOWFLAKE_SCHEMA
+SNOWFLAKE_WAREHOUSE
+
+ENTRA_CLIENT_ID
+ENTRA_CLIENT_SECRET
+ENTRA_TENANT_ID
+ENTRA_SCOPE_URL
+
+There is a template file to get you started with this in the repo. 
 
 ## Additional Features to Add
 
