@@ -1,5 +1,5 @@
 # ADP2AAD
- A python script to take information from ADP into AAD by way of Snowflake. 
+ A python application to take information from ADP into AAD by way of Snowflake. 
 
 ## Purpose
 Information regarding employee status, current manager, job title, department, etc. is kept up to date primarily in ADP in the organization. 
