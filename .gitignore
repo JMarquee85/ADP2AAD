@@ -2,3 +2,5 @@ msgraph.log
 log.log
 __pycache__/adp_aad.cpython-39.pyc
 __pycache__/msgraphpull.cpython-39.pyc
+__pycache__
+__pycache__/*
