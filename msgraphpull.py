@@ -19,6 +19,10 @@ import os
 import glob
 from azure.storage.blob import BlobServiceClient
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Too many concurrent requests if run back to back. JSON batching.
 # https://learn.microsoft.com/en-us/graph/json-batching     
 
@@ -37,10 +41,10 @@ def logging_setup():
 
 ##################################################################################################
 # Azure Storage Account Variables for Log Storage
-storage_account_key = 'tI6xgGrwl8eMjwnkUa/LunhcSULmEaZ/Do2JuNz2nu1lFNdNahfBWxCcJ5iJdtQBeIJI5IlPFyw7+AStQ1aTuw=='
-storage_account_name = 'adpaadlogs'
-container_name = 'adp2aadlogs'
-connection_string = "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=adpaadlogs;AccountKey=tI6xgGrwl8eMjwnkUa/LunhcSULmEaZ/Do2JuNz2nu1lFNdNahfBWxCcJ5iJdtQBeIJI5IlPFyw7+AStQ1aTuw==;BlobEndpoint=https://adpaadlogs.blob.core.windows.net/;FileEndpoint=https://adpaadlogs.file.core.windows.net/;QueueEndpoint=https://adpaadlogs.queue.core.windows.net/;TableEndpoint=https://adpaadlogs.table.core.windows.net/"
+storage_account_key = os.getenv('AZURE_STORAGE_ACCOUNT_KEY')
+storage_account_name = os.getenv('AZURE_STORAGE_ACCOUNT_NAME')
+container_name = os.getenv('AZURE_STORAGE_CONTAINER_NAME')
+connection_string = f"DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName={storage_account_name};AccountKey={storage_account_key};BlobEndpoint=https://{storage_account_name}.blob.core.windows.net/;FileEndpoint=https://{storage_account_name}.file.core.windows.net/;QueueEndpoint=https://{storage_account_name}.queue.core.windows.net/;TableEndpoint=https://{storage_account_name}.table.core.windows.net/"
 
 def send_logs():
     # locates latest log file and sends to Azure Storage account. 
