@@ -12,6 +12,10 @@ import logging
 import logging.config
 from tqdm import tqdm
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 def snowflake_user_pull(ms_user_list):
 
     # Process list to run at the end of the file. 
@@ -19,20 +23,21 @@ def snowflake_user_pull(ms_user_list):
     process_group_counter = 1
 
     # Snowflake Options
-    USER = "d919f591-ed37-4df3-aa8d-b757d8a5b8f3"
-    ACCOUNT = "pra18133"
-    REGION = "us-east-1"
-    ROLE = "AAD_ROLE"
-    DATABASE = "ANALYTICS"
-    SCHEMA = "COMMON"
-    WAREHOUSE = "AAD_WH"
+    USER = os.getenv('SNOWFLAKE_USER')
+    ACCOUNT = os.getenv('SNOWFLAKE_ACCOUNT')
+    REGION = os.getenv('SNOWFLAKE_REGION')
+    ROLE = os.getenv('SNOWFLAKE_ROLE')
+    DATABASE = os.getenv('SNOWFLAKE_DB')
+    SCHEMA = os.getenv('SNOWFLAKE_SCHEMA')
+    WAREHOUSE = os.getenv('SNOWFLAKE_WAREHOUSE)
 
     # Azure AD options
-    AUTH_CLIENT_ID = "be49d25b-e84f-4a5b-9726-c616a16ca4c5"
-    AUTH_CLIENT_SECRET = "nO58Q~hqpy93aKskNwKOrA5tV_7z4YJYH.4QzcB5"
+    AUTH_CLIENT_ID = os.getenv('ENTRA_CLIENT_ID')
+    AUTH_CLIENT_SECRET = os.getenv('ENTRA_CLIENT_SECRET')
     AUTH_GRANT_TYPE = "client_credentials"
-    SCOPE_URL = "api://e2b6615d-8867-4196-bf8b-ba61aa2f53fa/.default"
-    TOKEN_URL = "https://login.microsoftonline.com/803a6c90-ec72-4384-b2c0-1a376841a04b/oauth2/v2.0/token"
+    AZURE_TENANT_ID = os.getenv('ENTRA_TENANT_ID')
+    SCOPE_URL = os.getenv('ENTRA_SCOPE_URL')
+    TOKEN_URL = f"https://login.microsoftonline.com/{AZURE_TENANT_ID}/oauth2/v2.0/token"
     PAYLOAD = (
         "client_id={clientId}&"
         "client_secret={clientSecret}&"
